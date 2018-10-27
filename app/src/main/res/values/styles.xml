@@ -1,0 +1,35 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/color_background</item>
+    </style>
+
+    <style name="border_layout_style">
+        <item name="android:paddingTop">@dimen/dip10</item>
+        <item name="android:paddingBottom">@dimen/dip10</item>
+        <item name="android:paddingRight">@dimen/dip10</item>
+        <item name="android:paddingLeft">@dimen/dip10</item>
+        <item name="android:background">@drawable/border_shadow_background</item>
+    </style>
+
+    <style name="border_layout_style_login">
+
+        <item name="android:paddingRight">@dimen/dip10</item>
+        <item name="android:paddingLeft">@dimen/dip10</item>
+        <item name="android:background">@drawable/border_shadow_background</item>
+    </style>
+    <style name="border_layout_style_login_otp">
+        <item name="android:paddingLeft">@dimen/dip10</item>
+        <item name="android:background">@drawable/border_shadow_background</item>
+    </style>
+
+    <style name="generalnotitle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>
