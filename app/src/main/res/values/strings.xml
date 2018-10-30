@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ColorRaceMetfone</string>
+    <string name="text_confirm">The essence of why extensible markup languages are necessary is explained at Markup language (for example, see Markup language § XML) and at Standard Generalized Markup Language.
+        Hundreds of document formats using XML syntax have been developed,[7] including RSS, Atom, SOAP, SVG, and XHTML. XML-based formats have become the default for many office-productivity tools, including Microsoft Office (Office Open XML), OpenOffice.org and LibreOffice (OpenDocument), and Apple\'s iWork[citation needed]. XML has also provided the base language for communication protocols such as XMPP. Applications for the Microsoft .NET Framework use XML files for configuration. Apple has an implementation of a registry based on XML.[8]
+Many industry data standards, e.g. HL7, OTA, FpML, MISMO, NIEM, etc. are based on XML and the rich features of the XML schema specification. Many of these standards are quite complex and it is not uncommon for a specification to comprise several thousand pages.
+In publishing, DITA is an XML industry data standard. XML is used extensively to underpin various publishing formats.
+XML is widely used in a Services Oriented Architecture (SOA). Disparate systems communicate with each other by exchanging XML messages. The message exchange format is standardised as an XML schema (XSD). This is also referred to as the canonical schema.
+XML has come into common use for the interchange of data over the Internet. IETF RFC:3023, now superseded by RFC:7303, gave rules for the construction of Internet Media Types for use when sending XML. It also defines the media types application/xml and text/xml, which say only that the data is in XML, and nothing about its semantics.
+RFC 7303 also recommends that XML-based languages be given media types ending in +xml; for example image/svg+xml for SVG.
+Further guidelines for the use of XML in a networked context appear in RFC 3470, also known as IETF BCP 70, a document covering many aspects of designing and deploying an XML-based language.</string>
+    <string name="get_ticket">Get ticket</string>
 </resources>

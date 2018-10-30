@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Out night race start in"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border_count_down_green"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_button"
+                android:text="29"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Day"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@id/tvDay"
+                app:layout_constraintRight_toRightOf="@+id/tvDay"
+                app:layout_constraintTop_toBottomOf="@+id/tvDay" />
+
+            <TextView
+                android:id="@+id/tvHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/gradient_button"
+                android:text="29"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintStart_toEndOf="@+id/tvDay"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hour"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/tvHour"
+                app:layout_constraintRight_toRightOf="@+id/tvHour"
+                app:layout_constraintTop_toBottomOf="@+id/tvHour" />
+
+            <TextView
+                android:id="@+id/tvMinute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/gradient_button"
+                android:text="29"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintStart_toEndOf="@+id/tvHour"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minute"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/tvMinute"
+                app:layout_constraintRight_toRightOf="@+id/tvMinute"
+                app:layout_constraintTop_toBottomOf="@+id/tvMinute" />
+
+            <TextView
+                android:id="@+id/tvSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/gradient_button"
+                android:text="29"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintStart_toEndOf="@+id/tvMinute"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minute"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="@+id/tvSecond"
+                app:layout_constraintRight_toRightOf="@+id/tvSecond"
+                app:layout_constraintTop_toBottomOf="@+id/tvSecond" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

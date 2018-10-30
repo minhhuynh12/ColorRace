@@ -6,7 +6,13 @@
     <color name="color_title">#A40E20</color>
     <color name="color_background">#E0E0E0</color>
     <color name="white">#ffffff</color>
-    <color name="color_input_gray">#51545d</color>
+    <color name="color_input_gray">#8051545d</color>
+    <color name="color_blue">#2300bf</color>
+    <color name="color_green">#00fdd1</color>
+    <color name="color_green_">#0df970</color>
+    <color name="color_bar_red">#7c1619</color>
+    <color name="color_black">#000000</color>
+    <color name="hint_gray">#7f7f7f</color>
 
 
 </resources>

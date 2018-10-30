@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme"
         >
         <activity android:name=".ui.login.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.MainActivity"  android:theme="@style/AppTheme"></activity>
+        <activity android:name=".ui.MainActivityEmploye.MainActivity"  android:theme="@style/AppTheme"></activity>
+        <activity android:name=".ui.confirm.ConfirmActivity"  android:theme="@style/AppTheme"></activity>
 
     </application>
 

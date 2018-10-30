@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.metfone.colorracemetfone.R;
-import com.example.metfone.colorracemetfone.ui.MainActivity;
+import com.example.metfone.colorracemetfone.ui.confirm.ConfirmActivity;
 
 public class LoginActivity extends Activity implements View.OnClickListener{
     Button btnLogin;
@@ -26,7 +26,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         int id = view.getId();
         switch (id){
             case R.id.btnLogin:
-                Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this , ConfirmActivity.class);
                 startActivity(intent);
                 break;
         }
