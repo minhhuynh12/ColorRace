@@ -14,16 +14,16 @@ import com.example.metfone.colorracemetfone.R;
  * Created by vitinhHienAnh on 30-10-18.
  */
 
-public class FragmentNightRace extends Fragment {
-    public static FragmentNightRace newInstance() {
-        FragmentNightRace fragmentFirst = new FragmentNightRace();
+public class MapFragment extends Fragment {
+    public static MapFragment newInstance() {
+        MapFragment fragmentFirst = new MapFragment();
         return fragmentFirst;
     }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_night_race , container , false);
+        View view = inflater.inflate(R.layout.fragment_map , container , false);
         return view;
     }
 }

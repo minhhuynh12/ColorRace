@@ -14,9 +14,9 @@ import com.example.metfone.colorracemetfone.R;
  * Created by vitinhHienAnh on 30-10-18.
  */
 
-public class FragmentTicket extends Fragment {
-    public static FragmentTicket newInstance() {
-        FragmentTicket fragmentFirst = new FragmentTicket();
+public class TicketFragment extends Fragment {
+    public static TicketFragment newInstance() {
+        TicketFragment fragmentFirst = new TicketFragment();
         return fragmentFirst;
     }
 
@@ -27,4 +27,7 @@ public class FragmentTicket extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ticket , container , false);
         return view;
     }
+
+
+
 }

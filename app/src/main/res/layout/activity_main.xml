@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
@@ -61,8 +62,8 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="2">
+                        android:layout_weight="2"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -74,14 +75,17 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:background="@drawable/ic_otp" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Start: 4pm" />
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -90,11 +94,12 @@
 
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_weight="2">
+                        android:layout_weight="2"
+                        android:gravity="center">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -104,14 +109,15 @@
                     </LinearLayout>
 
                 </LinearLayout>
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:layout_marginBottom="@dimen/size_8dp"
                     android:layout_marginLeft="@dimen/size_8dp"
                     android:layout_marginRight="@dimen/size_8dp"
                     android:layout_marginTop="@dimen/size_8dp"
-                    android:layout_marginBottom="@dimen/size_8dp"
-                    android:background="@drawable/img_background"/>
+                    android:background="@drawable/img_background" />
             </LinearLayout>
 
 
@@ -119,19 +125,75 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp">
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vpPager"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_8dp"
+            android:layout_marginLeft="@dimen/size_8dp"
+            android:layout_marginRight="@dimen/size_8dp">
+
+            <!--<com.astuetz.PagerSlidingTabStrip-->
+            <!--android:id="@+id/tabs"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="48dip" />-->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <android.support.v4.view.PagerTabStrip
-                    android:id="@+id/pager_header"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:id="@+id/frameMain"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top"
-                    android:paddingBottom="4dp"
-                    android:paddingTop="4dp" />
-            </android.support.v4.view.ViewPager>
+                    android:layout_height="150dp"></FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/llTicket"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/color_title">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ticket"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/llNightRace"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Night race"
+                            android:layout_gravity="center"
+                            android:textColor="@color/color_bar_red" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/llMap"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Map"
+                            android:textColor="@color/color_title" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
         </android.support.v7.widget.CardView>
 
     </LinearLayout>

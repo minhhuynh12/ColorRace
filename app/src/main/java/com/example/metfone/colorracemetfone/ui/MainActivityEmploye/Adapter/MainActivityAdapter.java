@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.FragmentMap;
-import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.FragmentNightRace;
-import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.FragmentTicket;
+import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.MapFragment;
+import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.NightRaceFragment;
+import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.TicketFragment;
 
 /**
  * Created by vitinhHienAnh on 30-10-18.
@@ -14,6 +14,8 @@ import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.Frag
 
 public class MainActivityAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS = 3;
+    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
+
     public MainActivityAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
@@ -22,11 +24,11 @@ public class MainActivityAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0: // Fragment # 0 - This will show FirstFragment
-                return FragmentTicket.newInstance();
+                return TicketFragment.newInstance();
             case 1: // Fragment # 0 - This will show FirstFragment different title
-                return FragmentNightRace.newInstance();
+                return NightRaceFragment.newInstance();
             case 2: // Fragment # 1 - This will show SecondFragment
-                return FragmentMap.newInstance();
+                return MapFragment.newInstance();
             default:
                 return null;
         }
@@ -34,7 +36,7 @@ public class MainActivityAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "Page " + position;
+        return tabTitles[position];
     }
 
     @Override
