@@ -37,18 +37,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
-
+            <LinearLayout
+                android:id="@+id/llDay"
+                android:visibility="visible"
+                android:background="@drawable/img_count_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tvDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/gradient_button"
+
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView4"
@@ -57,22 +63,28 @@
                 android:text="Day"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="@id/tvDay"
-                app:layout_constraintRight_toRightOf="@+id/tvDay"
-                app:layout_constraintTop_toBottomOf="@+id/tvDay" />
+                app:layout_constraintLeft_toLeftOf="@id/llDay"
+                app:layout_constraintRight_toRightOf="@+id/llDay"
+                app:layout_constraintTop_toBottomOf="@+id/llDay" />
 
+            <LinearLayout
+                android:id="@+id/llHour"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/img_count_down"
+                app:layout_constraintLeft_toRightOf="@+id/llDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tvHour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/gradient_button"
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                app:layout_constraintStart_toEndOf="@+id/tvDay"
+                app:layout_constraintStart_toEndOf="@+id/llDay"
                 app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,22 +92,28 @@
                 android:text="Hour"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="@+id/tvHour"
-                app:layout_constraintRight_toRightOf="@+id/tvHour"
-                app:layout_constraintTop_toBottomOf="@+id/tvHour" />
+                app:layout_constraintLeft_toLeftOf="@+id/llHour"
+                app:layout_constraintRight_toRightOf="@+id/llHour"
+                app:layout_constraintTop_toBottomOf="@+id/llHour" />
 
+            <LinearLayout
+                android:id="@+id/llMinute"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/img_count_down"
+                app:layout_constraintLeft_toRightOf="@+id/llHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tvMinute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/gradient_button"
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                app:layout_constraintStart_toEndOf="@+id/tvHour"
+                app:layout_constraintStart_toEndOf="@+id/llHour"
                 app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -103,32 +121,39 @@
                 android:text="Minute"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="@+id/tvMinute"
-                app:layout_constraintRight_toRightOf="@+id/tvMinute"
-                app:layout_constraintTop_toBottomOf="@+id/tvMinute" />
+                app:layout_constraintLeft_toLeftOf="@+id/llMinute"
+                app:layout_constraintRight_toRightOf="@+id/llMinute"
+                app:layout_constraintTop_toBottomOf="@+id/llMinute" />
+
+            <LinearLayout
+                android:id="@+id/llSecond"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/img_count_down"
+                app:layout_constraintLeft_toRightOf="@+id/llMinute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tvSecond"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:background="@drawable/gradient_button"
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                app:layout_constraintStart_toEndOf="@+id/tvMinute"
+                app:layout_constraintStart_toEndOf="@+id/llMinute"
                 app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minute"
+                android:text="Second"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="@+id/tvSecond"
-                app:layout_constraintRight_toRightOf="@+id/tvSecond"
-                app:layout_constraintTop_toBottomOf="@+id/tvSecond" />
+                app:layout_constraintLeft_toLeftOf="@+id/llSecond"
+                app:layout_constraintRight_toRightOf="@+id/llSecond"
+                app:layout_constraintTop_toBottomOf="@+id/llSecond" />
 
         </android.support.constraint.ConstraintLayout>
 

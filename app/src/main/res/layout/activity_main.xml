@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivityEmploye.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -18,8 +18,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <include layout="@layout/layout_count_time_down" />
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/size_8dp"
+            android:layout_marginRight="@dimen/size_8dp"
+            android:background="@drawable/ic_crate_qr_code"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
@@ -39,10 +46,10 @@
             android:background="@drawable/img_background"
             android:orientation="vertical">
 
-            <View
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:background="@drawable/gradient_button" />
+                android:background="@drawable/ic_rectangle" />
 
             <ImageView
                 android:layout_width="7dp"
@@ -117,7 +124,6 @@
             <FrameLayout
                 android:id="@+id/frameMain"
                 android:layout_above="@+id/llFooter"
-                android:background="@drawable/bg_cardview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></FrameLayout>
 
@@ -125,54 +131,79 @@
                 android:id="@+id/llFooter"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
+                android:background="@color/gray_show"
                 android:orientation="horizontal">
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/llTicket"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/color_title"
-                    android:gravity="center">
+                    >
 
                     <TextView
+                        android:id="@+id/tvTicket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Ticket"
-                        android:textColor="@color/white" />
-                </LinearLayout>
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/color_title" />
+                    <View
+                        android:id="@+id/vTickket"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_title"/>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/llNightRace"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    android:gravity="center">
+                    >
 
                     <TextView
+                        android:id="@+id/tvNightRace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Night race"
-                        android:textColor="@color/color_bar_red" />
-                </LinearLayout>
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/color_black" />
+                    <View
+                        android:id="@+id/vNightRace"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_input_gray"/>
+                </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/llMap"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/white"
-                    android:gravity="center">
+                   >
 
                     <TextView
+                        android:id="@+id/tvMaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Map"
-                        android:textColor="@color/color_title" />
-                </LinearLayout>
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/color_black" />
+                    <View
+                        android:id="@+id/vMap"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/color_input_gray"/>
+                </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>
 

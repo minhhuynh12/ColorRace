@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/color_bar_red</item>
         <item name="colorPrimaryDark">@color/color_bar_red</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/color_background</item>
+        <item name="android:windowBackground">@color/gray_show</item>
     </style>
 
     <style name="border_layout_style">

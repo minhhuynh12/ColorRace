@@ -43,7 +43,6 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     public void onBindViewHolder(@NonNull TicketAdapter.ViewHolder holder, int position) {
         TicketItems items = list.get(position);
         if (position == 0){
-            holder.llItemsTicket.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.header_recycler));
             holder.tvGift.setText("GIFT");
             holder.tvGift.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
             holder.tvNightRace.setText("Amount");

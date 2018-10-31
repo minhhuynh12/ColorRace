@@ -13,6 +13,7 @@
     <color name="color_bar_red">#7c1619</color>
     <color name="color_black">#000000</color>
     <color name="hint_gray">#7f7f7f</color>
+    <color name="gray_show">#eaeaeb</color>
 
 
 </resources>
