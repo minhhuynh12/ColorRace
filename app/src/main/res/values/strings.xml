@@ -9,4 +9,8 @@ XML has come into common use for the interchange of data over the Internet. IETF
 RFC 7303 also recommends that XML-based languages be given media types ending in +xml; for example image/svg+xml for SVG.
 Further guidelines for the use of XML in a networked context appear in RFC 3470, also known as IETF BCP 70, a document covering many aspects of designing and deploying an XML-based language.</string>
     <string name="get_ticket">Get ticket</string>
+    <string name="ok">Ok</string>
+    <string name="errorCallWebervice">Can not connect server</string>
+    <string name="errorNetworkAccess">No internet</string>
+
 </resources>

@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,8 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder> {
-    private List<TicketItems> list;
+    private List<String> list;
     private Context context;
+    private String status;
     public TicketAdapter(Context context) {
         this.context = context;
         if (list == null){
@@ -26,8 +28,9 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         }
     }
 
-    public void setData(List<TicketItems> list){
+    public void setData(List<String> list , String stattus){
         this.list = list;
+        this.status = stattus;
     }
 
     @NonNull
@@ -41,20 +44,26 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TicketAdapter.ViewHolder holder, int position) {
-        TicketItems items = list.get(position);
+
         if (position == 0){
-            holder.tvGift.setText("GIFT");
+            holder.tvGift.setText("Gift");
             holder.tvGift.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
             holder.tvNightRace.setText("Amount");
             holder.tvNightRace.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
             holder.tvMap.setText("Recieve");
             holder.tvMap.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+            holder.llIamge.setVisibility(View.GONE);
         }else {
-            holder.tvGift.setText(items.getGift());
-            holder.tvNightRace.setText(items.getReceive());
-            holder.tvMap.setText(items.getAmount());
+            holder.tvGift.setText(list.get(position).toString());
+            holder.tvNightRace.setText("1");
+            holder.tvMap.setVisibility(View.GONE);
+            holder.llIamge.setVisibility(View.VISIBLE);
+            if ("1".equals(status)){
+                holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_unchecked_checkbox));
+            }else {
+                holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_checked_checkbox));
+            }
         }
-
     }
 
     @Override
@@ -67,12 +76,16 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
         private TextView tvNightRace;
         private TextView tvMap;
         private LinearLayout llItemsTicket;
+        private LinearLayout llIamge;
+        private ImageView imgCheckBox;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvGift = itemView.findViewById(R.id.tvGift);
             tvNightRace = itemView.findViewById(R.id.tvNightRace);
             tvMap = itemView.findViewById(R.id.tvMap);
             llItemsTicket = itemView.findViewById(R.id.llItemsTicket);
+            llIamge = itemView.findViewById(R.id.llIamge);
+            imgCheckBox = itemView.findViewById(R.id.imgCheckBox);
         }
     }
 }

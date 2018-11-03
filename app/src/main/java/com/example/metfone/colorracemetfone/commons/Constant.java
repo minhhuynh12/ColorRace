@@ -7,5 +7,7 @@ public class Constant {
     public static final String BCCSGW_USER = "addba2e908c412ca";
     public static final String BCCSGW_PASS = "523cc9765677493c4a2fe6ef8b80d222";
 
+    public static final String TIMEOUT_CODE = "3";
+
 
 }

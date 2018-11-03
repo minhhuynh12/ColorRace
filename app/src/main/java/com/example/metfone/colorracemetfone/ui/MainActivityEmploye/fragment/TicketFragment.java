@@ -24,11 +24,18 @@ import java.util.List;
 
 public class TicketFragment extends Fragment {
     private TicketAdapter mAdapter;
-    private List<TicketItems> list;
+    //    private List<TicketItems> list;
     private RecyclerView recycler;
+    private static List<String> list;
+    private static String status;
+    private static List<String> listClone;
 
-    public static TicketFragment newInstance() {
+
+    public static TicketFragment newInstance(List<String> listStr, String statusStr) {
         TicketFragment fragmentFirst = new TicketFragment();
+
+        list = listStr;
+        status = statusStr;
         return fragmentFirst;
     }
 
@@ -36,25 +43,23 @@ public class TicketFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_ticket , container , false);
+        View view = inflater.inflate(R.layout.fragment_ticket, container, false);
         recycler = view.findViewById(R.id.recycler);
 
-        list = new ArrayList<>();
-        list.add(new TicketItems("", "" , ""));
-        list.add(new TicketItems("minhhc", "2 + 1 = 3" , "x"));
-        list.add(new TicketItems("gift", "2 + 1 = 3" , "x"));
-        list.add(new TicketItems("gift", "2 + 1 = 3" , "x"));
-        list.add(new TicketItems("gift", "2 + 1 = 3" , "x"));
         mAdapter = new TicketAdapter(getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recycler.setLayoutManager(mLayoutManager);
         recycler.setItemAnimator(new DefaultItemAnimator());
         recycler.setAdapter(mAdapter);
-        mAdapter.setData(list);
+        boolean flag = false;
+        if (!"".equals(list.get(0))) {
+            list.add(0, "");
+        }
+        mAdapter.setData(list, status);
+
 
         return view;
     }
-
 
 
 }

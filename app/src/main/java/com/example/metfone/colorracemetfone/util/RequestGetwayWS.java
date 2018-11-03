@@ -3,6 +3,7 @@ package com.example.metfone.colorracemetfone.util;
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import org.simpleframework.xml.Serializer;
 
 import com.example.metfone.colorracemetfone.commons.Constant;
 
@@ -12,6 +13,11 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.util.EntityUtils;
+import org.simpleframework.xml.core.Persister;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class RequestGetwayWS {
     private DefaultHttpClient client;
@@ -57,7 +63,6 @@ public class RequestGetwayWS {
                 Log.i("11", "result : " + entityRes);
                 resultXML = entityRes;
 
-//                LogUtil.d("response " + linkWS + " - " + wsName + " - " + className, resultXML);
                 Log.d("responseaaa", "values " + resultXML);
 
                 String errorGW = getErrorCodeGW();
@@ -198,6 +203,57 @@ public class RequestGetwayWS {
         params = new StringBuilder();
         params2 = new StringBuilder();
         paramObj = new StringBuilder();
+    }
+
+    public Object parseXMLToObject(String xml, Class c) {
+        try {
+            InputStream is = new ByteArrayInputStream(xml.getBytes());
+            Serializer serializer = new Persister();
+            Object obj = serializer.read(c, is);
+            return c.cast(obj);
+        } catch (Exception ex) {
+            Log.i("11", "Ex : " + ex.getMessage());
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getResultXML() {
+        return resultXML;
+    }
+
+    public <T> ArrayList<T> parseXMLToListObject(String objName,
+                                                 Class<T> className) {
+        String resultOriginal = "";
+        int start = resultXML.indexOf("<original>");
+        int end = resultXML.indexOf("</original>");
+        if (start > -1 && end > -1)
+            resultOriginal = resultXML.substring(start, end);
+        String xml = resultOriginal;
+        String strFind = objName;
+        String strEndTag = "</" + strFind + ">";
+        String strStartTag = "<" + strFind + ">";
+        T obj = null;
+        ArrayList<T> lstRes = new ArrayList<T>();
+        if (xml != null && !xml.isEmpty()) {
+            int startIndex = xml.indexOf(strStartTag);
+            int endIndex = xml.lastIndexOf(strEndTag);
+            if (startIndex > -1 && endIndex > -1) {
+                xml = xml.substring(startIndex, endIndex);
+                if (!xml.isEmpty()) {
+                    String[] arrFind = xml.split(strEndTag);
+                    for (int i = 0; i < arrFind.length; i++) {
+                        arrFind[i] += strEndTag;
+                        arrFind[i] = arrFind[i].trim();
+                        obj = (T) parseXMLToObject(arrFind[i], className);
+                        if (obj != null) {
+                            lstRes.add(obj);
+                        }
+                    }
+                }
+            }
+        }
+        return lstRes;
     }
 
 }
