@@ -5,13 +5,20 @@ package com.example.metfone.colorracemetfone.ui.MainActivityEmploye;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener , NavigationView.OnNavigationItemSelectedListener {
     MainActivityAdapter adapter;
     FrameLayout frameMain;
     RelativeLayout llTicket;
@@ -46,12 +53,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tvTicket;
     TextView tvNightRace;
     TextView tvMaps;
-    CardView cardView;
+    TextView tvPhoneNumberNavi;
+    LinearLayout cardView;
     List<String> arrListGift;
     private String status;
     private Runnable runnable;
-    private String EVENT_DATE_TIME = "2018-12-31 10:30:00";
-    private String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private String EVENT_DATE_TIME ;
+    private String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
     private Handler handler = new Handler();
     private TextView tvDay;
     private TextView tvHour;
@@ -64,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String typeTicket;
     private String lat;
     private String log;
+    private String isdn;
+    NavigationView navigationView;
+    private LinearLayout llLogOut;
     @Override
     public void onBackPressed() {
         Log.d("here" , "show");
@@ -84,13 +95,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         init();
         arrListGift = new ArrayList();
-        Intent i = getIntent();
-        arrListGift = i.getStringArrayListExtra("LIST_GIFT");
-        status = i.getStringExtra("STATUS");
-        qrCode = i.getStringExtra("QR_CODE");
-        typeTicket = i.getStringExtra("TYPE_TICKET");
-        lat = i.getStringExtra("LAT");
-        log = i.getStringExtra("LONG");
+        Intent intent = getIntent();
+        arrListGift = intent.getStringArrayListExtra("LIST_GIFT");
+        status = intent.getStringExtra("STATUS");
+        qrCode = intent.getStringExtra("QR_CODE");
+        typeTicket = intent.getStringExtra("TYPE_TICKET");
+        lat = intent.getStringExtra("LAT");
+        log = intent.getStringExtra("LONG");
+        isdn = intent.getStringExtra("ISDN");
+        EVENT_DATE_TIME = intent.getStringExtra("TIME_NIGHT_RACE");
         tvTypeTicket.setText(typeTicket);
 
         adapter = new MainActivityAdapter(getSupportFragmentManager());
@@ -99,6 +112,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         TicketFragment fragment = TicketFragment.newInstance(arrListGift , status);
         swichFragemnt(fragment);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
+        llLogOut = header.findViewById(R.id.llLogOut);
+        tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
+        llLogOut.setOnClickListener(this);
+        tvPhoneNumberNavi.setText(isdn);
+
+        //toobar
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+
+
+        setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        toolbar.setNavigationIcon(R.drawable.ic_bugger);
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            if(toolbar.getChildAt(i) instanceof ImageButton){
+                toolbar.getChildAt(i).setScaleX(0.5f);
+                toolbar.getChildAt(i).setScaleY(0.5f);
+            }
+        }
+
+
+        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
@@ -124,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvMaps = (TextView) findViewById(R.id.tvMaps);
         tvTypeTicket = (TextView) findViewById(R.id.tvTypeTicket);
         frameMain =  findViewById(R.id.frameMain);
-        cardView = (CardView) findViewById(R.id.cardView);
+        cardView = (LinearLayout) findViewById(R.id.cardView);
         tvDay = findViewById(R.id.tvDay);
         tvHour = findViewById(R.id.tvHour);
         tvMinute = findViewById(R.id.tvMinute);
@@ -164,14 +213,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         long Hours = diff / (60 * 60 * 1000) % 24;
                         long Minutes = diff / (60 * 1000) % 60;
                         long Seconds = diff / 1000 % 60;
-                        //
+
                         tvDay.setText(String.format("%02d", Days));
                         tvHour.setText(String.format("%02d", Hours));
                         tvMinute.setText(String.format("%02d", Minutes));
                         tvSecond.setText(String.format("%02d", Seconds));
                     } else {
-//                        linear_layout_1.setVisibility(View.VISIBLE);
-//                        linear_layout_2.setVisibility(View.GONE);
                         handler.removeCallbacks(runnable);
                     }
                 } catch (Exception e) {
@@ -221,11 +268,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("QR_CODE", qrCode);
                 startActivity(intent);
                 break;
+            case R.id.llLogOut:
+                finish();
+                break;
         }
     }
 
     private void setBackground(View view , int colorView , TextView textView , int colorText){
         view.setBackgroundColor(colorView);
         textView.setTextColor(colorText);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
     }
 }

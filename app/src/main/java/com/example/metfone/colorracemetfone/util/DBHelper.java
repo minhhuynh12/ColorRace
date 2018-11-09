@@ -8,11 +8,15 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.metfone.colorracemetfone.ui.SignData.model.CheckSignDataItem;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "SignPhoneNumber.db";
     public static final String PHONE_TABLE_NAME = "phone_number";
+    public static final String TABLE_NAME = "contacts";
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME , null, 1);
@@ -48,6 +52,60 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public boolean checkSignData() {
+        List<CheckSignDataItem> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor =  db.rawQuery( "select * from contacts where id="+id+"", null );
+        Cursor cursor =  db.rawQuery( "select * from contacts order by phone_number desc limit 1", null );
+
+        if (cursor.moveToFirst()) {
+            do {
+                CheckSignDataItem checkSignDataItem = new CheckSignDataItem();
+                checkSignDataItem.setPhoneNumber(cursor.getString(cursor.getColumnIndex(PHONE_TABLE_NAME)));
+                list.add(checkSignDataItem);
+            } while (cursor.moveToNext());
+        }
+
+        if (list.size() > 0){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean checkIsData(String phoneNumber) {
+        List<CheckSignDataItem> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor =  db.rawQuery( "select * from contacts where id="+id+"", null );
+        Cursor cursor =  db.rawQuery( "select * from " + TABLE_NAME + " WHERE " + PHONE_TABLE_NAME + " = '" + phoneNumber +"'", null );
+
+        if (cursor.moveToFirst()) {
+            do {
+                CheckSignDataItem checkSignDataItem = new CheckSignDataItem();
+                checkSignDataItem.setPhoneNumber(cursor.getString(cursor.getColumnIndex(PHONE_TABLE_NAME)));
+                list.add(checkSignDataItem);
+            } while (cursor.moveToNext());
+        }
+
+        if (list.size() > 0){
+            return true;
+        }
+
+        return false;
+    }
+
+    public int checkSize(){
+        List<CheckSignDataItem> list = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+//        "select count(*) countS from LstIsdn order by updateCreate desc"
+        Cursor cursor =  db.rawQuery( "select count(*) " + PHONE_TABLE_NAME + " from " + TABLE_NAME, null );
+        cursor.moveToFirst();
+        int count= cursor.getInt(0);
+        cursor.close();
+        return count;
+    }
+
+
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, PHONE_TABLE_NAME);
@@ -71,6 +129,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.delete("contacts",
                 "id = ? ",
                 new String[] { Integer.toString(id) });
+    }
+    public void deleteTable(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_NAME + ""); //delete all rows in a table
+        db.close();
     }
 
     public ArrayList<String> getAllCotacts() {

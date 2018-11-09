@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ការប្រណាំងពណ៌មិត្តហ្វូន</string>
+    <string name="text_confirm">អរគុណក្មេងប្រុស</string>
+    <string name="get_ticket">ទទួលបានសំបុត្រ</string>
+    <string name="ok">យល់ព្រម</string>
+    <string name="errorCallWebervice">មិនអាចភ្ជាប់ទៅម៉ាស៊ីនមេ</string>
+    <string name="errorNetworkAccess">គ្មានអ៊ិនធឺណិត</string>
+    <string name="phone_number">លេខទូរសព្ទ</string>
+    <string name="otp">OTP</string>
+</resources>

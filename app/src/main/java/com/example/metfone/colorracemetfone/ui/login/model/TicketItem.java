@@ -7,7 +7,16 @@ public class TicketItem {
     private String qrCode;
     private String status;
     private String ticketType;
+    private String dateReceive;
     private List<String> lstGift;
+
+    public String getDateReceive() {
+        return dateReceive;
+    }
+
+    public void setDateReceive(String dateReceive) {
+        this.dateReceive = dateReceive;
+    }
 
     public List<String> getLstGift() {
         return lstGift;

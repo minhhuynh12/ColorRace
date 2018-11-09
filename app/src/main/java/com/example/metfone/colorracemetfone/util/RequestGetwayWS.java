@@ -63,7 +63,7 @@ public class RequestGetwayWS {
                 Log.i("11", "result : " + entityRes);
                 resultXML = entityRes;
 
-                Log.d("responseaaa", "values " + resultXML);
+                 Log.d("responseaaa", "values " + resultXML);
 
                 String errorGW = getErrorCodeGW();
                 String errorWS = "";

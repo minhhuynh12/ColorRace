@@ -19,17 +19,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+
         <LinearLayout
             android:id="@+id/llImageLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
 
-        <ImageView
-            android:id="@+id/imgLogoMetfone"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:background="@drawable/logo" />
+            <ImageView
+                android:id="@+id/imgLogoMetfone"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:background="@drawable/logo" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,6 +40,7 @@
             android:layout_alignParentRight="true">
 
             <LinearLayout
+                android:id="@+id/llLangEN"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -45,6 +48,7 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/tvLangEN"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -53,6 +57,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/llLangKH"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -60,12 +65,14 @@
                 android:gravity="center">
 
                 <TextView
+                    android:id="@+id/tvLangKH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KH"
                     android:textColor="@color/color_title" />
             </LinearLayout>
         </LinearLayout>
+
 
     </RelativeLayout>
 
@@ -83,11 +90,11 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
 
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:background="@drawable/img_night_race" />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/img_night_race" />
 
         <LinearLayout
             style="@style/border_layout_style_login"
@@ -102,11 +109,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
+                android:inputType="number"
+                android:maxLines="1"
+                android:text="978472155"
                 android:textColor="@color/white"
                 android:textColorHint="@color/hint_gray"
                 android:background="@null"
-                android:text="0978472155"
-                android:hint="Input username" />
+                android:hint="@string/phone_number" />
         </LinearLayout>
 
         <LinearLayout
@@ -132,8 +141,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:background="@null"
-                    android:hint="Input OTP"
+                    android:hint="@string/input_OTP"
                     android:maxLength="4"
+                    android:maxLines="1"
                     android:textColor="@color/white"
                     android:textColorHint="@color/hint_gray"
                     android:inputType="number" />
@@ -145,7 +155,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:background="@drawable/border_shadow_red"
-                android:text="OTP"
+                android:text="@string/get_otp"
                 android:layout_gravity="center_vertical"
                 android:textColor="@color/white" />
 
@@ -157,7 +167,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/size_8dp"
             android:background="@drawable/gradient_button"
-            android:text="Login"
+            android:text="@string/login"
             android:textSize="20sp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"

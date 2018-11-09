@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.commons.CommonActivity;
@@ -23,6 +24,7 @@ import com.example.metfone.colorracemetfone.ui.login.LoginActivity;
 import com.example.metfone.colorracemetfone.ui.login.model.CheckOTPItem;
 import com.example.metfone.colorracemetfone.ui.login.model.GetOtpItem;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
+import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,8 +39,8 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnConfirm;
     private Handler handler = new Handler();
     private Runnable runnable;
-    private String EVENT_DATE_TIME = "2018-12-31 10:30:00";
-    private String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    private String EVENT_DATE_TIME ;
+    private String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
     private TextView tvDay;
     private TextView tvHour;
     private TextView tvMinute;
@@ -56,6 +58,10 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     private String lat;
     private String log;
     ArrayList arrListGift = new ArrayList();
+    private SharePreferenceUtils sharedPreferences;
+    String language;
+    boolean flagHasRead;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +79,10 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         typeTicket = i.getStringExtra("TYPE_TICKET");
         lat = i.getStringExtra("LAT");
         log = i.getStringExtra("LONG");
+        EVENT_DATE_TIME = i.getStringExtra("TIME_NIGHT_RACE");
+
+        sharedPreferences = new SharePreferenceUtils(this);
+        language = sharedPreferences.getLanguage();
 
         init();
         countDownStart();
@@ -90,15 +100,22 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         int id = view.getId();
         switch (id){
             case R.id.btnConfirm:
-                new CallWSAsyncTask().execute("1", isdn , otp);
+                if (flagHasRead){
+                    new CallWSAsyncTask().execute("1", isdn , otp);
+                }else {
+                    Toast.makeText(ConfirmActivity.this, ConfirmActivity.this.getResources().getString(R.string.has_read) , Toast.LENGTH_SHORT).show();
+                }
+//                new CallWSAsyncTask().execute("1", isdn , otp);
                 break;
             case R.id.llImageCheck:
                 if (!flag){
                     flag = true;
+                    flagHasRead = true;
                     btnConfirm.setVisibility(View.VISIBLE);
                     imgCheckBox.setBackground(getResources().getDrawable(R.drawable.ic_checked_checkbox));
                 }else {
                     flag = false;
+                    flagHasRead = false;
                     btnConfirm.setVisibility(View.GONE);
                     imgCheckBox.setBackground(getResources().getDrawable(R.drawable.ic_unchecked_checkbox));
                 }
@@ -138,8 +155,6 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                         tvMinute.setText(String.format("%02d", Minutes));
                         tvSecond.setText(String.format("%02d", Seconds));
                     } else {
-//                        linear_layout_1.setVisibility(View.VISIBLE);
-//                        linear_layout_2.setVisibility(View.GONE);
                         handler.removeCallbacks(runnable);
                     }
                 } catch (Exception e) {
@@ -210,6 +225,7 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                             intent.putExtra("TYPE_TICKET" , typeTicket);
                             intent.putExtra("LAT" , lat);
                             intent.putExtra("LONG" , log);
+                            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
                             startActivity(intent);
                             progress.dismiss();
                             break;
@@ -232,7 +248,11 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                         }
                     } else {
                         if (items != null){
-                            CommonActivity.createAlertDialog(mActivity, items.get(0).getMessageEn(), getString(R.string.app_name)).show();
+                            if (language.toLowerCase().equals("kh")) {
+                                CommonActivity.createAlertDialog(mActivity, items.get(0).getMessageKh(), getString(R.string.app_name)).show();
+                            }else {
+                                CommonActivity.createAlertDialog(mActivity, items.get(0).getMessageEn(), getString(R.string.app_name)).show();
+                            }
                         }else {
                             CommonActivity.createAlertDialog(mActivity, getString(R.string.errorCallWebervice), getString(R.string.app_name)).show();
                         }

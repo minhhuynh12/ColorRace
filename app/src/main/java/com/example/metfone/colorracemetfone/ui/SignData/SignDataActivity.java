@@ -3,16 +3,23 @@ package com.example.metfone.colorracemetfone.ui.SignData;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.commons.Constant;
+import com.example.metfone.colorracemetfone.ui.Chart.ChartActivity;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.MainActivity;
 import com.example.metfone.colorracemetfone.ui.SignData.model.ListIsdnItem;
 import com.example.metfone.colorracemetfone.ui.SignData.model.SignDataItem;
@@ -37,6 +44,18 @@ public class SignDataActivity extends AppCompatActivity {
     private Activity mActivity;
     private List<SignDataItem> listSign;
     private DBHelper mydb;
+    private String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+    private String EVENT_DATE_TIME;
+    ProgressBar progressDoalog;
+    ProgressDialog progressdialog;
+    private UploadCallbacks mListener;
+    private String permissoin;
+    private int totalIsdn;
+
+    int pStatus = 0;
+    TextView tv;
+    ProgressBar mProgress;
+     List<String> listStr;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +63,23 @@ public class SignDataActivity extends AppCompatActivity {
         Intent i = getIntent();
         otp = i.getStringExtra("OTP");
         isdn = i.getStringExtra("ISDN");
+        permissoin = i.getStringExtra("PERMISSION");
+        EVENT_DATE_TIME = i.getStringExtra("TIME_NIGHT_RACE");
+        totalIsdn = i.getIntExtra("TOTAL_ISDN", 0);
         mActivity = this;
 
         mydb = new DBHelper(this);
 
-        new CallWSAsyncTask().execute("1" , isdn , otp);
+        new CallWSAsyncTask().execute("1", isdn, otp);
 
-
+        Resources res = getResources();
+        Drawable drawable = res.getDrawable(R.drawable.circular_progress);
+        mProgress = (ProgressBar) findViewById(R.id.circularProgressbar);
+        mProgress.setProgress(0);   // Main Progress
+        mProgress.setSecondaryProgress(100); // Secondary Progress
+        mProgress.setMax(100); // Maximum Progress
+        mProgress.setProgressDrawable(drawable);
+        tv = (TextView) findViewById(R.id.tv);
     }
 
     private class CallWSAsyncTask extends AsyncTask<String, Byte, Integer> {
@@ -79,8 +108,7 @@ public class SignDataActivity extends AppCompatActivity {
                         case 1:
                             req.addParam("isdn", params[1]);
                             req.addParam("otp", params[2]);
-                            resReq = req.sendRequestWS(Constant.BCCS_GW_URL, "syncData", "login",
-                                    "getlist", mActivity);
+                            resReq = req.sendRequestWS(Constant.BCCS_GW_URL, "syncData", "login", "getlist", mActivity);
                             break;
 
                     }
@@ -101,10 +129,18 @@ public class SignDataActivity extends AppCompatActivity {
                 if ((errorGW != null && errorGW.equals("0")) && (errorWS != null && errorWS.equals("00"))) {
                     switch (result) {
                         case 1:
-                            listSign =  req.parseXMLToListObject("return", SignDataItem.class);
-                            Log.d("show" , "value: " + listSign.get(0).getLstIsdn());
-                            parseJson(listSign.get(0).getLstIsdn());
+                            listSign = req.parseXMLToListObject("return", SignDataItem.class);
+                            Log.d("show", "value: " + listSign.get(0).getLstIsdn());
                             progress.dismiss();
+                            parseJson(listSign.get(0).getLstIsdn());
+
+//                            Intent intent = new Intent(SignDataActivity.this, ChartActivity.class);
+//                            intent.putExtra("OTP", otp);
+//                            intent.putExtra("ISDN", isdn);
+//                            intent.putExtra("PERMISSION", permissoin);
+//                            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
+//                            startActivity(intent);
+//                            progress.dismiss();
                             break;
                     }
                 } else {
@@ -145,22 +181,74 @@ public class SignDataActivity extends AppCompatActivity {
     }
 
     private void parseJson(String lstIsdn) {
-        Type listType = new TypeToken<List<String>>() {}.getType();
-//        List<String> listIsdn = (new Gson().fromJson(lstIsdn, listType));
-//        ListIsdnItem listIsdn = new Gson().fromJson(lstIsdn, ListIsdnItem.class);
+        Type listType = new TypeToken<List<String>>() {
+        }.getType();
+
+//        progressDoalog = new ProgressBar(mActivity);
+//        progressDoalog.setMax(100);
+//        progressDoalog.setVisibility(View.VISIBLE);
+//
+//        progressdialog = new ProgressDialog(mActivity);
+//        progressdialog.setMessage(mActivity.getResources().getString(R.string.please_wait));
+//        progressdialog.setMax(100);
+//        progressdialog.show();
+
 
         try {
             JSONObject object = new JSONObject(lstIsdn);
-            List<String> listStr = (new Gson().fromJson(object.getString("lstIsdn"), listType));
-
-            for (int i = 0; i < listStr.size() ; i++){
-                mydb.insertContact(listStr.get(i));
+            listStr = (new Gson().fromJson(object.getString("lstIsdn"), listType));
+            long uploaded = 0;
+            boolean isList = mydb.checkSignData();
+            if (isList) {
+                mydb.deleteTable();
             }
+
+            new MyTask().execute(listStr.size());
+
+//            for (int i = 0; i < listStr.size(); i++) {
+//                mydb.insertContact(listStr.get(i));
+//                new ProgressUpdater(uploaded, listStr.size());D
+
+//            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 //        Log.d("showList", "list: "+ listIsdn);
 
+    }
+
+    class MyTask extends AsyncTask<Integer, Integer, String>
+    {
+        @Override
+        protected String doInBackground(Integer... params) {
+            for (; pStatus < params[0]; pStatus++) {
+                mydb.insertContact(listStr.get(pStatus));
+                publishProgress((int) ((pStatus / (float) params[0]) * 100));
+                if(isCancelled()) break;
+            }
+            return "Task Completed.";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Intent intent = new Intent(SignDataActivity.this, ChartActivity.class);
+            intent.putExtra("OTP", otp);
+            intent.putExtra("ISDN", isdn);
+            intent.putExtra("PERMISSION", permissoin);
+            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
+            startActivity(intent);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            tv.setText("Task Starting...");
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            tv.setText(values[0] / listSign.size() + "%");
+            mProgress.setProgress(values[0]);
+        }
     }
 }

@@ -17,7 +17,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Out night race start in"
+            android:text="@string/title_count_down"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"

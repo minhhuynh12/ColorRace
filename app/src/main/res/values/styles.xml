@@ -28,6 +28,10 @@
         <item name="android:background">@drawable/border_shadow_background</item>
     </style>
 
+    <style name="text_color">
+        <item name="android:textColorPrimary">#ffffff</item>
+    </style>
+
     <style name="generalnotitle" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowNoTitle">true</item>
     </style>

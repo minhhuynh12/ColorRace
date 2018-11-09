@@ -14,6 +14,15 @@ public class SignDataItem {
     private String lstIsdn;
     private String latStadium;
     private String longStadium;
+    private String totalIsdn;
+
+    public String getTotalIsdn() {
+        return totalIsdn;
+    }
+
+    public void setTotalIsdn(String totalIsdn) {
+        this.totalIsdn = totalIsdn;
+    }
 
     public String getLatStadium() {
         return latStadium;

@@ -12,8 +12,17 @@ public class CheckOTPItem {
     private String timeNightRace;
     private String latStadium;
     private String longStadium;
+    private int totalIsdn;
     private RoleItem role;
     private TicketItem ticket;
+
+    public int getTotalIsdn() {
+        return totalIsdn;
+    }
+
+    public void setTotalIsdn(int totalIsdn) {
+        this.totalIsdn = totalIsdn;
+    }
 
     public String getLatStadium() {
         return latStadium;

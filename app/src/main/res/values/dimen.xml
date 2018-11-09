@@ -3,6 +3,7 @@
     <dimen name="size_8dp">8dp</dimen>
     <dimen name="size_16dp">16dp</dimen>
     <dimen name="dip10">10dp</dimen>
+    <dimen name="size_10dp">10dp</dimen>
     <dimen name="height_ln_button">45dp</dimen>
     <dimen name="margin_15">15dp</dimen>
     <dimen name="text_size_16">16sp</dimen>
