@@ -7,7 +7,7 @@
         XML is widely used in a Services Oriented Architecture (SOA). Disparate systems communicate with each other by exchanging XML messages</string>
     <string name="get_ticket">Get ticket</string>
     <string name="ok">Ok</string>
-    <string name="errorCallWebervice">Can not connect to server</string>
+    <string name="errorCallWebervice">Connect network fail, please try again!</string>
     <string name="errorNetworkAccess">No internet</string>
     <string name="phone_number">Phone number</string>
     <string name="input_OTP">OTP Code</string>
@@ -18,7 +18,7 @@
     <string name="customer">Customer</string>
     <string name="ticket_type">Ticket type</string>
     <string name="receive_time">Receive time</string>
-    <string name="gift">Gift</string>
+
     <string name="status">Status</string>
     <string name="giving_gifts">Giving gifts</string>
     <string name="login">Login</string>
@@ -28,8 +28,8 @@
     <string name="total">Total:</string>
     <string name="received">Received</string>
     <string name="not_yet">Not yet</string>
-    <string name="term_and_condition">Term and condition:</string>
-    <string name="confrim">I has read and lorem input color race</string>
+    <string name="term_and_condition">Term and condition</string>
+    <string name="confrim">I have read and agreed on terms and conditions of the race</string>
     <string name="night_race">Night race</string>
     <string name="map">Map</string>
     <string name="please_wait">Please waiting</string>
@@ -44,7 +44,18 @@
     <string name="not_yet_received">Not yet received</string>
     <string name="allow_permission">Phease! allow permission</string>
     <string name="no_check_has_read">Please agree term and condition</string>
-    <string name="has_read">I have read and agree to term and condition of the event</string>
+    <string name="has_read">Please agree term and condition</string>
+    <string name="please_input_phone">Please enter phone number</string>
+    <string name="please_input_otp">Please enter OTP</string>
+    <string name="not_metfone">Sorry! Your number is not allowed to login this application</string>
+    <string name="no_netword">Connect network fail, please try again later</string>
+    <string name="OTP_successfully">Get OTP successfully</string>
+    <string name="receive">Receive</string>
+    <string name="amount">Amount</string>
+    <string name="gift">Gift</string>
+
+
+
 
 
 </resources>

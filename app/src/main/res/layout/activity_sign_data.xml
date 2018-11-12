@@ -38,8 +38,8 @@
             android:layout_height="250dp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="25%"
-            android:textColor="@color/colorPrimaryDark"
+            android:text="0%"
+            android:textColor="@color/color_green_"
             android:textSize="20sp" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

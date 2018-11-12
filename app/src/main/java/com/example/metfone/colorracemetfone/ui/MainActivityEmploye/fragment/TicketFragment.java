@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.adapter.TicketAdapter;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.model.TicketItems;
+import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +30,13 @@ public class TicketFragment extends Fragment {
     private static List<String> list;
     private static String status;
     private static List<String> listClone;
+    private SharePreferenceUtils sharedPreferences;
 
 
-    public static TicketFragment newInstance(List<String> listStr, String statusStr) {
+    public static TicketFragment newInstance(List<String> listStr) {
         TicketFragment fragmentFirst = new TicketFragment();
 
         list = listStr;
-        status = statusStr;
         return fragmentFirst;
     }
 
@@ -45,13 +46,15 @@ public class TicketFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_ticket, container, false);
         recycler = view.findViewById(R.id.recycler);
+        sharedPreferences = new SharePreferenceUtils(getActivity());
+        status = sharedPreferences.getStatusCustomer();
 
         mAdapter = new TicketAdapter(getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recycler.setLayoutManager(mLayoutManager);
         recycler.setItemAnimator(new DefaultItemAnimator());
         recycler.setAdapter(mAdapter);
-        boolean flag = false;
+
         if (!"".equals(list.get(0))) {
             list.add(0, "");
         }

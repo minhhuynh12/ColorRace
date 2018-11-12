@@ -24,7 +24,7 @@ public class MainActivityAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0: // Fragment # 0 - This will show FirstFragment
-                return TicketFragment.newInstance(null , null);
+                return TicketFragment.newInstance(null);
             case 1: // Fragment # 0 - This will show FirstFragment different title
                 return NightRaceFragment.newInstance();
             case 2: // Fragment # 1 - This will show SecondFragment

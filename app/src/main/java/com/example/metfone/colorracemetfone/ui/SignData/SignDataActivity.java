@@ -27,6 +27,7 @@ import com.example.metfone.colorracemetfone.ui.confirm.ConfirmActivity;
 import com.example.metfone.colorracemetfone.ui.confirm.model.GetTicketItem;
 import com.example.metfone.colorracemetfone.util.DBHelper;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
+import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -56,16 +57,18 @@ public class SignDataActivity extends AppCompatActivity {
     TextView tv;
     ProgressBar mProgress;
      List<String> listStr;
+
+    private SharePreferenceUtils sharedPreferences;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_data);
-        Intent i = getIntent();
-        otp = i.getStringExtra("OTP");
-        isdn = i.getStringExtra("ISDN");
-        permissoin = i.getStringExtra("PERMISSION");
-        EVENT_DATE_TIME = i.getStringExtra("TIME_NIGHT_RACE");
-        totalIsdn = i.getIntExtra("TOTAL_ISDN", 0);
+        sharedPreferences = new SharePreferenceUtils(this);
+
+        otp = sharedPreferences.getOTP();
+        isdn = sharedPreferences.getISDN();
+
         mActivity = this;
 
         mydb = new DBHelper(this);
@@ -233,11 +236,7 @@ public class SignDataActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             Intent intent = new Intent(SignDataActivity.this, ChartActivity.class);
-            intent.putExtra("OTP", otp);
-            intent.putExtra("ISDN", isdn);
-            intent.putExtra("PERMISSION", permissoin);
-            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-            startActivity(intent);
+            startActivityForResult(intent , 1);
         }
 
         @Override
@@ -249,6 +248,15 @@ public class SignDataActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             tv.setText(values[0] / listSign.size() + "%");
             mProgress.setProgress(values[0]);
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+
+                finish();
+
         }
     }
 }

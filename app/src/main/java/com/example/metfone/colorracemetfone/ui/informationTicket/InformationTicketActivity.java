@@ -35,13 +35,13 @@ public class InformationTicketActivity extends AppCompatActivity implements View
     private EditText edGift;
     private EditText edStatus;
     private ImageView imgBack;
-    private String isdnCus;
-    private String strISDN;
+    private String isdnCus = "";
+    private String strISDN = "";
     private Button btnGivingGifts;
-    private String ticketType;
-    private String receive_gift_date;
-    private String gift;
-    private String status;
+    private String ticketType = "";
+    private String receive_gift_date = "";
+    private String gift = "";
+    private String status = "";
     String language;
     private SharePreferenceUtils sharedPreferences;
     private List<InfoItem> infoItems;
@@ -72,22 +72,44 @@ public class InformationTicketActivity extends AppCompatActivity implements View
         for (int i = 0; i < separated.length; i++) {
             String[] arrStr = separated[i].split("=");
             if ("isdn ".equals(arrStr[0])) {
-                isdnCus = arrStr[1];
-                isdnCus = isdnCus.replaceAll(" ", "");
+                if (arrStr.length > 1){
+                    isdnCus = arrStr[1];
+                    isdnCus = isdnCus.replaceAll(" ", "");
+                }else {
+                    isdnCus = "";
+                }
+
             } else if ("ticket_type".equals(arrStr[0])) {
-                ticketType = arrStr[1];
+                if (arrStr.length > 1){
+                    ticketType = arrStr[1];
+                }else {
+                    ticketType = "";
+                }
             } else if ("receive_gift_date".equals(arrStr[0])) {
-                receive_gift_date = arrStr[1];
+                if (arrStr.length > 1){
+                    receive_gift_date = arrStr[1];
+                }else {
+                    receive_gift_date = "";
+                }
             } else if ("gift".equals(arrStr[0])) {
-                String strGift;
-                strGift = arrStr[1];
-                String[] arrayStr;
-                gift = strGift.replace("{", "");
-                gift = gift.replace("}", "");
-                arrayStr = gift.split(",");
-                edGift.setText(Arrays.toString(arrayStr).replaceAll("\\[|\\]", "").replaceAll("," , "\n"));
+                if (arrStr.length > 1){
+                    String strGift;
+                    strGift = arrStr[1];
+                    String[] arrayStr;
+                    gift = strGift.replace("{", "");
+                    gift = gift.replace("}", "");
+                    arrayStr = gift.split(",");
+                    edGift.setText(Arrays.toString(arrayStr).replaceAll("\\[|\\]", "").replaceAll("," , "\n"));
+                }else {
+                    gift = "";
+                }
+
             } else if (" status".equals(arrStr[0])) {
-                status = arrStr[1];
+                if (arrStr.length > 1){
+                    status = arrStr[1];
+                }else {
+                    status = "";
+                }
             }
         }
 
@@ -97,8 +119,10 @@ public class InformationTicketActivity extends AppCompatActivity implements View
 
         if ("2".equals(status)){
             edStatus.setText(this.getResources().getString(R.string.already_received));
+            btnGivingGifts.setVisibility(View.GONE);
         }else {
             edStatus.setText(this.getResources().getString(R.string.not_yet_received));
+            btnGivingGifts.setVisibility(View.VISIBLE);
         }
 
 

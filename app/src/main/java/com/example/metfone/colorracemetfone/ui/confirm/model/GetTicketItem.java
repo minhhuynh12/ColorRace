@@ -8,6 +8,33 @@ public class GetTicketItem {
     private String status;
     private String systemDate;
     private String timeNightRace;
+    private String latStadium;
+    private String longStadium;
+    private String totalIsdn;
+
+    public String getLatStadium() {
+        return latStadium;
+    }
+
+    public void setLatStadium(String latStadium) {
+        this.latStadium = latStadium;
+    }
+
+    public String getLongStadium() {
+        return longStadium;
+    }
+
+    public void setLongStadium(String longStadium) {
+        this.longStadium = longStadium;
+    }
+
+    public String getTotalIsdn() {
+        return totalIsdn;
+    }
+
+    public void setTotalIsdn(String totalIsdn) {
+        this.totalIsdn = totalIsdn;
+    }
 
     public String getSystemDate() {
         return systemDate;

@@ -1,6 +1,7 @@
 package com.example.metfone.colorracemetfone.ui.login;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -26,6 +27,7 @@ import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.commons.Constant;
 import com.example.metfone.colorracemetfone.ui.Chart.ChartActivity;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.MainActivity;
+import com.example.metfone.colorracemetfone.ui.Pin.PinActivity;
 import com.example.metfone.colorracemetfone.ui.SignData.SignDataActivity;
 import com.example.metfone.colorracemetfone.ui.confirm.ConfirmActivity;
 import com.example.metfone.colorracemetfone.ui.login.model.CheckOTPItem;
@@ -35,6 +37,7 @@ import com.example.metfone.colorracemetfone.util.LanguageUtils;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.RuntimePermission;
 import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
+import com.example.metfone.colorracemetfone.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,6 +115,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         llLangKH = findViewById(R.id.llLangKH);
         tvLangEN = findViewById(R.id.tvLangEN);
         tvLangKH = findViewById(R.id.tvLangKH);
+        edOTP.setText("");
 
 
         sharedPreferences = new SharePreferenceUtils(this);
@@ -141,12 +145,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
             }
-
-
-
         }
-
-
     }
 
     @Override
@@ -178,11 +177,21 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 isdn = edISDN.getText().toString().trim();
                 if (validate())
                     new CallWSAsyncTask().execute("2", isdn, otp, deviceID, "ANDROID");
+//                String pin = sharedPreferences.getPinCode();
+//                if ("".equals(pin)){
+//
+//                    Intent intent = new Intent(LoginActivity.this, PinActivity.class);
+//                    startActivity(intent);
+//                }else {
+//                    Toast.makeText(LoginActivity.this , "ok" , Toast.LENGTH_SHORT).show();
+//                }
 
 
                 break;
             case R.id.btnOTP:
                 isdn = edISDN.getText().toString().trim();
+                Utils.hideSoftKeyboard(LoginActivity.this);
+
                 new CallWSAsyncTask().execute("1", isdn, deviceID, "ANDROID");
                 break;
         }
@@ -190,12 +199,21 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 
     private boolean validate() {
+        if (!Utils.hasConnection(this)) {
+            Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!Utils.checkNumberPhone(isdn)){
+            Toast.makeText(this, this.getResources().getString(R.string.not_metfone), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         if ("".equals(isdn)) {
-            Toast.makeText(this, "Please input phone number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getResources().getString(R.string.please_input_phone), Toast.LENGTH_SHORT).show();
             return false;
         }
         if ("".equals(otp)) {
-            Toast.makeText(this, "Please input OTP", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getResources().getString(R.string.please_input_otp), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -258,7 +276,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     switch (result) {
                         case 1:
                             itemGetOTP = req.parseXMLToListObject("return", GetOtpItem.class);
-                            Toast.makeText(mActivity, "Success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mActivity, LoginActivity.this.getResources().getString(R.string.OTP_successfully), Toast.LENGTH_SHORT).show();
                             progress.dismiss();
                             break;
                         case 2:
@@ -268,6 +286,16 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             totalIsdn = itemCheckOTP.get(0).getTotalIsdn();
                             EVENT_DATE_TIME = itemCheckOTP.get(0).getTimeNightRace();
                             permission = itemCheckOTP.get(0).getRole().getPermission();
+                            sharedPreferences.putOTP(otp);
+                            sharedPreferences.putISDN(isdn);
+
+                            sharedPreferences.putLat(lat);
+                            sharedPreferences.putLong(log);
+                            sharedPreferences.putTimeNightRace(EVENT_DATE_TIME);
+                            sharedPreferences.putTotalIsdn(totalIsdn);
+                            sharedPreferences.putPermission(permission);
+
+
                             ArrayList arrListGift = new ArrayList();
 
                             if (itemCheckOTP.get(0).getRole().getRoleName().equals("CUSTOMER")) {
@@ -277,30 +305,18 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                 String stattus = itemCheckOTP.get(0).getTicket().getStatus();
                                 String qrCode = itemCheckOTP.get(0).getTicket().getQrCode();
                                 String typeTicket = itemCheckOTP.get(0).getTicket().getTicketType();
+                                String statusTicket = itemCheckOTP.get(0).getTicket().getStatus();
+                                sharedPreferences.putStatus(stattus);
+                                sharedPreferences.putQrCode(qrCode);
+                                sharedPreferences.putTypeTicket(typeTicket);
+                                sharedPreferences.putStatusCustomer(statusTicket);
                                 if ("0".equals(itemCheckOTP.get(0).getTicket().getStatus())) {
                                     Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
-                                    intent.putExtra("OTP", otp);
-                                    intent.putExtra("ISDN", isdn);
-                                    intent.putExtra("STATUS", stattus);
-                                    intent.putExtra("QR_CODE", qrCode);
-                                    intent.putExtra("TYPE_TICKET", typeTicket);
-                                    intent.putExtra("LAT", lat);
-                                    intent.putExtra("LONG", log);
-                                    intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
                                     intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
                                     startActivity(intent);
                                 } else {
-//                                    String stattus = itemCheckOTP.get(0).getTicket().getStatus();
-//                                    String qrCode = itemCheckOTP.get(0).getTicket().getQrCode();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
-                                    intent.putExtra("STATUS", stattus);
-                                    intent.putExtra("QR_CODE", qrCode);
-                                    intent.putExtra("TYPE_TICKET", typeTicket);
-                                    intent.putExtra("LAT", lat);
-                                    intent.putExtra("LONG", log);
-                                    intent.putExtra("ISDN", isdn);
-                                    intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
                                     startActivity(intent);
                                 }
                             } else {
@@ -311,39 +327,21 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                     boolean flag = dbHelper.checkSignData();
                                     if (totalIsdn > size) {
                                         Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
-                                        intent.putExtra("OTP", otp);
-                                        intent.putExtra("ISDN", isdn);
-                                        intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-                                        intent.putExtra("PERMISSION", EVENT_DATE_TIME);
-                                        intent.putExtra("TOTAL_ISDN", isdn);
                                         startActivity(intent);
                                         edOTP.setText("");
                                     } else {
                                         if (flag) {
                                             Intent intentChart = new Intent(LoginActivity.this, ChartActivity.class);
-                                            intentChart.putExtra("OTP", otp);
-                                            intentChart.putExtra("ISDN", isdn);
-                                            intentChart.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-                                            intentChart.putExtra("PERMISSION", permission);
                                             startActivity(intentChart);
                                             edOTP.setText("");
                                         }else {
                                             Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
-                                            intent.putExtra("OTP", otp);
-                                            intent.putExtra("ISDN", isdn);
-                                            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-                                            intent.putExtra("PERMISSION", EVENT_DATE_TIME);
-                                            intent.putExtra("TOTAL_ISDN", isdn);
                                             startActivity(intent);
                                             edOTP.setText("");
                                         }
                                     }
                                 } else {
                                     Intent intent = new Intent(LoginActivity.this, ChartActivity.class);
-                                    intent.putExtra("OTP", otp);
-                                    intent.putExtra("ISDN", isdn);
-                                    intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-                                    intent.putExtra("PERMISSION", permission);
                                     startActivity(intent);
                                     edOTP.setText("");
                                 }
@@ -398,6 +396,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         startActivity(intent);
     }
 
+    @SuppressLint("MissingPermission")
     public String getDeviceIMEI() {
         String deviceUniqueIdentifier = null;
         TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);

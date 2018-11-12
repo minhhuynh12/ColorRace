@@ -2,6 +2,7 @@ package com.example.metfone.colorracemetfone.ui.MainActivityEmploye;
 
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Handler;
@@ -31,6 +32,7 @@ import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.Adapter.MainA
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.MapFragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.NightRaceFragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.TicketFragment;
+import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -75,9 +77,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String isdn;
     NavigationView navigationView;
     private LinearLayout llLogOut;
+    private SharePreferenceUtils sharedPreferences;
+
     @Override
     public void onBackPressed() {
         Log.d("here" , "show");
+        Intent returnIntent = new Intent();
+        setResult(Activity.RESULT_OK,returnIntent);
+
         finish();
 
     }
@@ -93,24 +100,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = new SharePreferenceUtils(this);
+
         init();
         arrListGift = new ArrayList();
         Intent intent = getIntent();
         arrListGift = intent.getStringArrayListExtra("LIST_GIFT");
-        status = intent.getStringExtra("STATUS");
-        qrCode = intent.getStringExtra("QR_CODE");
-        typeTicket = intent.getStringExtra("TYPE_TICKET");
-        lat = intent.getStringExtra("LAT");
-        log = intent.getStringExtra("LONG");
-        isdn = intent.getStringExtra("ISDN");
-        EVENT_DATE_TIME = intent.getStringExtra("TIME_NIGHT_RACE");
+
+        status = sharedPreferences.getStatus();
+        qrCode = sharedPreferences.getQrCode();
+        typeTicket = sharedPreferences.getTypeTicket();
+        lat = sharedPreferences.getLat();
+        log = sharedPreferences.getLong();
+        isdn = sharedPreferences.getISDN();
+        EVENT_DATE_TIME = sharedPreferences.getTimeNightRace();
+
         tvTypeTicket.setText(typeTicket);
 
         adapter = new MainActivityAdapter(getSupportFragmentManager());
         countDownStart();
         createQrCode();
 
-        TicketFragment fragment = TicketFragment.newInstance(arrListGift , status);
+        TicketFragment fragment = TicketFragment.newInstance(arrListGift);
         swichFragemnt(fragment);
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -125,13 +136,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
 
-
         setSupportActionBar(toolbar);
-
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeButtonEnabled(false);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -145,10 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 toolbar.getChildAt(i).setScaleY(0.5f);
             }
         }
-
-
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     private void createQrCode(){
@@ -240,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch (id){
             case R.id.llTicket:
-                TicketFragment fragment = TicketFragment.newInstance(arrListGift, status);
+                TicketFragment fragment = TicketFragment.newInstance(arrListGift);
                 swichFragemnt( fragment);
                 setBackground(vTickket , getResources().getColor(R.color.color_title) , tvTicket ,  getResources().getColor(R.color.color_title) );
                 setBackground(vNightRace , getResources().getColor(R.color.color_input_gray), tvNightRace, getResources().getColor(R.color.color_black));

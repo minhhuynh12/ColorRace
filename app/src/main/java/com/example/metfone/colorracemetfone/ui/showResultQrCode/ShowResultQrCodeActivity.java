@@ -36,7 +36,7 @@ public class ShowResultQrCodeActivity extends AppCompatActivity implements View.
 
         Intent intent = getIntent();
         data = intent.getStringExtra("data");
-        String[] separated = isdnCus.split(";");
+        String[] separated = data.split(";");
 
         for(int i = 0; i < separated.length; i++){
             String[] arrStr = separated[i].split("=");

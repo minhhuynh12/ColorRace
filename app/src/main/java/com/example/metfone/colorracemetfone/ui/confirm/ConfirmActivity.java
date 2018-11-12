@@ -6,10 +6,17 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,7 +42,7 @@ import java.util.List;
  * Created by vitinhHienAnh on 28-10-18.
  */
 
-public class ConfirmActivity extends AppCompatActivity implements View.OnClickListener {
+public class ConfirmActivity extends AppCompatActivity implements View.OnClickListener , NavigationView.OnNavigationItemSelectedListener{
     private Button btnConfirm;
     private Handler handler = new Handler();
     private Runnable runnable;
@@ -52,15 +59,13 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     private List<GetTicketItem> items;
     private String otp;
     private String isdn;
-    private String status;
-    private String qrCode;
-    private String typeTicket;
-    private String lat;
-    private String log;
     ArrayList arrListGift = new ArrayList();
     private SharePreferenceUtils sharedPreferences;
     String language;
     boolean flagHasRead;
+    NavigationView navigationView;
+    private LinearLayout llLogOut;
+    TextView tvPhoneNumberNavi;
 
 
     @Override
@@ -69,20 +74,54 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_confirm);
         btnConfirm = findViewById(R.id.btnConfirm);
         btnConfirm.setOnClickListener(this);
+
+
+
         mActivity = this;
-        Intent i = getIntent();
-        arrListGift = i.getStringArrayListExtra("LIST_GIFT");
-        status = i.getStringExtra("STATUS");
-        qrCode = i.getStringExtra("QR_CODE");
-        otp = i.getStringExtra("OTP");
-        isdn = i.getStringExtra("ISDN");
-        typeTicket = i.getStringExtra("TYPE_TICKET");
-        lat = i.getStringExtra("LAT");
-        log = i.getStringExtra("LONG");
-        EVENT_DATE_TIME = i.getStringExtra("TIME_NIGHT_RACE");
+        Intent intent = getIntent();
+        arrListGift = intent.getStringArrayListExtra("LIST_GIFT");
 
         sharedPreferences = new SharePreferenceUtils(this);
         language = sharedPreferences.getLanguage();
+        otp = sharedPreferences.getOTP();
+        isdn = sharedPreferences.getISDN();
+        EVENT_DATE_TIME = sharedPreferences.getTimeNightRace();
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View header = navigationView.getHeaderView(0);
+        llLogOut = header.findViewById(R.id.llLogOut);
+        tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
+        llLogOut.setOnClickListener(this);
+        tvPhoneNumberNavi.setText(isdn);
+
+        //toobar
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("");
+
+
+        setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        toolbar.setNavigationIcon(R.drawable.ic_bugger);
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            if(toolbar.getChildAt(i) instanceof ImageButton){
+                toolbar.getChildAt(i).setScaleX(0.5f);
+                toolbar.getChildAt(i).setScaleY(0.5f);
+            }
+        }
+
+
+        navigationView.setNavigationItemSelectedListener(this);
 
         init();
         countDownStart();
@@ -119,6 +158,9 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                     btnConfirm.setVisibility(View.GONE);
                     imgCheckBox.setBackground(getResources().getDrawable(R.drawable.ic_unchecked_checkbox));
                 }
+                break;
+            case R.id.llLogOut:
+                finish();
                 break;
         }
     }
@@ -168,6 +210,11 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     protected void onStop() {
         super.onStop();
         handler.removeCallbacks(runnable);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
     }
 
     private class CallWSAsyncTask extends AsyncTask<String, Byte, Integer> {
@@ -220,13 +267,7 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                         case 1:
                             Intent intent = new Intent(ConfirmActivity.this , MainActivity.class);
                             intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
-                            intent.putExtra("STATUS" , status);
-                            intent.putExtra("QR_CODE" , qrCode);
-                            intent.putExtra("TYPE_TICKET" , typeTicket);
-                            intent.putExtra("LAT" , lat);
-                            intent.putExtra("LONG" , log);
-                            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-                            startActivity(intent);
+                            startActivityForResult(intent , 1);
                             progress.dismiss();
                             break;
                     }
@@ -271,4 +312,9 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        finish();
+    }
 }

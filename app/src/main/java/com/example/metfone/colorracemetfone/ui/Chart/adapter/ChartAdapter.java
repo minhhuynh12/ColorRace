@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.ui.Chart.model.ChartItem;
 import com.example.metfone.colorracemetfone.ui.Chart.model.TicketGiftItem;
-import com.github.mikephil.charting.data.PieData;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> {
     private Context context;
     private List<ChartItem> list;
-    private PieData data;
+
     float percentComplain = 0;
     float percentNew = 0;
     int flag = 0;
@@ -55,20 +55,21 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         float fNotYet = list.get(position).getTotal() - list.get(position).getUsed();
         float fRecieve = list.get(position).getTotal() - fNotYet;
 
-        holder.tvName.setText(list.get(position).getName());
-        holder.tvReceived.setText(context.getResources().getString(R.string.received) + " (" +Float.toString(fRecieve) + ")");
+        String strRecive = String.format("%,.0f", fRecieve);
+        String strNotYet = String.format("%,.0f", fNotYet);
+        String strTotal = String.format("%,.0f", list.get(position).getTotal());
 
-        holder.tvNotYet.setText(context.getResources().getString(R.string.not_yet_received) + " (" +Float.toString(fNotYet) + ")");
-        holder.tvTotal.setText(Float.toString(list.get(position).getTotal()));
+        holder.tvName.setText(list.get(position).getName());
+        holder.tvReceived.setText(context.getResources().getString(R.string.received) + " (" +strRecive + ")");
+
+        holder.tvNotYet.setText(context.getResources().getString(R.string.not_yet_received) + " (" +strNotYet + ")");
+        holder.tvTotal.setText(strTotal);
 
         if (flag == 0){
             percentNew = list.get(position).getUsed();
             percentNew = list.get(position).getTotal() - percentNew;
             percentComplain = list.get(position).getUsed();
         }else {
-//            percentNew = list.get(position).getUsed() * 10.0f;
-//            percentNew = list.get(position).getTotal() * 10.0f - percentNew;
-//            percentComplain = list.get(position).getUsed() * 10.0f;
             percentNew = list.get(position).getUsed();
             percentNew = list.get(position).getTotal() - percentNew;
             percentComplain = list.get(position).getUsed();

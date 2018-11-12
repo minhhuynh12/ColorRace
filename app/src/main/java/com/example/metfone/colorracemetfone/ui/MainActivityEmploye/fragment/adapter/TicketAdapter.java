@@ -46,11 +46,11 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     public void onBindViewHolder(@NonNull TicketAdapter.ViewHolder holder, int position) {
 
         if (position == 0){
-            holder.tvGift.setText("Gift");
+            holder.tvGift.setText(context.getResources().getString(R.string.receive));
             holder.tvGift.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            holder.tvNightRace.setText("Amount");
+            holder.tvNightRace.setText(context.getResources().getString(R.string.night_race));
             holder.tvNightRace.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            holder.tvMap.setText("Recieve");
+            holder.tvMap.setText(context.getResources().getString(R.string.map));
             holder.tvMap.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
             holder.llIamge.setVisibility(View.GONE);
         }else {
@@ -59,7 +59,11 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             holder.tvMap.setVisibility(View.GONE);
             holder.llIamge.setVisibility(View.VISIBLE);
             if ("1".equals(status)){
-                holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_unchecked_checkbox));
+                if (position == 1){
+                    holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_checked_checkbox));
+                }else {
+                    holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_unchecked_checkbox));
+                }
             }else {
                 holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_checked_checkbox));
             }
