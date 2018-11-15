@@ -37,8 +37,14 @@ import com.example.metfone.colorracemetfone.commons.Constant;
 import com.example.metfone.colorracemetfone.ui.Chart.adapter.ChartAdapter;
 import com.example.metfone.colorracemetfone.ui.Chart.model.ChartItem;
 import com.example.metfone.colorracemetfone.ui.Chart.model.TicketGiftItem;
+import com.example.metfone.colorracemetfone.ui.SignData.SignDataActivity;
+import com.example.metfone.colorracemetfone.ui.checkInSecond.CheckInSecondActivity;
 import com.example.metfone.colorracemetfone.ui.informationTicket.InformationTicketActivity;
+import com.example.metfone.colorracemetfone.ui.login.LoginActivity;
 import com.example.metfone.colorracemetfone.ui.showResultQrCode.ShowResultQrCodeActivity;
+import com.example.metfone.colorracemetfone.ui.showResultQrCode.model.ContactItem;
+import com.example.metfone.colorracemetfone.util.DBCheckInSecond;
+import com.example.metfone.colorracemetfone.util.DBHelper;
 import com.example.metfone.colorracemetfone.util.RSAUtil;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.RsaBase64;
@@ -70,7 +76,7 @@ import javax.crypto.NoSuchPaddingException;
 
 import static com.example.metfone.colorracemetfone.util.RsaBase64.encrypt;
 
-public class ChartActivity extends AppCompatActivity implements View.OnClickListener ,  NavigationView.OnNavigationItemSelectedListener {
+public class ChartActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private Activity mActivity;
     private String otp;
     private String isdn;
@@ -92,16 +98,21 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     private boolean flagPermission;
     private android.support.v4.app.ActionBarDrawerToggle mDrawerToggle;
     private LinearLayout llLogOut;
+    private LinearLayout llSign;
     NavigationView navigationView;
     private String permission;
     private static final int REQUEST_CODE_QR_SCAN = 101;
+    private static final int REQUEST_CODE_QR_SCAN_AGAIN = 2;
     private SharePreferenceUtils sharePreferenceUtils;
+    private DBCheckInSecond dbCheckInSecond;
+    private String isdnCus;
+    private DBHelper dbHelper;
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         Intent returnIntent = new Intent();
-        setResult(Activity.RESULT_OK,returnIntent);
+        setResult(Activity.RESULT_OK, returnIntent);
 
         finish();
     }
@@ -111,6 +122,8 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
         sharePreferenceUtils = new SharePreferenceUtils(this);
+        dbCheckInSecond = new DBCheckInSecond(this);
+        dbHelper = new DBHelper(this);
 
         recyclerTikect = findViewById(R.id.recyclerTikect);
         recyclerGift = findViewById(R.id.recyclerGift);
@@ -123,6 +136,9 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 
         View header = navigationView.getHeaderView(0);
         llLogOut = header.findViewById(R.id.llLogOut);
+        llSign = header.findViewById(R.id.llSign);
+        llSign.setVisibility(View.VISIBLE);
+        llSign.setOnClickListener(this);
         tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
 
         imgCreateQR.setOnClickListener(this);
@@ -137,7 +153,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         countDownStart();
         initializeRecyclerview();
         tvPhoneNumberNavi.setText(isdn);
-        new CallWSAsyncTask().execute("1", isdn , otp);
+        new CallWSAsyncTask().execute("1", isdn, otp);
 
 
         //toobar
@@ -160,7 +176,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         toggle.syncState();
         toolbar.setNavigationIcon(R.drawable.ic_bugger);
         for (int i = 0; i < toolbar.getChildCount(); i++) {
-            if(toolbar.getChildAt(i) instanceof ImageButton){
+            if (toolbar.getChildAt(i) instanceof ImageButton) {
                 toolbar.getChildAt(i).setScaleX(0.5f);
                 toolbar.getChildAt(i).setScaleY(0.5f);
             }
@@ -179,21 +195,28 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id){
+        switch (id) {
             case R.id.imgCreateQR:
                 flagPermission = RuntimePermission.CheckingPermissionIsEnabledOrNot(this);
 
-                if (!flagPermission){
+                if (!flagPermission) {
                     RuntimePermission.requestReadAndPermission(this);
-                }else {
-                    Intent i = new Intent(ChartActivity.this,QrCodeActivity.class);
-                    startActivityForResult( i,REQUEST_CODE_QR_SCAN);
+                } else {
+                    Intent i = new Intent(ChartActivity.this, QrCodeActivity.class);
+                    startActivityForResult(i, REQUEST_CODE_QR_SCAN);
                 }
 
 
                 break;
             case R.id.llLogOut:
-               finish();
+                sharePreferenceUtils.putPinCode("");
+                Intent returnIntent = new Intent();
+                setResult(12,returnIntent);
+                finish();
+                break;
+            case R.id.llSign:
+                Intent intent = new Intent(ChartActivity.this, SignDataActivity.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -201,14 +224,14 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        switch (requestCode) {
             case RuntimePermission.REQUEST_PHONE_STATE_PERMISSION_CODE:
                 flagPermission = RuntimePermission.CheckingPermissionIsEnabledOrNot(ChartActivity.this);
-                if (!flagPermission){
+                if (!flagPermission) {
                     CommonActivity.createAlertDialog(mActivity, getResources().getString(R.string.allow_permission_cam), getString(R.string.app_name)).show();
-                }else {
-                    Intent i = new Intent(ChartActivity.this,QrCodeActivity.class);
-                    startActivityForResult( i,REQUEST_CODE_QR_SCAN);
+                } else {
+                    Intent i = new Intent(ChartActivity.this, QrCodeActivity.class);
+                    startActivityForResult(i, REQUEST_CODE_QR_SCAN);
                 }
                 break;
         }
@@ -219,9 +242,9 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_CODE_QR_SCAN){
+        if (requestCode == REQUEST_CODE_QR_SCAN) {
             String text = "";
-            if(data==null){
+            if (data == null) {
                 return;
             }
             String result = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
@@ -229,17 +252,37 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
             byte[] dataBase64 = Base64.decode(result, Base64.DEFAULT);
             try {
                 text = new String(dataBase64, "UTF-8");
+                String[] separated = text.split(";");
+                for (int i = 0; i < separated.length; i++) {
+                    String[] arrStr = separated[i].split("=");
+                    if ("isdn ".equals(arrStr[0])) {
+                        if (arrStr.length > 1) {
+                            isdnCus = arrStr[1];
+                        } else {
+                            isdnCus = "";
+                        }
+                    }
+                }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
 
 
-            if ("STAFF_SYNC".equals(permission)){
-                Intent intent = new Intent(ChartActivity.this , ShowResultQrCodeActivity.class);
-                intent.putExtra("data", text);
-                startActivity(intent);
-            }else {
-                Intent intent = new Intent(ChartActivity.this , InformationTicketActivity.class);
+            if ("STAFF_SYNC".equals(permission)) {
+                ContactItem contactItem = dbHelper.getStatus(isdnCus.trim());
+                if ("1".equals(contactItem.getStatus())) {
+                    Intent intent = new Intent(ChartActivity.this, CheckInSecondActivity.class);
+                    intent.putExtra("ISDN_CUS", contactItem.getPhonenumber());
+                    intent.putExtra("datetime", contactItem.getDatetime());
+                    intent.putExtra("data", text);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(ChartActivity.this, ShowResultQrCodeActivity.class);
+                    intent.putExtra("data", text);
+                    startActivityForResult(intent, REQUEST_CODE_QR_SCAN_AGAIN);
+                }
+            } else {
+                Intent intent = new Intent(ChartActivity.this, InformationTicketActivity.class);
                 intent.putExtra("OTP", otp);
                 intent.putExtra("ISDN", isdn);
                 intent.putExtra("data", text);
@@ -249,6 +292,12 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 //            String today = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
 //            String setDay = "6/11/2018";
 //            boolean flag = compare(today,setDay);
+        } else {
+            if (resultCode != 4){
+                Intent i = new Intent(ChartActivity.this, QrCodeActivity.class);
+                startActivityForResult(i, REQUEST_CODE_QR_SCAN);
+            }
+
         }
     }
 
@@ -305,25 +354,25 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 if ((errorGW != null && errorGW.equals("0")) && (errorWS != null && errorWS.equals("00"))) {
                     switch (result) {
                         case 1:
-                            if (itemsReport == null){
+                            if (itemsReport == null) {
                                 itemsReport = new ArrayList<>();
                             }
-                            itemsReport =  req.parseXMLToListObject("TicketGift", TicketGiftItem.class);
+                            itemsReport = req.parseXMLToListObject("TicketGift", TicketGiftItem.class);
                             List<ChartItem> listTicket = new ArrayList<>();
                             List<ChartItem> listGift = new ArrayList<>();
 
-                            for (int i = 0; i < itemsReport.size(); i++){
-                                if ("1".equals(itemsReport.get(i).getType())){
-                                    listTicket.add(new ChartItem(itemsReport.get(i).getId(), itemsReport.get(i).getCode(),itemsReport.get(i).getName(),
-                                            itemsReport.get(i).getTotal(),itemsReport.get(i).getUsed(), itemsReport.get(i).getType()));
-                                }else {
-                                    listGift.add(new ChartItem(itemsReport.get(i).getId(), itemsReport.get(i).getCode(),itemsReport.get(i).getName(),
-                                            itemsReport.get(i).getTotal(),itemsReport.get(i).getUsed(), itemsReport.get(i).getType()));
+                            for (int i = 0; i < itemsReport.size(); i++) {
+                                if ("1".equals(itemsReport.get(i).getType())) {
+                                    listTicket.add(new ChartItem(itemsReport.get(i).getId(), itemsReport.get(i).getCode(), itemsReport.get(i).getName(),
+                                            itemsReport.get(i).getTotal(), itemsReport.get(i).getUsed(), itemsReport.get(i).getType()));
+                                } else {
+                                    listGift.add(new ChartItem(itemsReport.get(i).getId(), itemsReport.get(i).getCode(), itemsReport.get(i).getName(),
+                                            itemsReport.get(i).getTotal(), itemsReport.get(i).getUsed(), itemsReport.get(i).getType()));
                                 }
                             }
 
                             mAdapterTicket.setData(listTicket);
-                            mAdapterGift.setData(listGift , 1);
+                            mAdapterGift.setData(listGift, 1);
                             progress.dismiss();
                             break;
                     }
@@ -364,7 +413,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void initializeRecyclerview(){
+    private void initializeRecyclerview() {
         mAdapterTicket = new ChartAdapter(mActivity);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(ChartActivity.this);
         recyclerTikect.setLayoutManager(mLayoutManager);
@@ -431,7 +480,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         //  1 comes when date1 is higher then date2
         // -1 comes when date1 is lower then date2
 
-        if (dateToday.compareTo(dateSetDay) == 1 || dateToday.compareTo(dateSetDay) == 0){
+        if (dateToday.compareTo(dateSetDay) == 1 || dateToday.compareTo(dateSetDay) == 0) {
 
             return true;
         }

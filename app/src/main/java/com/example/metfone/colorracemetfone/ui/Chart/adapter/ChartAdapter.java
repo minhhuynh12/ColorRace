@@ -62,7 +62,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         holder.tvName.setText(list.get(position).getName());
         holder.tvReceived.setText(context.getResources().getString(R.string.received) + " (" +strRecive + ")");
 
-        holder.tvNotYet.setText(context.getResources().getString(R.string.not_yet_received) + " (" +strNotYet + ")");
+        holder.tvNotYet.setText(context.getResources().getString(R.string.not_yet) + " (" +strNotYet + ")");
         holder.tvTotal.setText(strTotal);
 
         if (flag == 0){

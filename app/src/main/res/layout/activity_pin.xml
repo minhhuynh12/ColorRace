@@ -37,6 +37,8 @@
         android:layout_below="@id/indicator_dots"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="@dimen/size_16dp"
+        android:layout_marginRight="@dimen/size_16dp"
         app:keypadButtonSize="72dp"
         app:keypadShowDeleteButton="true"
         app:keypadTextColor="@color/white"

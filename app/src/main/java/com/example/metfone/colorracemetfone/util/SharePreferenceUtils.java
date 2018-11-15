@@ -3,6 +3,12 @@ package com.example.metfone.colorracemetfone.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
 public class SharePreferenceUtils {
     private final String SHAREDPREFERENCE_NAME = "SHARE_PREFERENCE";
     private final String SHAREDPREFERENCE_LANGUAGE = "COLOR_RACE_SETTING_LANGUAGE";
@@ -12,6 +18,7 @@ public class SharePreferenceUtils {
     private final String PIN_CODE = "PIN_CODE";
     private final String OTP = "OTP";
     private final String ISDN = "ISDN";
+    private final String ISDN_LOGIN = "ISDN_LOGIN";
     private final String STATUS = "STATUS";
     private final String QR_CODE = "QR_CODE";
     private final String TYPE_TICKET = "TYPE_TICKET";
@@ -21,15 +28,29 @@ public class SharePreferenceUtils {
     private final String TIME_NIGHT_RACE = "TIME_NIGHT_RACE";
     private final String PERMISSION = "PERMISSION";
     private final String STATUS_CUSTOMER = "STATUS_CUSTOMER";
+    private final String DEVICE_ID = "DEVICE_ID";
+    private final String LIST_GIFT = "LIST_GIFT";
+    private final String ROLE_NAME = "ROLE_NAME";
+
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences mSharedPreferencesLanguage;
     private SharedPreferences.Editor editor;
     private SharedPreferences.Editor editorLanguage;
     private Context context;
+    private Gson gson;
 
     public SharePreferenceUtils(Context context) {
         this.context = context;
+        mSharedPreferences = context.getSharedPreferences(SHAREDPREFERENCE_NAME, Context.MODE_PRIVATE);
+        mSharedPreferencesLanguage = context.getSharedPreferences(SHAREDPREFERENCE_LANGUAGE, Context.MODE_PRIVATE);
+        editor = mSharedPreferences.edit();
+        editorLanguage = mSharedPreferencesLanguage.edit();
+    }
+
+    public SharePreferenceUtils(Context context , Gson gson) {
+        this.context = context;
+        this.gson = gson;
         mSharedPreferences = context.getSharedPreferences(SHAREDPREFERENCE_NAME, Context.MODE_PRIVATE);
         mSharedPreferencesLanguage = context.getSharedPreferences(SHAREDPREFERENCE_LANGUAGE, Context.MODE_PRIVATE);
         editor = mSharedPreferences.edit();
@@ -150,6 +171,47 @@ public class SharePreferenceUtils {
 
     public String getStatusCustomer() {
         return mSharedPreferences.getString(STATUS_CUSTOMER, "");
+    }
+
+
+    public void putISDN_LOGIN(String value) {
+        editor.putString(ISDN_LOGIN, value);
+        editor.commit();
+    }
+
+    public String getISDN_LOGIN() {
+        return mSharedPreferences.getString(ISDN_LOGIN, "");
+    }
+
+
+    public void putDeviceID(String value) {
+        editor.putString(DEVICE_ID, value);
+        editor.commit();
+    }
+
+    public String getDeviceID() {
+        return mSharedPreferences.getString(DEVICE_ID, "");
+    }
+
+    public <T> void putList(List<T> list) {
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putString(LIST_GIFT, gson.toJson(list));
+        editor.apply();
+    }
+
+    public <T> List<T> getList(Class<T> clazz) {
+        Type typeOfT = TypeToken.getParameterized(List.class, clazz).getType();
+        return gson.fromJson(mSharedPreferences.getString(LIST_GIFT, null), typeOfT);
+    }
+
+   //HDGASHGDSAD
+   public void putRoleName(String value) {
+       editor.putString(ROLE_NAME, value);
+       editor.commit();
+   }
+
+    public String getRoleName() {
+        return mSharedPreferences.getString(ROLE_NAME, "");
     }
 
 }

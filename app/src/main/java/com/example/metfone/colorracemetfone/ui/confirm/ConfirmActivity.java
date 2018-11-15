@@ -78,8 +78,6 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
 
 
         mActivity = this;
-        Intent intent = getIntent();
-        arrListGift = intent.getStringArrayListExtra("LIST_GIFT");
 
         sharedPreferences = new SharePreferenceUtils(this);
         language = sharedPreferences.getLanguage();
@@ -266,7 +264,7 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                     switch (result) {
                         case 1:
                             Intent intent = new Intent(ConfirmActivity.this , MainActivity.class);
-                            intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
+//                            intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
                             startActivityForResult(intent , 1);
                             progress.dismiss();
                             break;

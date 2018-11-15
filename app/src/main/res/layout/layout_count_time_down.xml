@@ -32,7 +32,7 @@
             android:paddingBottom="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingTop="20dp"
+            android:paddingTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -41,17 +41,17 @@
                 android:id="@+id/llDay"
                 android:visibility="visible"
                 android:background="@drawable/img_count_down"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tvDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
@@ -60,7 +60,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Day"
+                android:text="@string/day"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@id/llDay"
@@ -71,6 +71,7 @@
                 android:id="@+id/llHour"
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/img_count_down"
+                android:gravity="center"
                 app:layout_constraintLeft_toRightOf="@+id/llDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -81,7 +82,7 @@
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/llDay"
                 app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
@@ -89,7 +90,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hour"
+                android:text="@string/hour"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@+id/llHour"
@@ -100,6 +101,7 @@
                 android:id="@+id/llMinute"
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/img_count_down"
+                android:gravity="center"
                 app:layout_constraintLeft_toRightOf="@+id/llHour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -110,7 +112,7 @@
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/llHour"
                 app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
@@ -118,7 +120,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minute"
+                android:text="@string/minute"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@+id/llMinute"
@@ -129,6 +131,7 @@
                 android:id="@+id/llSecond"
                 android:layout_marginLeft="16dp"
                 android:background="@drawable/img_count_down"
+                android:gravity="center"
                 app:layout_constraintLeft_toRightOf="@+id/llMinute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -140,7 +143,7 @@
                 android:text="29"
                 android:padding="4sp"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/llMinute"
                 app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
@@ -148,7 +151,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Second"
+                android:text="@string/second"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@+id/llSecond"

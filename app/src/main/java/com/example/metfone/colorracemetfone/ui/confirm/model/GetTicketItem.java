@@ -1,5 +1,7 @@
 package com.example.metfone.colorracemetfone.ui.confirm.model;
 
+import com.example.metfone.colorracemetfone.ui.login.model.TicketItem;
+
 public class GetTicketItem {
     private String desc;
     private String errorCode;
@@ -11,6 +13,15 @@ public class GetTicketItem {
     private String latStadium;
     private String longStadium;
     private String totalIsdn;
+    private TicketItem ticket;
+
+    public TicketItem getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(TicketItem ticket) {
+        this.ticket = ticket;
+    }
 
     public String getLatStadium() {
         return latStadium;

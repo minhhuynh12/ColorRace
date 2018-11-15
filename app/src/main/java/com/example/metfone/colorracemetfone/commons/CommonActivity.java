@@ -72,9 +72,9 @@ public class CommonActivity {
         }
     }
 
-    public static Dialog createDialog(Activity act, String message,
-                                      String title, String leftButtonText, String rightButtonText,
-                                      final View.OnClickListener leftClick, final View.OnClickListener rightClick) {
+    public static Dialog createDialogYesNo(Activity act, String message,
+                                           String title,
+                                           final View.OnClickListener leftClick, final View.OnClickListener rightClick) {
         try {
             final Dialog dialog = new Dialog(act);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -90,8 +90,8 @@ public class CommonActivity {
             // dialog.setPositiveButton(act.getString(R.string.ok), null);
             Button btnLeft = (Button) dialog.findViewById(R.id.btnLeft);
             Button btnRight = (Button) dialog.findViewById(R.id.btnRight);
-            btnLeft.setText(leftButtonText);
-            btnRight.setText(rightButtonText);
+            btnLeft.setText(act.getResources().getString(R.string.no));
+            btnRight.setText(act.getResources().getString(R.string.yes));
 
             View.OnClickListener leftClickListener = new View.OnClickListener() {
 

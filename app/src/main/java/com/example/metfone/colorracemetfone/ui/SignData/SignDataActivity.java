@@ -35,8 +35,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class SignDataActivity extends AppCompatActivity {
@@ -52,11 +54,13 @@ public class SignDataActivity extends AppCompatActivity {
     private UploadCallbacks mListener;
     private String permissoin;
     private int totalIsdn;
+    String currentDateandTime;
+    public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
 
     int pStatus = 0;
     TextView tv;
     ProgressBar mProgress;
-     List<String> listStr;
+    List<String> listStr;
 
     private SharePreferenceUtils sharedPreferences;
 
@@ -72,6 +76,9 @@ public class SignDataActivity extends AppCompatActivity {
         mActivity = this;
 
         mydb = new DBHelper(this);
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        currentDateandTime = sdf.format(new Date());
+
 
         new CallWSAsyncTask().execute("1", isdn, otp);
 
@@ -137,13 +144,7 @@ public class SignDataActivity extends AppCompatActivity {
                             progress.dismiss();
                             parseJson(listSign.get(0).getLstIsdn());
 
-//                            Intent intent = new Intent(SignDataActivity.this, ChartActivity.class);
-//                            intent.putExtra("OTP", otp);
-//                            intent.putExtra("ISDN", isdn);
-//                            intent.putExtra("PERMISSION", permissoin);
-//                            intent.putExtra("TIME_NIGHT_RACE", EVENT_DATE_TIME);
-//                            startActivity(intent);
-//                            progress.dismiss();
+
                             break;
                     }
                 } else {
@@ -186,17 +187,6 @@ public class SignDataActivity extends AppCompatActivity {
     private void parseJson(String lstIsdn) {
         Type listType = new TypeToken<List<String>>() {
         }.getType();
-
-//        progressDoalog = new ProgressBar(mActivity);
-//        progressDoalog.setMax(100);
-//        progressDoalog.setVisibility(View.VISIBLE);
-//
-//        progressdialog = new ProgressDialog(mActivity);
-//        progressdialog.setMessage(mActivity.getResources().getString(R.string.please_wait));
-//        progressdialog.setMax(100);
-//        progressdialog.show();
-
-
         try {
             JSONObject object = new JSONObject(lstIsdn);
             listStr = (new Gson().fromJson(object.getString("lstIsdn"), listType));
@@ -221,14 +211,13 @@ public class SignDataActivity extends AppCompatActivity {
 
     }
 
-    class MyTask extends AsyncTask<Integer, Integer, String>
-    {
+    class MyTask extends AsyncTask<Integer, Integer, String> {
         @Override
         protected String doInBackground(Integer... params) {
             for (; pStatus < params[0]; pStatus++) {
-                mydb.insertContact(listStr.get(pStatus));
+                mydb.insertContact(listStr.get(pStatus), "0", currentDateandTime);
                 publishProgress((int) ((pStatus / (float) params[0]) * 100));
-                if(isCancelled()) break;
+                if (isCancelled()) break;
             }
             return "Task Completed.";
         }
@@ -236,7 +225,7 @@ public class SignDataActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             Intent intent = new Intent(SignDataActivity.this, ChartActivity.class);
-            startActivityForResult(intent , 1);
+            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
         }
 
         @Override
@@ -250,12 +239,17 @@ public class SignDataActivity extends AppCompatActivity {
             mProgress.setProgress(values[0]);
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-
+        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN) {
+            if (resultCode == 12) {
+                Intent returnIntent = new Intent();
+                setResult(12, returnIntent);
                 finish();
+            }
+            finish();
 
         }
     }

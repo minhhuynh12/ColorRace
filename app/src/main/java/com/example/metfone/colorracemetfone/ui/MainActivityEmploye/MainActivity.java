@@ -32,7 +32,9 @@ import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.Adapter.MainA
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.MapFragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.NightRaceFragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.TicketFragment;
+import com.example.metfone.colorracemetfone.ui.login.model.LstGiftItem;
 import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
+import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tvPhoneNumberNavi;
     LinearLayout cardView;
     List<String> arrListGift;
+    List<LstGiftItem> listGift;
     private String status;
     private Runnable runnable;
     private String EVENT_DATE_TIME ;
@@ -99,13 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        sharedPreferences = new SharePreferenceUtils(this);
+        Gson gson = new Gson();
+        sharedPreferences = new SharePreferenceUtils(this , gson);
 
         init();
         arrListGift = new ArrayList();
-        Intent intent = getIntent();
-        arrListGift = intent.getStringArrayListExtra("LIST_GIFT");
+
+        arrListGift = sharedPreferences.getList(String.class);
 
         status = sharedPreferences.getStatus();
         qrCode = sharedPreferences.getQrCode();
@@ -274,6 +277,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.llLogOut:
+                Intent returnIntent = new Intent();
+                setResult(12,returnIntent);
+                sharedPreferences.putPinCode("");
                 finish();
                 break;
         }

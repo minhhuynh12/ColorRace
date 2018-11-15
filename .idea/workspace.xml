@@ -16,235 +16,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f72f5ebe-b2f7-460d-a400-4c9955664f7d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_common_1_1_0_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_core_runtime_1_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_common_1_1_0_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_livedata_core_1_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_viewmodel_1_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_andrognito_pinlockview_pinlockview_2_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_27_1_1_jar.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_27_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_rules_1_0_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/ListGiftItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/checkInSecond/CheckInSecondActivity.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/checkInSecond/model/CheckInSecondItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/model/ContactItem.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBCheckInSecond.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_check_in_second.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_confirm_yes_no.xml" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/jarAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_annotation_annotation_1_0_0_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/MPChartLib.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/build.gradle" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/ic_launcher-web.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/AndroidManifest.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/animation/ChartAnimator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/animation/Easing.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/buffer/AbstractBuffer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/buffer/BarBuffer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/buffer/HorizontalBarBuffer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/BarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/BarLineChartBase.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/BubbleChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/CandleStickChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/Chart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/CombinedChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/HorizontalBarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/LineChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/PieChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/PieRadarChartBase.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/RadarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/charts/ScatterChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/AxisBase.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/ComponentBase.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/Description.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/IMarker.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/Legend.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/LegendEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/LimitLine.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/MarkerImage.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/MarkerView.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/XAxis.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/YAxis.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BarData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BarEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BarLineScatterCandleBubbleData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BarLineScatterCandleBubbleDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BaseDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BaseEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BubbleData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BubbleDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/BubbleEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/CandleData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/CandleDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/CandleEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/ChartData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/CombinedData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/DataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/Entry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/LineData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/LineDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/LineRadarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/LineScatterCandleRadarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/PieData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/PieDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/PieEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/RadarData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/RadarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/RadarEntry.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/ScatterData.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/ScatterDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/data/filter/Approximator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/exception/DrawingDataSetNotCreatedException.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/ColorFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/DefaultAxisValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/DefaultFillFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/DefaultValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/IAxisValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/IFillFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/IValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/IndexAxisValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/LargeValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/PercentFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/StackedValueFormatter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/BarHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/ChartHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/CombinedHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/Highlight.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/HorizontalBarHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/IHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/PieHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/PieRadarHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/RadarHighlighter.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/highlight/Range.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/BarDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/BarLineScatterCandleBubbleDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/BubbleDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/CandleDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/ChartInterface.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/CombinedDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/LineDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/dataprovider/ScatterDataProvider.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IBarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IBarLineScatterCandleBubbleDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IBubbleDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/ICandleDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/ILineDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/ILineRadarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/ILineScatterCandleRadarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IPieDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IRadarDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/interfaces/datasets/IScatterDataSet.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/AnimatedMoveViewJob.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/AnimatedViewPortJob.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/AnimatedZoomJob.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/MoveViewJob.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/ViewPortJob.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/ZoomJob.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/BarLineChartTouchListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/ChartTouchListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/OnChartGestureListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/OnChartValueSelectedListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/OnDrawLineChartTouchListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/OnDrawListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/listener/PieRadarChartTouchListener.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/matrix/Vector3.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/model/GradientColor.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/AxisRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/BarChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/BarLineScatterCandleBubbleRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/BubbleChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/CandleStickChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/CombinedChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/DataRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/HorizontalBarChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/LegendRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/LineChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/LineRadarRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/LineScatterCandleRadarRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/PieChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/RadarChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/Renderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/ScatterChartRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/XAxisRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/XAxisRendererHorizontalBarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/XAxisRendererRadarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/YAxisRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/YAxisRendererHorizontalBarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/YAxisRendererRadarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/ChevronDownShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/ChevronUpShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/CircleShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/CrossShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/IShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/SquareShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/TriangleShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/scatter/XShapeRenderer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/ColorTemplate.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/EntryXComparator.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/FSize.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/FileUtils.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/HorizontalViewPortHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/MPPointD.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/MPPointF.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/ObjectPool.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/Transformer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/TransformerHorizontalBarChart.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/Utils.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/utils/ViewPortHandler.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/ApproximatorTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/AxisRendererTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/BarDataTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/ChartDataTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/DataSetTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/LargeValueFormatterTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/MPChartLib/src/test/java/com/github/mikephil/charting/test/ObjectPoolTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/CommonActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/CommonActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/adapter/ChartAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/adapter/ChartAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/Adapter/MainActivityAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/Adapter/MainActivityAdapter.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/TicketFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/TicketFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/adapter/TicketAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/adapter/TicketAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/model/GetTicketItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/model/GetTicketItem.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/GetOtpItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/GetOtpItem.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/TicketItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/TicketItem.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBHelper.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/SharePreferenceUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/SharePreferenceUtils.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/acitivity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/acitivity_login.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/circular.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/circular.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_information_ticket.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_information_ticket.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_result_qr_code.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_result_qr_code.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_night_race.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_night_race.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_count_time_down.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_count_time_down.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
+      <change beforePath="$PROJECT_DIR$/pflockscreen/pflockscreen.iml" afterPath="$PROJECT_DIR$/pflockscreen/pflockscreen.iml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -277,116 +96,126 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_chart_item.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart_item.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="85" column="29" lean-forward="false" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_confirm.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-528">
-              <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_create_qr_code.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_qr_code.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_customize_login.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_customize_login.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_information_ticket.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_information_ticket.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="149" column="43" lean-forward="false" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowResultQrCodeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="38" column="45" lean-forward="false" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ChartActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1113">
-              <caret line="111" column="48" lean-forward="false" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="530">
+              <caret line="211" column="49" lean-forward="false" selection-start-line="211" selection-start-column="49" selection-end-line="211" selection-end-column="49" />
+              <folding>
+                <element signature="e#6922#6953#0" expanded="true" />
+                <element signature="e#6955#6987#0" expanded="true" />
+                <element signature="e#9065#9120#0" expanded="true" />
+                <element signature="e#9122#9150#0" expanded="true" />
+                <element signature="e#15984#16012#0" expanded="true" />
+                <element signature="e#16371#16399#0" expanded="true" />
+                <element signature="e#17090#17128#0" expanded="true" />
+                <element signature="e#17130#17158#0" expanded="true" />
+                <element signature="e#17302#17340#0" expanded="true" />
+                <element signature="e#17342#17370#0" expanded="true" />
+                <element signature="e#18218#19654#0" expanded="true" />
+                <element signature="e#19653#19654#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChartAdapter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/adapter/ChartAdapter.java">
+      <file leaf-file-name="SignDataActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="409">
+              <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InformationTicketActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java">
+      <file leaf-file-name="circular_progress.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="123" column="87" lean-forward="false" selection-start-line="123" selection-start-column="87" selection-end-line="123" selection-end-column="87" />
+            <state relative-caret-position="630">
+              <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="280" column="43" lean-forward="false" selection-start-line="279" selection-start-column="15" selection-end-line="280" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_sign_data.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <caret line="21" column="48" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="48" />
+              <folding>
+                <element signature="e#1904#1925#0" expanded="true" />
+                <element signature="e#2547#2579#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="circular.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circular.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="attrs.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Android/sdk/platforms/android-28/data/res/values/attrs.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="678" column="20" lean-forward="false" selection-start-line="678" selection-start-column="20" selection-end-line="678" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PinActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1605">
+              <caret line="126" column="13" lean-forward="false" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
+              <folding>
+                <element signature="e#4210#4211#0" expanded="true" />
+                <element signature="e#4257#4258#0" expanded="true" />
+                <element signature="e#5224#5279#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PinConfirmActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-169">
+              <caret line="187" column="92" lean-forward="false" selection-start-line="187" selection-start-column="92" selection-end-line="187" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RequestGetwayWS.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -408,36 +237,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cardView</find>
-      <find>btnConfirm</find>
-      <find>dbHelper</find>
-      <find>SignDataActivity</find>
-      <find>handler</find>
-      <find>fin</find>
-      <find>intent</find>
-      <find>PIN_CODE</find>
-      <find>LANGUAGE</find>
-      <find>TimeNightRace</find>
-      <find>getTimeNightRace</find>
-      <find>tvTypeTicket</find>
-      <find>putTimeNightRace</find>
-      <find>EVENT_DATE_TIME</find>
-      <find>btnOTP</find>
-      <find>data</find>
-      <find>tvPhoneNumberNavi</find>
-      <find>onNavigationItemSelected</find>
-      <find>toolbar</find>
-      <find>receive_gift_date</find>
+      <find>navigation_drawer_open</find>
+      <find>ticket_type</find>
+      <find>PHONE_TABLE_NAME</find>
+      <find>currentDateandTime</find>
+      <find>not_yet_received</find>
+      <find>Not yet</find>
+      <find>db</find>
+      <find>LoginActivity</find>
+      <find>putISDN</find>
+      <find>llSign</find>
+      <find>allow_permission_cam</find>
+      <find>onComplete</find>
+      <find>099</find>
+      <find>getPermission</find>
+      <find>permission</find>
+      <find>out</find>
+      <find>Day</find>
       <find>totalIsdn</find>
-      <find>total</find>
-      <find>latStadium</find>
-      <find>Amount</find>
-      <find>read</find>
-      <find>llLogOut</find>
-      <find>logo</find>
-      <find>no_new</find>
-      <find>ter</find>
-      <find>btnGivingGifts</find>
+      <find>PIN_CODE</find>
+      <find>onCrea</find>
+      <find>MediaPlayer</find>
+      <find>handleDecode</find>
+      <find>playBeepSoundAndVibrate</find>
+      <find>mMediaPlayer</find>
+      <find>imgBack</find>
+      <find>pin</find>
+      <find>customer</find>
+      <find>sign</find>
+      <find>color</find>
+      <find>circularProgressbar</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -3583,62 +3412,62 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/model/CheckSignDataItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_result_qr_code.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/UploadCallbacks.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_customize_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/model/SignDataItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginCustomizeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/model/InfoItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RuntimePermission.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/CheckOTPItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/TicketItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_information_ticket.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_chart_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/pflockscreen/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/GetOtpItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/SharePreferenceUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/TicketFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/Adapter/MainActivityAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/acitivity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/model/GetTicketItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/adapter/TicketAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/TicketItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/checkInSecond/model/CheckInSecondItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBCheckInSecond.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/adapter/ChartAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_information_ticket.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/model/ContactItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/checkInSecond/CheckInSecondActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_check_in_second.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_confirm_yes_no.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/CommonActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/ListGiftItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_night_race.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_count_time_down.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/SharePreferenceUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/model/GetTicketItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_result_qr_code.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/circular.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="44" />
     <option name="y" value="22" />
     <option name="width" value="1876" />
     <option name="height" value="1058" />
@@ -3674,6 +3503,56 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ColorRace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ColorRace" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="ColorRace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ColorRace" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="ColorRace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ColorRace" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ColorRace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ColorRace" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ColorRace" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ColorRace" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ColorRace" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3684,11 +3563,6 @@
             <path>
               <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
@@ -3751,8 +3625,7 @@
               <item name="metfone" type="462c0819:PsiDirectoryNode" />
               <item name="colorracemetfone" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="Chart" type="462c0819:PsiDirectoryNode" />
-              <item name="adapter" type="462c0819:PsiDirectoryNode" />
+              <item name="checkInSecond" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
@@ -3764,29 +3637,6 @@
               <item name="colorracemetfone" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="confirm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="metfone" type="462c0819:PsiDirectoryNode" />
-              <item name="colorracemetfone" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="confirm" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="metfone" type="462c0819:PsiDirectoryNode" />
-              <item name="colorracemetfone" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="informationTicket" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
@@ -3831,19 +3681,6 @@
               <item name="metfone" type="462c0819:PsiDirectoryNode" />
               <item name="colorracemetfone" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="MainActivityEmploye" type="462c0819:PsiDirectoryNode" />
-              <item name="fragment" type="462c0819:PsiDirectoryNode" />
-              <item name="adapter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="metfone" type="462c0819:PsiDirectoryNode" />
-              <item name="colorracemetfone" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
               <item name="Pin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -3874,37 +3711,7 @@
             </path>
             <path>
               <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="ColorRace" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ColorRace" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ColorRace" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ColorRace" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -3919,7 +3726,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="22dcee59" />
-    <property name="SearchEverywhereHistoryKey" value="str&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values-kh/strings.xml&#10;re&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java&#10;main&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java&#10;sign&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java&#10;Main&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java&#10;logi&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/acitivity_login.xml&#10;cons&#9;PSI&#9;JAVA://com.example.metfone.colorracemetfone.commons.Constant&#10;login&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java&#10;dimen&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/dimen.xml&#10;char&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java&#10;s&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;colo&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/colors.xml&#10;Sty&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/styles.xml&#10;strin&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;req&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java&#10;Db&#9;PSI&#9;JAVA://com.example.metfone.colorracemetfone.util.DBHelper&#10;log&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java&#10;rs&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/util/RSAUtil.java&#10;ac&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/activity_chart_item.xml&#10;des&#9;PSI&#9;JAVA://com.github.mikephil.charting.components.Description&#10;fra&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/fragmnet_ticket_item.xml&#10;string&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;con&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java&#10;dime&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/dimen.xml&#10;sty&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/styles.xml" />
+    <property name="SearchEverywhereHistoryKey" value="cons&#9;PSI&#9;JAVA://com.example.metfone.colorracemetfone.commons.Constant&#10;colo&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/colors.xml&#10;sign&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java&#10;conf&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/activity_confirm.xml&#10;str&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;char&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java&#10;pinc&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java&#10;confi&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/activity_confirm.xml&#10;color&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/colors.xml&#10;login&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java&#10;re&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java&#10;stri&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;main&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java&#10;Main&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java&#10;logi&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/acitivity_login.xml&#10;dimen&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/dimen.xml&#10;s&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;Sty&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/styles.xml&#10;strin&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;req&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java&#10;Db&#9;PSI&#9;JAVA://com.example.metfone.colorracemetfone.util.DBHelper&#10;log&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java&#10;rs&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/util/RSAUtil.java&#10;ac&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/activity_chart_item.xml&#10;des&#9;PSI&#9;JAVA://com.github.mikephil.charting.components.Description&#10;fra&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/layout/fragmnet_ticket_item.xml&#10;string&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/strings.xml&#10;con&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java&#10;dime&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/dimen.xml&#10;sty&#9;FILE&#9;file:///Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/ColorRace/app/src/main/res/values/styles.xml" />
     <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
@@ -4288,7 +4095,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="38" y="22" width="1876" height="1058" extended-state="6" />
+    <frame x="44" y="22" width="1876" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -4308,7 +4115,6 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25517994" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287234" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972737" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -4321,6 +4127,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -4329,98 +4136,137 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/CreateQrCode/CreateQrCodeActivity.java</url>
-          <line>31</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/MPChartLib/src/main/java/com/github/mikephil/charting/components/ComponentBase.java</url>
           <line>120</line>
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RSAUtil.java</url>
           <line>86</line>
           <properties />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java</url>
-          <line>192</line>
+          <line>195</line>
           <properties />
           <option name="timeStamp" value="100" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java</url>
-          <line>168</line>
-          <properties />
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java</url>
-          <line>83</line>
+          <line>86</line>
           <properties />
           <option name="timeStamp" value="145" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java</url>
-          <line>255</line>
-          <properties />
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java</url>
-          <line>102</line>
-          <properties />
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java</url>
-          <line>179</line>
+          <line>195</line>
           <properties />
           <option name="timeStamp" value="150" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java</url>
-          <line>25</line>
-          <properties />
-          <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java</url>
-          <line>226</line>
-          <properties />
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java</url>
-          <line>65</line>
+          <line>69</line>
           <properties />
           <option name="timeStamp" value="164" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java</url>
-          <line>28</line>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java</url>
+          <line>270</line>
           <properties />
-          <option name="timeStamp" value="166" />
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBHelper.java</url>
+          <line>111</line>
+          <properties />
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java</url>
+          <line>249</line>
+          <properties />
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java</url>
+          <line>337</line>
+          <properties />
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java</url>
+          <line>128</line>
+          <properties />
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java</url>
+          <line>288</line>
+          <properties />
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java</url>
+          <line>239</line>
+          <properties />
+          <option name="timeStamp" value="189" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/TicketFragment.java</url>
-          <line>49</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java</url>
+          <line>72</line>
           <properties />
-          <option name="timeStamp" value="167" />
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java</url>
+          <line>138</line>
+          <properties />
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java</url>
+          <line>251</line>
+          <properties />
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java</url>
+          <line>129</line>
+          <properties />
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java</url>
+          <line>245</line>
+          <properties />
+          <option name="timeStamp" value="200" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="170" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="201" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -4437,233 +4283,150 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-28/android/os/Looper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/TicketItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/UploadCallbacks.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/model/CheckSignDataItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circular.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/model/ContactItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/checkInSecond/CheckInSecondActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <element signature="e#2079#2221#0" expanded="false" />
+            <element signature="e#2220#2221#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_check_in_second.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="139" column="41" lean-forward="false" selection-start-line="139" selection-start-column="41" selection-end-line="139" selection-end-column="41" />
+          <folding>
+            <element signature="e#387#1217#0" expanded="false" />
+            <element signature="e#2051#2068#0" expanded="false" />
+            <element signature="e#5925#5942#0" expanded="false" />
+            <element signature="e#5985#6002#0" expanded="false" />
+            <element signature="e#6046#6063#0" expanded="false" />
+            <element signature="e#6204#6216#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_confirm_yes_no.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="35" lean-forward="false" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+          <folding>
+            <element signature="e#359#384#0" expanded="false" />
+            <element signature="e#455#473#0" expanded="false" />
+            <element signature="e#610#631#0" expanded="false" />
+            <element signature="e#1004#1022#0" expanded="false" />
+            <element signature="e#1057#1075#0" expanded="false" />
+            <element signature="e#1111#1129#0" expanded="false" />
+            <element signature="e#1163#1181#0" expanded="false" />
+            <element signature="e#1270#1291#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/common_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/common_dialog.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="204" column="53" lean-forward="false" selection-start-line="204" selection-start-column="53" selection-end-line="204" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/CommonActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="109" column="45" lean-forward="false" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
+          <folding>
+            <element signature="e#3650#3691#0" expanded="false" />
+            <element signature="e#3723#3765#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-28/android/os/AsyncTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="402" column="30" lean-forward="false" selection-start-line="402" selection-start-column="30" selection-end-line="402" selection-end-column="30" />
+        <state relative-caret-position="297">
+          <caret line="593" column="53" lean-forward="false" selection-start-line="593" selection-start-column="53" selection-end-line="593" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pflockscreen/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/QRCodeScanner-0.1.2.aar/b688e2dd72a2429b6cce605300a1c59b/res/values/values.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="65" lean-forward="false" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="46" column="58" lean-forward="false" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="25" column="61" lean-forward="false" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+          <caret line="19" column="45" lean-forward="false" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.andrognito.pinlockview/pinlockview/2.1.0/78bfb6077974bd1deeb388269172ef09f097b9b7/pinlockview-2.1.0-sources.jar!/com/andrognito/pinlockview/PinLockView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/ListGiftItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#179#180#0" expanded="false" />
+            <element signature="e#219#220#0" expanded="false" />
+            <element signature="e#251#252#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/GetOtpItem.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.5/c5b4c491aecb72e7c32a78da0b5c6b9cda8dee0f/gson-2.8.5-sources.jar!/com/google/gson/reflect/TypeToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#454#455#0" expanded="false" />
-            <element signature="e#504#505#0" expanded="false" />
-            <element signature="e#546#547#0" expanded="false" />
-            <element signature="e#1370#1371#0" expanded="false" />
-            <element signature="e#1402#1403#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RSAUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-631">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/AESHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="86" column="39" lean-forward="false" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_result_qr_code.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="54" column="25" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="54" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+        <state relative-caret-position="297">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -4671,276 +4434,366 @@
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-28/android/app/ActivityThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
-          <caret line="2541" column="0" lean-forward="false" selection-start-line="2541" selection-start-column="0" selection-end-line="2541" selection-end-column="0" />
+          <caret line="3000" column="0" lean-forward="false" selection-start-line="3000" selection-start-column="0" selection-end-line="3000" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/CheckOTPItem.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/NightRaceFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="255">
+          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_night_race.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="50" column="69" lean-forward="false" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/RoleItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding>
-            <element signature="e#658#659#0" expanded="false" />
-            <element signature="e#691#692#0" expanded="false" />
+            <element signature="e#900#901#0" expanded="false" />
+            <element signature="e#931#932#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1889">
-          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="25" />
+        <state relative-caret-position="278">
+          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/acitivity_login.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="134" column="38" lean-forward="false" selection-start-line="134" selection-start-column="38" selection-end-line="134" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="61" lean-forward="false" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/border_shadow_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_count_time_down.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/SharePreferenceUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="145" column="33" lean-forward="false" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="33" />
-          <folding>
-            <element signature="e#3810#3811#0" expanded="false" />
-            <element signature="e#3882#3883#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/Adapter/MainActivityAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/model/TicketItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="26" column="54" lean-forward="false" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="115" column="42" lean-forward="false" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/model/GetTicketItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        <state relative-caret-position="165">
+          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding>
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#513#514#0" expanded="false" />
-            <element signature="e#557#558#0" expanded="false" />
-            <element signature="e#595#596#0" expanded="false" />
-            <element signature="e#629#630#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-            <element signature="e#765#766#0" expanded="false" />
-            <element signature="e#797#798#0" expanded="false" />
-            <element signature="e#847#848#0" expanded="false" />
-            <element signature="e#889#890#0" expanded="false" />
-            <element signature="e#1725#1726#0" expanded="false" />
-            <element signature="e#1757#1758#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="317" column="91" lean-forward="false" selection-start-line="317" selection-start-column="91" selection-end-line="317" selection-end-column="91" />
-          <folding>
-            <element signature="e#3167#3237#0" expanded="false" />
-            <element signature="e#3267#3295#0" expanded="false" />
-            <element signature="e#3297#3542#0" expanded="false" />
-            <element signature="e#3541#3542#0" expanded="false" />
-            <element signature="e#9585#9635#0" expanded="false" />
-            <element signature="e#9778#9829#0" expanded="false" />
-            <element signature="e#9960#10018#0" expanded="false" />
-            <element signature="e#10147#10203#0" expanded="false" />
-            <element signature="e#12677#12747#0" expanded="false" />
-            <element signature="e#17966#17994#0" expanded="false" />
-            <element signature="e#18353#18381#0" expanded="false" />
-            <element signature="e#18677#18705#0" expanded="false" />
-            <element signature="e#18862#18890#0" expanded="false" />
-            <element signature="e#19182#19220#0" expanded="false" />
-            <element signature="e#19222#19250#0" expanded="false" />
-            <element signature="e#19394#19432#0" expanded="false" />
-            <element signature="e#19434#19462#0" expanded="false" />
+            <element signature="e#531#532#0" expanded="false" />
+            <element signature="e#560#561#0" expanded="false" />
+            <element signature="e#608#609#0" expanded="false" />
+            <element signature="e#644#645#0" expanded="false" />
+            <element signature="e#1978#1979#0" expanded="false" />
+            <element signature="e#2010#2011#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/confirm/ConfirmActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="317" column="17" lean-forward="false" selection-start-line="317" selection-start-column="17" selection-end-line="317" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/adapter/TicketAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+        <state relative-caret-position="368">
+          <caret line="290" column="94" lean-forward="false" selection-start-line="290" selection-start-column="94" selection-end-line="290" selection-end-column="94" />
           <folding>
-            <element signature="e#1559#1609#0" expanded="false" />
-            <element signature="e#1742#1795#0" expanded="false" />
-            <element signature="e#1927#1973#0" expanded="false" />
-            <element signature="e#2927#2928#0" expanded="false" />
-            <element signature="e#2961#2962#0" expanded="false" />
+            <element signature="e#11172#11200#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/fragment/TicketFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        <state relative-caret-position="381">
+          <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/blikoon/qrcodescanner/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="541">
-          <caret line="146" column="15" lean-forward="false" selection-start-line="146" selection-start-column="15" selection-end-line="146" selection-end-column="15" />
+        <state relative-caret-position="-2483">
+          <caret line="711" column="32" lean-forward="false" selection-start-line="711" selection-start-column="32" selection-end-line="711" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_result_qr_code.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="41" column="29" lean-forward="true" selection-start-line="41" selection-start-column="29" selection-end-line="41" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="109">
+          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="32" />
+          <folding>
+            <element signature="e#508#525#0" expanded="false" />
+            <element signature="e#560#577#0" expanded="false" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_count_time_down.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/acitivity_login.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/QRCodeScanner-0.1.2.aar/b688e2dd72a2429b6cce605300a1c59b/jars/classes.jar!/com/blikoon/qrcodescanner/QrCodeActivity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="177" column="15" lean-forward="false" selection-start-line="177" selection-start-column="15" selection-end-line="177" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="115" column="44" lean-forward="false" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart_item.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="85" column="29" lean-forward="false" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528">
-          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_qr_code.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_customize_login.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_information_ticket.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="149" column="43" lean-forward="false" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-kh/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/informationTicket/InformationTicketActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="123" column="87" lean-forward="false" selection-start-line="123" selection-start-column="87" selection-end-line="123" selection-end-column="87" />
+        <state relative-caret-position="90">
+          <caret line="52" column="13" lean-forward="false" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/showResultQrCode/ShowResultQrCodeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="38" column="45" lean-forward="false" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+        <state relative-caret-position="375">
+          <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+          <folding>
+            <element signature="e#2436#2483#0" expanded="false" />
+            <element signature="e#2928#2972#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="e#1559#1577#0" expanded="false" />
+            <element signature="e#1613#1631#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_confirm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="136" column="38" lean-forward="false" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="67" column="74" lean-forward="false" selection-start-line="67" selection-start-column="74" selection-end-line="67" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="171" column="16" lean-forward="false" selection-start-line="171" selection-start-column="16" selection-end-line="171" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/commons/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/login/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="487" column="25" lean-forward="false" selection-start-line="487" selection-start-column="25" selection-end-line="487" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/MainActivityEmploye/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="280" column="43" lean-forward="false" selection-start-line="279" selection-start-column="15" selection-end-line="280" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/ChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1113">
-          <caret line="111" column="48" lean-forward="false" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
+        <state relative-caret-position="530">
+          <caret line="211" column="49" lean-forward="false" selection-start-line="211" selection-start-column="49" selection-end-line="211" selection-end-column="49" />
+          <folding>
+            <element signature="e#6922#6953#0" expanded="true" />
+            <element signature="e#6955#6987#0" expanded="true" />
+            <element signature="e#9065#9120#0" expanded="true" />
+            <element signature="e#9122#9150#0" expanded="true" />
+            <element signature="e#15984#16012#0" expanded="true" />
+            <element signature="e#16371#16399#0" expanded="true" />
+            <element signature="e#17090#17128#0" expanded="true" />
+            <element signature="e#17130#17158#0" expanded="true" />
+            <element signature="e#17302#17340#0" expanded="true" />
+            <element signature="e#17342#17370#0" expanded="true" />
+            <element signature="e#18218#19654#0" expanded="true" />
+            <element signature="e#19653#19654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/util/RequestGetwayWS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Chart/adapter/ChartAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        <state relative-caret-position="1605">
+          <caret line="126" column="13" lean-forward="false" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
+          <folding>
+            <element signature="e#4210#4211#0" expanded="true" />
+            <element signature="e#4257#4258#0" expanded="true" />
+            <element signature="e#5224#5279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/platforms/android-28/data/res/values/attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="678" column="20" lean-forward="false" selection-start-line="678" selection-start-column="20" selection-end-line="678" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/Pin/PinConfirmActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="187" column="92" lean-forward="false" selection-start-line="187" selection-start-column="92" selection-end-line="187" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circular.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_data.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="48" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <element signature="e#1904#1925#0" expanded="true" />
+            <element signature="e#2547#2579#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/circular_progress.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="57" lean-forward="false" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/metfone/colorracemetfone/ui/SignData/SignDataActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

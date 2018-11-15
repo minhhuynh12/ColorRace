@@ -46,6 +46,8 @@
             android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
         <activity android:name=".ui.Pin.PinConfirmActivity"   android:configChanges="orientation"
             android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name=".ui.checkInSecond.CheckInSecondActivity"   android:configChanges="orientation"
+            android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
 
     </application>
 

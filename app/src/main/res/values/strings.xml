@@ -5,7 +5,7 @@
         Many industry data standards, e.g. HL7, OTA, FpML, MISMO, NIEM, etc. are based on XML and the rich features of the XML schema specification. Many of these standards are quite complex and it is not uncommon for a specification to comprise several thousand pages.
         In publishing, DITA is an XML industry data standard. XML is used extensively to underpin various publishing formats.
         XML is widely used in a Services Oriented Architecture (SOA). Disparate systems communicate with each other by exchanging XML messages</string>
-    <string name="get_ticket">Get ticket</string>
+    <string name="get_ticket">GET e-TICKET</string>
     <string name="ok">Ok</string>
     <string name="errorCallWebervice">Connect network fail, please try again!</string>
     <string name="errorNetworkAccess">No internet</string>
@@ -14,17 +14,17 @@
     <string name="otp">OTP</string>
     <string name="get_otp">Get OTP</string>
     <string name="allow_permission_cam">Please! allow permission camera</string>
-    <string name="information_ticket">INFORMATION TICKET</string>
-    <string name="customer">Customer</string>
-    <string name="ticket_type">Ticket type</string>
-    <string name="receive_time">Receive time</string>
+    <string name="information_ticket">INFORMATION e-TICKET</string>
+    <string name="customer">Customer:</string>
+    <string name="ticket_type">Ticket type:</string>
+    <string name="receive_time">Receive time:</string>
 
-    <string name="status">Status</string>
+    <string name="status">Status:</string>
     <string name="giving_gifts">Giving gifts</string>
     <string name="login">Login</string>
     <string name="success">Success</string>
     <string name="fail">Fail</string>
-    <string name="ticket">Ticket</string>
+    <string name="ticket">e-Ticket</string>
     <string name="total">Total:</string>
     <string name="received">Received</string>
     <string name="not_yet">Not yet</string>
@@ -34,7 +34,7 @@
     <string name="map">Map</string>
     <string name="please_wait">Please waiting</string>
     <string name="location">Location: OLYMPIC STADIUM</string>
-    <string name="title_count_down">Out night race start in</string>
+    <string name="title_count_down">Our night race start in</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -52,10 +52,19 @@
     <string name="OTP_successfully">Get OTP successfully</string>
     <string name="receive">Receive</string>
     <string name="amount">Amount</string>
-    <string name="gift">Gift</string>
+    <string name="gift">Gift:</string>
 
-
-
-
+    <string name="check_in">Check in</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="syc_customer">Synchronize manual</string>
+    <string name="day">Days</string>
+    <string name="hour">Hours</string>
+    <string name="minute">Minutes</string>
+    <string name="second">Seconds</string>
+    <string name="confirm_pin">Confirm pin code</string>
+    <string name="set_up_pin_code">Enter pin code</string>
+    <string name="synchronize">Synchronize</string>
+    <string name="wraning_turn_off_phone">it might be take a few minutes. Please do not turn your phone off</string>
 
 </resources>

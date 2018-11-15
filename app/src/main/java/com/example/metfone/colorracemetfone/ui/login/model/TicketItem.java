@@ -8,7 +8,16 @@ public class TicketItem {
     private String status;
     private String ticketType;
     private String dateReceive;
+    private String pincode;
     private List<String> lstGift;
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
 
     public String getDateReceive() {
         return dateReceive;

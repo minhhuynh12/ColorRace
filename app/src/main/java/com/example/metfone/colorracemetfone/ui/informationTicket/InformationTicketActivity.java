@@ -18,6 +18,7 @@ import com.example.metfone.colorracemetfone.commons.Constant;
 import com.example.metfone.colorracemetfone.ui.Chart.model.ChartItem;
 import com.example.metfone.colorracemetfone.ui.Chart.model.TicketGiftItem;
 import com.example.metfone.colorracemetfone.ui.informationTicket.model.InfoItem;
+import com.example.metfone.colorracemetfone.util.DBHelper;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 
@@ -45,12 +46,15 @@ public class InformationTicketActivity extends AppCompatActivity implements View
     String language;
     private SharePreferenceUtils sharedPreferences;
     private List<InfoItem> infoItems;
+    private DBHelper dbHelper;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_ticket);
+        dbHelper = new DBHelper(this);
+
         edCustomer = findViewById(R.id.edCustomer);
         imgBack = findViewById(R.id.imgBack);
         btnGivingGifts = findViewById(R.id.btnGivingGifts);
@@ -103,7 +107,6 @@ public class InformationTicketActivity extends AppCompatActivity implements View
                 }else {
                     gift = "";
                 }
-
             } else if (" status".equals(arrStr[0])) {
                 if (arrStr.length > 1){
                     status = arrStr[1];

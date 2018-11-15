@@ -38,8 +38,10 @@ import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.RuntimePermission;
 import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 import com.example.metfone.colorracemetfone.util.Utils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.IllegalFormatCodePointException;
 import java.util.List;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
@@ -64,6 +66,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private String permission;
     private int totalIsdn;
     private DBHelper dbHelper;
+    String stattus;
+    public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
 
 
     @Override
@@ -117,12 +121,18 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         tvLangKH = findViewById(R.id.tvLangKH);
         edOTP.setText("");
 
-
-        sharedPreferences = new SharePreferenceUtils(this);
+        Gson gson = new Gson();
+        sharedPreferences = new SharePreferenceUtils(this, gson);
         language = sharedPreferences.getLanguage();
+        String pin = "";
+        pin = sharedPreferences.getPinCode();
+        if (!"".equals(pin)){
+            Intent intent = new Intent(LoginActivity.this, PinActivity.class);
+            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+        }
 
 
-        flagPermission = RuntimePermission.CheckingPermissionIsEnabledOrNot(this);
+            flagPermission = RuntimePermission.CheckingPermissionIsEnabledOrNot(this);
 
         if (!flagPermission) {
             RuntimePermission.requestReadAndPermission(this);
@@ -175,8 +185,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             case R.id.btnLogin:
                 otp = edOTP.getText().toString().trim();
                 isdn = edISDN.getText().toString().trim();
-                if (validate())
+                if (validate()) {
+                    sharedPreferences.putISDN_LOGIN(isdn);
+                    sharedPreferences.putDeviceID(deviceID);
+
+
                     new CallWSAsyncTask().execute("2", isdn, otp, deviceID, "ANDROID");
+
+
 //                String pin = sharedPreferences.getPinCode();
 //                if ("".equals(pin)){
 //
@@ -185,14 +201,17 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 //                }else {
 //                    Toast.makeText(LoginActivity.this , "ok" , Toast.LENGTH_SHORT).show();
 //                }
-
+                }
 
                 break;
             case R.id.btnOTP:
                 isdn = edISDN.getText().toString().trim();
-                Utils.hideSoftKeyboard(LoginActivity.this);
+                if (validateOTP()) {
+                    Utils.hideSoftKeyboard(LoginActivity.this);
 
-                new CallWSAsyncTask().execute("1", isdn, deviceID, "ANDROID");
+                    new CallWSAsyncTask().execute("1", isdn, deviceID, "ANDROID");
+                }
+
                 break;
         }
     }
@@ -203,17 +222,33 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (!Utils.checkNumberPhone(isdn)){
-            Toast.makeText(this, this.getResources().getString(R.string.not_metfone), Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
         if ("".equals(isdn)) {
             Toast.makeText(this, this.getResources().getString(R.string.please_input_phone), Toast.LENGTH_SHORT).show();
             return false;
         }
+        if (!Utils.checkNumberPhone(isdn)) {
+            Toast.makeText(this, this.getResources().getString(R.string.not_metfone), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         if ("".equals(otp)) {
             Toast.makeText(this, this.getResources().getString(R.string.please_input_otp), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateOTP() {
+        if (!Utils.hasConnection(this)) {
+            Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if ("".equals(isdn)) {
+            Toast.makeText(this, this.getResources().getString(R.string.please_input_phone), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!Utils.checkNumberPhone(isdn)) {
+            Toast.makeText(this, this.getResources().getString(R.string.not_metfone), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -298,11 +333,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
                             ArrayList arrListGift = new ArrayList();
 
-                            if (itemCheckOTP.get(0).getRole().getRoleName().equals("CUSTOMER")) {
+                            String roleName = itemCheckOTP.get(0).getRole().getRoleName();
+                            sharedPreferences.putRoleName(roleName);
+                            if (roleName.equals("CUSTOMER")) {
                                 for (int i = 0; i < itemCheckOTP.get(0).getTicket().getLstGift().size(); i++) {
                                     arrListGift.add(itemCheckOTP.get(0).getTicket().getLstGift().get(i));
                                 }
-                                String stattus = itemCheckOTP.get(0).getTicket().getStatus();
+                                stattus = itemCheckOTP.get(0).getTicket().getStatus();
                                 String qrCode = itemCheckOTP.get(0).getTicket().getQrCode();
                                 String typeTicket = itemCheckOTP.get(0).getTicket().getTicketType();
                                 String statusTicket = itemCheckOTP.get(0).getTicket().getStatus();
@@ -310,44 +347,79 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                 sharedPreferences.putQrCode(qrCode);
                                 sharedPreferences.putTypeTicket(typeTicket);
                                 sharedPreferences.putStatusCustomer(statusTicket);
-                                if ("0".equals(itemCheckOTP.get(0).getTicket().getStatus())) {
-                                    Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
-                                    intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
-                                    startActivity(intent);
-                                } else {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
-                                    startActivity(intent);
-                                }
-                            } else {
-                                if ("STAFF_SYNC".equals(itemCheckOTP.get(0).getRole().getPermission())) {
-                                    dbHelper = new DBHelper(LoginActivity.this);
-                                    int size = dbHelper.checkSize();
+                                sharedPreferences.putList(arrListGift);
 
-                                    boolean flag = dbHelper.checkSignData();
-                                    if (totalIsdn > size) {
-                                        Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
-                                        startActivity(intent);
-                                        edOTP.setText("");
-                                    } else {
-                                        if (flag) {
-                                            Intent intentChart = new Intent(LoginActivity.this, ChartActivity.class);
-                                            startActivity(intentChart);
-                                            edOTP.setText("");
-                                        }else {
-                                            Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
+                                CommonActivity.createDialogYesNo(mActivity, "do you want to set up pin code?", getString(R.string.app_name), new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if ("0".equals(stattus)) {
+                                            Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
+                                            startActivity(intent);
+                                        } else {
+                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(LoginActivity.this, PinActivity.class);
+                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                    }
+                                }).show();
+
+//                                if ("0".equals(stattus)) {
+//                                    Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
+//                                    startActivity(intent);
+//                                } else {
+//                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                                    startActivity(intent);
+//                                }
+                            } else {
+
+                                CommonActivity.createDialogYesNo(mActivity, "do you want to set up pin code?", getString(R.string.app_name), new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if ("STAFF_SYNC".equals(permission)) {
+                                            dbHelper = new DBHelper(LoginActivity.this);
+                                            int size = dbHelper.checkSize();
+
+                                            boolean flag = dbHelper.checkSignData();
+
+
+                                            if (totalIsdn > size) {
+                                                Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
+                                                startActivity(intent);
+                                                edOTP.setText("");
+                                            } else {
+                                                if (flag) {
+                                                    Intent intentChart = new Intent(LoginActivity.this, ChartActivity.class);
+                                                    startActivity(intentChart);
+                                                    edOTP.setText("");
+                                                } else {
+                                                    Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
+                                                    startActivity(intent);
+                                                    edOTP.setText("");
+                                                }
+                                            }
+                                        } else {
+                                            Intent intent = new Intent(LoginActivity.this, ChartActivity.class);
                                             startActivity(intent);
                                             edOTP.setText("");
                                         }
                                     }
-                                } else {
-                                    Intent intent = new Intent(LoginActivity.this, ChartActivity.class);
-                                    startActivity(intent);
-                                    edOTP.setText("");
-                                }
+                                }, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(LoginActivity.this, PinActivity.class);
+                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                    }
+                                }).show();
+
+
+                                progress.dismiss();
+                                break;
                             }
-                            progress.dismiss();
-                            break;
                     }
                 } else {
                     String errorDec = req.getErrorDecription();
@@ -373,7 +445,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             } else {
                                 CommonActivity.createAlertDialog(mActivity, itemGetOTP.get(0).getMessageEn(), getString(R.string.app_name)).show();
                             }
-
                         }
                     }
                 }
@@ -407,5 +478,15 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             deviceUniqueIdentifier = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
         }
         return deviceUniqueIdentifier;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN){
+            if (resultCode != 12){
+                finish();
+            }
+        }
     }
 }

@@ -6,26 +6,83 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andrognito.pinlockview.IndicatorDots;
 import com.andrognito.pinlockview.PinLockListener;
 import com.andrognito.pinlockview.PinLockView;
 import com.example.metfone.colorracemetfone.R;
+import com.example.metfone.colorracemetfone.ui.Chart.ChartActivity;
+import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.MainActivity;
+import com.example.metfone.colorracemetfone.ui.SignData.SignDataActivity;
+import com.example.metfone.colorracemetfone.ui.confirm.ConfirmActivity;
 import com.example.metfone.colorracemetfone.ui.login.LoginActivity;
+import com.example.metfone.colorracemetfone.util.DBHelper;
+import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
 
 public class PinActivity extends AppCompatActivity {
     public static final String TAG = "PinLockView";
 
     private PinLockView mPinLockView;
     private IndicatorDots mIndicatorDots;
+    private SharePreferenceUtils sharePreferenceUtils;
+    private String pinShare = "";
+    private String status;
+    private String roleName;
+    private String permission;
+    private int totalIsdn;
+    private DBHelper dbHelper;
+    private TextView profile_name;
+    public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
 
     private PinLockListener mPinLockListener = new PinLockListener() {
         @Override
         public void onComplete(String pin) {
             Log.d(TAG, "Pin complete: " + pin);
-            Intent intent = new Intent(PinActivity.this, PinConfirmActivity.class);
-            intent.putExtra("pin" , pin);
-            startActivity(intent);
+            if ("".equals(pinShare)) {
+                Intent intent = new Intent(PinActivity.this, PinConfirmActivity.class);
+                intent.putExtra("pin", pin);
+                startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+            } else {
+                if (pinShare.equals(pin)) {
+                    if ("CUSTOMER".equals(roleName)) {
+                        if ("0".equals(status)) {
+                            Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
+                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                        } else {
+                            Intent intent = new Intent(PinActivity.this, MainActivity.class);
+                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                        }
+                    } else {
+                        if ("STAFF_SYNC".equals(permission)) {
+                            dbHelper = new DBHelper(PinActivity.this);
+                            int size = dbHelper.checkSize();
+
+                            boolean flag = dbHelper.checkSignData();
+                            if (totalIsdn > size) {
+                                Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                                startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                            } else {
+                                if (flag) {
+                                    Intent intentChart = new Intent(PinActivity.this, ChartActivity.class);
+                                    startActivityForResult(intentChart , START_ACTIVITY_FOR_RESULT_PIN);
+
+                                } else {
+                                    Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                                    startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+
+                                }
+                            }
+                        } else {
+                            Intent intent = new Intent(PinActivity.this, ChartActivity.class);
+                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                        }
+                    }
+                }else {
+                    Toast.makeText(PinActivity.this , "Wrong pin" , Toast.LENGTH_SHORT).show();
+                }
+            }
         }
 
         @Override
@@ -44,8 +101,17 @@ public class PinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
 
+        sharePreferenceUtils = new SharePreferenceUtils(this);
+        pinShare = sharePreferenceUtils.getPinCode();
+        roleName = sharePreferenceUtils.getRoleName();
+        status = sharePreferenceUtils.getStatus();
+        permission = sharePreferenceUtils.getPermission();
+        totalIsdn = sharePreferenceUtils.getTotalIsdn();
+
         mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
         mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
+        profile_name = findViewById(R.id.profile_name);
+        profile_name.setText(this.getResources().getString(R.string.set_up_pin_code));
 
         mPinLockView.attachIndicatorDots(mIndicatorDots);
         mPinLockView.setPinLockListener(mPinLockListener);
@@ -56,5 +122,18 @@ public class PinActivity extends AppCompatActivity {
         mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
 
         mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN){
+            if (resultCode == 12){
+                Intent returnIntent = new Intent();
+                setResult(12,returnIntent);
+                finish();
+            }
+            finish();
+        }
     }
 }
