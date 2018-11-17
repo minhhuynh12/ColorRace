@@ -66,6 +66,7 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     NavigationView navigationView;
     private LinearLayout llLogOut;
     TextView tvPhoneNumberNavi;
+    private ImageView imgConfirm;
 
 
     @Override
@@ -75,12 +76,18 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         btnConfirm = findViewById(R.id.btnConfirm);
         btnConfirm.setOnClickListener(this);
 
-
+        init();
 
         mActivity = this;
 
         sharedPreferences = new SharePreferenceUtils(this);
         language = sharedPreferences.getLanguage();
+        if ("kh".equals(language)){
+            imgConfirm.setBackground(this.getResources().getDrawable(R.drawable.nightrace_cofirm_kh));
+        }else {
+            imgConfirm.setBackground(this.getResources().getDrawable(R.drawable.nightrace_cofirm_en));
+        }
+
         otp = sharedPreferences.getOTP();
         isdn = sharedPreferences.getISDN();
         EVENT_DATE_TIME = sharedPreferences.getTimeNightRace();
@@ -90,7 +97,12 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         llLogOut = header.findViewById(R.id.llLogOut);
         tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
         llLogOut.setOnClickListener(this);
-        tvPhoneNumberNavi.setText(isdn);
+        if (isdn.startsWith("0")){
+            tvPhoneNumberNavi.setText(isdn);
+        }else {
+            tvPhoneNumberNavi.setText("0" + isdn);
+        }
+
 
         //toobar
 
@@ -121,7 +133,7 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        init();
+
         countDownStart();
 
     }
@@ -158,7 +170,14 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
             case R.id.llLogOut:
+                sharedPreferences.putPinCode("");
+                Intent returnIntent = new Intent();
+                setResult(12,returnIntent);
                 finish();
+                break;
+            case R.id.imgConfirm:
+                Intent intent = new Intent(ConfirmActivity.this , ShowConfirmActivity.class);
+                startActivity(intent);
                 break;
         }
     }
@@ -170,8 +189,12 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
         tvSecond = findViewById(R.id.tvSecond);
         imgCheckBox = findViewById(R.id.imgCheckBox);
         llImageCheck =  findViewById(R.id.llImageCheck);
-
+        imgConfirm = findViewById(R.id.imgConfirm);
+        imgConfirm.setOnClickListener(this);
         llImageCheck.setOnClickListener(this);
+
+
+
     }
 
     private void countDownStart() {

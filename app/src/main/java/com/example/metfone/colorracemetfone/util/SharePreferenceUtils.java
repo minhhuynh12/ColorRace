@@ -31,7 +31,8 @@ public class SharePreferenceUtils {
     private final String DEVICE_ID = "DEVICE_ID";
     private final String LIST_GIFT = "LIST_GIFT";
     private final String ROLE_NAME = "ROLE_NAME";
-
+    private final String SYSTEM_DATE = "SYSTEM_DATE";
+    private final String FLAG_QR_CODE = "FLAG_QR_CODE";
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences mSharedPreferencesLanguage;
@@ -204,7 +205,6 @@ public class SharePreferenceUtils {
         return gson.fromJson(mSharedPreferences.getString(LIST_GIFT, null), typeOfT);
     }
 
-   //HDGASHGDSAD
    public void putRoleName(String value) {
        editor.putString(ROLE_NAME, value);
        editor.commit();
@@ -212,6 +212,26 @@ public class SharePreferenceUtils {
 
     public String getRoleName() {
         return mSharedPreferences.getString(ROLE_NAME, "");
+    }
+
+
+    public void putSysDate(String value) {
+        editor.putString(SYSTEM_DATE, value);
+        editor.commit();
+    }
+
+    public String getSystemDate() {
+        return mSharedPreferences.getString(SYSTEM_DATE, "");
+    }
+
+    //DASSDAD
+    public void putFlagQrCode(String value) {
+        editor.putString(FLAG_QR_CODE, value);
+        editor.commit();
+    }
+
+    public String getFlagQrCode() {
+        return mSharedPreferences.getString(FLAG_QR_CODE, "");
     }
 
 }

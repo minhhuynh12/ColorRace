@@ -6,6 +6,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.inputmethod.InputMethodManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -94,6 +97,28 @@ public class Utils {
     public static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public static boolean compareDatetimeEvent(String today, String setDay) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date dateToday = null;
+        Date dateSetDay = null;
+        try {
+            dateToday = simpleDateFormat.parse(today);
+            dateSetDay = simpleDateFormat.parse(setDay);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        //  0 comes when two date are same,
+        //  1 comes when date1 is higher then date2
+        // -1 comes when date1 is lower then date2
+
+        if (dateToday.compareTo(dateSetDay) == 0) {
+
+            return true;
+        }
+        return false;
     }
 
 }

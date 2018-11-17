@@ -90,8 +90,8 @@ public class CommonActivity {
             // dialog.setPositiveButton(act.getString(R.string.ok), null);
             Button btnLeft = (Button) dialog.findViewById(R.id.btnLeft);
             Button btnRight = (Button) dialog.findViewById(R.id.btnRight);
-            btnLeft.setText(act.getResources().getString(R.string.no));
-            btnRight.setText(act.getResources().getString(R.string.yes));
+            btnLeft.setText(act.getResources().getString(R.string.skip));
+            btnRight.setText(act.getResources().getString(R.string.set_up));
 
             View.OnClickListener leftClickListener = new View.OnClickListener() {
 

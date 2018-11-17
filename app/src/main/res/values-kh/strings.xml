@@ -9,7 +9,7 @@
     <string name="phone_number">លេខទូរសព្ទ</string>
     <string name="input_OTP">OTP កូដ</string>
     <string name="otp">OTP</string>
-    <string name="get_otp">Get OTP</string>
+    <string name="get_otp">ទទួល OTP</string>
     <string name="allow_permission_cam">សូមធ្វើការអនុញ្ញាត ដើម្បីបើកកាមេរ៉ា</string>
     <string name="information_ticket">ព័ត៍មានសំបុត្រ</string>
     <string name="customer">អតិថិជន</string>
@@ -51,8 +51,26 @@
     <string name="amount">ចំនួន</string>
     <string name="gift">អំណោយ</string>
 
-    <string name="check_in">Check in</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="syc_customer">Syc customer</string>
+
+    <string name="check_in">ចុះចូល</string>
+    <string name="yes">ព្រម</string>
+    <string name="no">មិនព្រម</string>
+    <string name="syc_customer">ធ្វើហត្ថាកម្ម</string>
+    <string name="day">ថ្ងៃ</string>
+    <string name="hour">ម៉ោង</string>
+    <string name="minute">នាទី</string>
+    <string name="second">វិនាទី</string>
+    <string name="confirm_pin">ទទួលសំណើរ ពីនកូដ</string>
+    <string name="wrong_pin_code">លេខ PINមិនត្រូវទេ!</string>
+    <string name="set_up_pin_code">បញ្ចូល ពីនកូដ</string>
+    <string name="synchronize">ហត្ថាកម្ម</string>
+    <string name="wraning_turn_off_phone">វាត្រូវចំំណាយពេល ២-៣ នាទី. សូមកុំបិទទូរសព្ទរបស់អ្នក </string>
+    <string name="not_found_ticket">រកមិនឃើញព័ត៍មានរបស់សំបុត្រនេះ នៅក្នុងប្រព័ន្ធគ្រប់គ្រងនោះទេ</string>
+    <string name="qr_code_title">QR code e-ticket</string>
+    <string name="warning_pin_code">តើអ្នកប្រើកំណត់ប្រើ PIN ជំនួសឲ្យ ឈ្មោះ/ពាក្យសំងាត់ឬ? \r ចុច កំណត់ ដើម្បីដាក់PIN ហើយចុច រំលង ដើម្បីមិនប្រើ។ </string>
+    <string name="skip">រំលង</string>
+    <string name="set_up">កំណត់</string>
+
+    <string name="confirm_pin_code_wrong">លេខPINថ្មីមិនត្រូវគ្នា!</string>
+
 </resources>

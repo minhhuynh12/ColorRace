@@ -46,11 +46,11 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
     public void onBindViewHolder(@NonNull TicketAdapter.ViewHolder holder, int position) {
 
         if (position == 0){
-            holder.tvGift.setText(context.getResources().getString(R.string.receive));
+            holder.tvGift.setText(context.getResources().getString(R.string.gift));
             holder.tvGift.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            holder.tvNightRace.setText(context.getResources().getString(R.string.night_race));
+            holder.tvNightRace.setText(context.getResources().getString(R.string.amount));
             holder.tvNightRace.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-            holder.tvMap.setText(context.getResources().getString(R.string.map));
+            holder.tvMap.setText(context.getResources().getString(R.string.receive));
             holder.tvMap.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
             holder.llIamge.setVisibility(View.GONE);
         }else {
@@ -60,12 +60,12 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.ViewHolder
             holder.llIamge.setVisibility(View.VISIBLE);
             if ("1".equals(status)){
                 if (position == 1){
-                    holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_checked_checkbox));
+                    holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.checkbox_new));
                 }else {
-                    holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_unchecked_checkbox));
+                    holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.un_checkbox_new));
                 }
             }else {
-                holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.ic_checked_checkbox));
+                holder.imgCheckBox.setBackground(context.getResources().getDrawable(R.drawable.checkbox_new));
             }
         }
     }

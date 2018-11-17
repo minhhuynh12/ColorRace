@@ -20,6 +20,7 @@ import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.commons.Constant;
 import com.example.metfone.colorracemetfone.ui.Chart.ChartActivity;
+import com.example.metfone.colorracemetfone.ui.CreateQrCode.CreateQrCodeActivity;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.MainActivity;
 import com.example.metfone.colorracemetfone.ui.SignData.SignDataActivity;
 import com.example.metfone.colorracemetfone.ui.SignData.model.SignDataItem;
@@ -28,8 +29,10 @@ import com.example.metfone.colorracemetfone.ui.login.LoginActivity;
 import com.example.metfone.colorracemetfone.ui.login.model.CheckOTPItem;
 import com.example.metfone.colorracemetfone.ui.login.model.GetOtpItem;
 import com.example.metfone.colorracemetfone.util.DBHelper;
+import com.example.metfone.colorracemetfone.util.DbQrCode;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
+import com.example.metfone.colorracemetfone.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +55,9 @@ public class PinConfirmActivity extends AppCompatActivity {
     private String roleName;
     public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
     private TextView profile_name;
-
+    private DbQrCode dbQrCode;
+    private String qrCode;
+    private String sysDate;
 
 
     private PinLockListener mPinLockListener = new PinLockListener() {
@@ -67,10 +72,27 @@ public class PinConfirmActivity extends AppCompatActivity {
                 String device_id = sharedPreferences.getDeviceID();
 
 
-                new CallWSAsyncTask().execute("1", isdn, otp , confirmPin , device_id);
+                if (!Utils.hasConnection(PinConfirmActivity.this)) {
+                    if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
+                        if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
+                            sharedPreferences.putFlagQrCode("1");
+                            Intent intent = new Intent(PinConfirmActivity.this , CreateQrCodeActivity.class);
+                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                        } else {
+                            sharedPreferences.putFlagQrCode("0");
+                            new CallWSAsyncTask().execute("1", isdn, otp , confirmPin , device_id);
+
+                        }
+                    } else {
+                        Toast.makeText(PinConfirmActivity.this, PinConfirmActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    sharedPreferences.putFlagQrCode("0");
+                    new CallWSAsyncTask().execute("1", isdn, otp , confirmPin , device_id);
+                }
 
             }else {
-                Toast.makeText(PinConfirmActivity.this , "wrong pin" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(PinConfirmActivity.this , PinConfirmActivity.this.getResources().getString(R.string.confirm_pin_code_wrong) , Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -92,7 +114,7 @@ public class PinConfirmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
         mActivity = this;
-
+        dbQrCode = new DbQrCode(this);
         Intent intent = getIntent();
         strPin = intent.getStringExtra("pin");
 
@@ -102,6 +124,9 @@ public class PinConfirmActivity extends AppCompatActivity {
         permission = sharedPreferences.getPermission();
         totalIsdn = sharedPreferences.getTotalIsdn();
         isdn = sharedPreferences.getISDN_LOGIN();
+        qrCode = sharedPreferences.getQrCode();
+        EVENT_DATE_TIME = sharedPreferences.getTimeNightRace();
+        sysDate = sharedPreferences.getSystemDate();
 
         mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
         mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
@@ -175,6 +200,7 @@ public class PinConfirmActivity extends AppCompatActivity {
                                     Intent intent = new Intent(PinConfirmActivity.this, ConfirmActivity.class);
                                     startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
                                 } else {
+                                    dbQrCode.insertQrCode(isdn, qrCode);
                                     Intent intent = new Intent(PinConfirmActivity.this, MainActivity.class);
                                     startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
                                 }
@@ -204,8 +230,6 @@ public class PinConfirmActivity extends AppCompatActivity {
                                 }
                             }
 
-
-
                             progress.dismiss();
                             break;
 
@@ -227,6 +251,8 @@ public class PinConfirmActivity extends AppCompatActivity {
                             CommonActivity.createAlertDialog(mActivity, errorDec, getString(R.string.app_name)).show();
                         }
                     } else {
+                        CommonActivity.createAlertDialog(mActivity,
+                                getString(R.string.errorCallWebervice), getString(R.string.app_name)).show();
 //                        if (items != null){
 //                            CommonActivity.createAlertDialog(mActivity, items.get(0).getMessageEn(), getString(R.string.app_name)).show();
 //                        }else {

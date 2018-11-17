@@ -67,7 +67,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean checkSignData() {
         List<CheckSignDataItem> list = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor =  db.rawQuery( "select * from contacts where id="+id+"", null );
         Cursor cursor =  db.rawQuery( "select * from contacts order by phone_number desc limit 1", null );
 
         if (cursor.moveToFirst()) {

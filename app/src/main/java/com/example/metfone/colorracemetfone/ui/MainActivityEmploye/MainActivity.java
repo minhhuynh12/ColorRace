@@ -29,6 +29,7 @@ import android.widget.TextView;
 import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.ui.CreateQrCode.CreateQrCodeActivity;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.Adapter.MainActivityAdapter;
+import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.FAQfragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.MapFragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.NightRaceFragment;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.TicketFragment;
@@ -54,10 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     View vTickket;
     View vNightRace;
     View vMap;
+    View vFAQ;
     TextView tvTicket;
     TextView tvNightRace;
     TextView tvMaps;
     TextView tvPhoneNumberNavi;
+    TextView tvFAQ;
     LinearLayout cardView;
     List<String> arrListGift;
     List<LstGiftItem> listGift;
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView tvTypeTicket;
     private ImageView imgCreateQR;
     private ImageView imgQr;
+    private ImageView imgText;
     private String qrCode;
     private String typeTicket;
     private String lat;
@@ -80,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String isdn;
     NavigationView navigationView;
     private LinearLayout llLogOut;
+    private RelativeLayout llFAQ;
     private SharePreferenceUtils sharedPreferences;
+    private String language;
 
     @Override
     public void onBackPressed() {
@@ -104,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         Gson gson = new Gson();
         sharedPreferences = new SharePreferenceUtils(this , gson);
+        language = sharedPreferences.getLanguage();
 
         init();
         arrListGift = new ArrayList();
@@ -132,7 +139,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         llLogOut = header.findViewById(R.id.llLogOut);
         tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
         llLogOut.setOnClickListener(this);
-        tvPhoneNumberNavi.setText(isdn);
+        if (isdn.startsWith("0")){
+            tvPhoneNumberNavi.setText(isdn);
+        }else {
+            tvPhoneNumberNavi.setText("0" + isdn);
+        }
 
         //toobar
 
@@ -176,10 +187,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         llTicket = (RelativeLayout) findViewById(R.id.llTicket);
         llNightRace = (RelativeLayout) findViewById(R.id.llNightRace);
         llMap = (RelativeLayout) findViewById(R.id.llMap);
+        llFAQ = (RelativeLayout) findViewById(R.id.llFAQ);
         tvTicket = (TextView) findViewById(R.id.tvTicket);
         tvNightRace = (TextView) findViewById(R.id.tvNightRace);
         tvMaps = (TextView) findViewById(R.id.tvMaps);
         tvTypeTicket = (TextView) findViewById(R.id.tvTypeTicket);
+        tvFAQ = (TextView) findViewById(R.id.tvFAQ);
         frameMain =  findViewById(R.id.frameMain);
         cardView = (LinearLayout) findViewById(R.id.cardView);
         tvDay = findViewById(R.id.tvDay);
@@ -187,7 +200,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvMinute = findViewById(R.id.tvMinute);
         tvSecond = findViewById(R.id.tvSecond);
         imgCreateQR = findViewById(R.id.imgCreateQR);
+        vFAQ = findViewById(R.id.vFAQ);
         imgQr = findViewById(R.id.imgQr);
+        imgText = findViewById(R.id.imgText);
 
         vTickket =  findViewById(R.id.vTickket);
         vNightRace =  findViewById(R.id.vNightRace);
@@ -196,7 +211,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         llTicket.setOnClickListener(this);
         llNightRace.setOnClickListener(this);
         llMap.setOnClickListener(this);
+        llFAQ.setOnClickListener(this);
         imgCreateQR.setOnClickListener(this);
+        imgQr.setOnClickListener(this);
+
+        if ("kh".equals(language)){
+            imgText.setBackground(this.getResources().getDrawable(R.drawable.follow_km));
+        }else {
+            imgText.setBackground(this.getResources().getDrawable(R.drawable.follow));
+        }
+
     }
 
     private void swichFragemnt (Fragment fragment){
@@ -227,6 +251,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         tvMinute.setText(String.format("%02d", Minutes));
                         tvSecond.setText(String.format("%02d", Seconds));
                     } else {
+                        tvDay.setText(String.format("00"));
+                        tvHour.setText(String.format("00"));
+                        tvMinute.setText(String.format("00"));
+                        tvSecond.setText(String.format("00"));
                         handler.removeCallbacks(runnable);
                     }
                 } catch (Exception e) {
@@ -253,6 +281,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setBackground(vTickket , getResources().getColor(R.color.color_title) , tvTicket ,  getResources().getColor(R.color.color_title) );
                 setBackground(vNightRace , getResources().getColor(R.color.color_input_gray), tvNightRace, getResources().getColor(R.color.color_black));
                 setBackground(vMap , getResources().getColor(R.color.color_input_gray) , tvMaps , getResources().getColor(R.color.color_black));
+                setBackground(vFAQ , getResources().getColor(R.color.color_input_gray) , tvFAQ , getResources().getColor(R.color.color_black));
                 cardView.setVisibility(View.VISIBLE);
                 break;
             case R.id.llNightRace:
@@ -261,6 +290,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setBackground(vTickket , getResources().getColor(R.color.color_input_gray), tvTicket, getResources().getColor(R.color.color_black));
                 setBackground(vNightRace , getResources().getColor(R.color.color_title) , tvNightRace , getResources().getColor(R.color.color_title));
                 setBackground(vMap , getResources().getColor(R.color.color_input_gray), tvMaps , getResources().getColor(R.color.color_black));
+                setBackground(vFAQ , getResources().getColor(R.color.color_input_gray) , tvFAQ , getResources().getColor(R.color.color_black));
                 cardView.setVisibility(View.GONE);
                 break;
             case R.id.llMap:
@@ -269,11 +299,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setBackground(vTickket , getResources().getColor(R.color.color_input_gray), tvTicket, getResources().getColor(R.color.color_black));
                 setBackground(vNightRace , getResources().getColor(R.color.color_input_gray) , tvNightRace , getResources().getColor(R.color.color_black));
                 setBackground(vMap , getResources().getColor(R.color.color_title),tvMaps ,  getResources().getColor(R.color.color_title));
+                setBackground(vFAQ , getResources().getColor(R.color.color_input_gray) , tvFAQ , getResources().getColor(R.color.color_black));
+                cardView.setVisibility(View.GONE);
+                break;
+            case R.id.llFAQ:
+                FAQfragment fragment4 = FAQfragment.newInstance();
+                swichFragemnt(fragment4);
+                setBackground(vTickket , getResources().getColor(R.color.color_input_gray), tvTicket, getResources().getColor(R.color.color_black));
+                setBackground(vNightRace , getResources().getColor(R.color.color_input_gray) , tvNightRace , getResources().getColor(R.color.color_black));
+                setBackground(vMap , getResources().getColor(R.color.color_input_gray),tvMaps ,  getResources().getColor(R.color.color_black));
+                setBackground(vFAQ , getResources().getColor(R.color.color_title) , tvFAQ , getResources().getColor(R.color.color_title));
                 cardView.setVisibility(View.GONE);
                 break;
             case R.id.imgCreateQR:
                 Intent intent = new Intent(MainActivity.this, CreateQrCodeActivity.class);
-                intent.putExtra("QR_CODE", qrCode);
                 startActivity(intent);
                 break;
             case R.id.llLogOut:
@@ -281,6 +320,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setResult(12,returnIntent);
                 sharedPreferences.putPinCode("");
                 finish();
+                break;
+            case R.id.imgQr:
+                Intent intentImQr = new Intent(MainActivity.this, CreateQrCodeActivity.class);
+                startActivity(intentImQr);
                 break;
         }
     }

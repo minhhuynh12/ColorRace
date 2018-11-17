@@ -152,7 +152,11 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         EVENT_DATE_TIME = sharePreferenceUtils.getTimeNightRace();
         countDownStart();
         initializeRecyclerview();
-        tvPhoneNumberNavi.setText(isdn);
+        if (isdn.startsWith("0")){
+            tvPhoneNumberNavi.setText(isdn);
+        }else {
+            tvPhoneNumberNavi.setText("0" + isdn);
+        }
         new CallWSAsyncTask().execute("1", isdn, otp);
 
 
@@ -211,7 +215,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
             case R.id.llLogOut:
                 sharePreferenceUtils.putPinCode("");
                 Intent returnIntent = new Intent();
-                setResult(12,returnIntent);
+                setResult(12, returnIntent);
                 finish();
                 break;
             case R.id.llSign:
@@ -248,9 +252,14 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 return;
             }
             String result = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
-
-            byte[] dataBase64 = Base64.decode(result, Base64.DEFAULT);
+            byte[] dataBase64 = new byte[0];
             try {
+                dataBase64 = Base64.decode(result, Base64.DEFAULT);
+            } catch (Exception ex) {
+            }
+
+            try {
+                
                 text = new String(dataBase64, "UTF-8");
                 String[] separated = text.split(";");
                 for (int i = 0; i < separated.length; i++) {
@@ -293,7 +302,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 //            String setDay = "6/11/2018";
 //            boolean flag = compare(today,setDay);
         } else {
-            if (resultCode != 4){
+            if (resultCode != 4) {
                 Intent i = new Intent(ChartActivity.this, QrCodeActivity.class);
                 startActivityForResult(i, REQUEST_CODE_QR_SCAN);
             }

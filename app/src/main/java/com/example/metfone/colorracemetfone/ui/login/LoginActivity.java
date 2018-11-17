@@ -26,6 +26,7 @@ import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.commons.Constant;
 import com.example.metfone.colorracemetfone.ui.Chart.ChartActivity;
+import com.example.metfone.colorracemetfone.ui.CreateQrCode.CreateQrCodeActivity;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.MainActivity;
 import com.example.metfone.colorracemetfone.ui.Pin.PinActivity;
 import com.example.metfone.colorracemetfone.ui.SignData.SignDataActivity;
@@ -33,6 +34,7 @@ import com.example.metfone.colorracemetfone.ui.confirm.ConfirmActivity;
 import com.example.metfone.colorracemetfone.ui.login.model.CheckOTPItem;
 import com.example.metfone.colorracemetfone.ui.login.model.GetOtpItem;
 import com.example.metfone.colorracemetfone.util.DBHelper;
+import com.example.metfone.colorracemetfone.util.DbQrCode;
 import com.example.metfone.colorracemetfone.util.LanguageUtils;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.RuntimePermission;
@@ -61,13 +63,18 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private SharePreferenceUtils sharedPreferences;
     String language;
     private boolean flagPermission;
-    private String EVENT_DATE_TIME;
+    private String EVENT_DATE_TIME = "";
     private String deviceID;
     private String permission;
     private int totalIsdn;
     private DBHelper dbHelper;
+    private DbQrCode dbQrCode;
     String stattus;
+    private String sysDate = "";
+    String qrCode;
     public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
+    private String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+    private boolean lang = false;
 
 
     @Override
@@ -90,22 +97,34 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     llLangEN.setOnClickListener(this);
                     llLangKH.setOnClickListener(this);
                     mActivity = this;
-                    if (language.toLowerCase().equals("kh")) {
-                        llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_white));
-                        llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_red));
-                        tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
-                        tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
-
-                    } else {
-                        llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
-                        llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_white));
-                        tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
-                        tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
-                    }
+//                    sharedPreferences.putLanguage("kh");
+//                    LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+//                    language = sharedPreferences.getLanguage();
+//                    if (language.toLowerCase().equals("kh")) {
+//                        llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_white));
+//                        llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_red));
+//                        tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
+//                        tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
+//                        sharedPreferences.putLanguage("kh");
+//                        LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+//                        restartActivity();
+//
+//                    } else {
+//                        llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
+//                        llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_white));
+//                        tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
+//                        tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
+//                        sharedPreferences.putLanguage("en");
+//                        LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+//                        restartActivity();
+//                    }
                 }
                 break;
         }
     }
+
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -124,15 +143,36 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         Gson gson = new Gson();
         sharedPreferences = new SharePreferenceUtils(this, gson);
         language = sharedPreferences.getLanguage();
+
+        dbHelper = new DBHelper(LoginActivity.this);
+        dbQrCode = new DbQrCode(this);
         String pin = "";
         pin = sharedPreferences.getPinCode();
-        if (!"".equals(pin)){
+
+        if (!"".equals(pin)) {
             Intent intent = new Intent(LoginActivity.this, PinActivity.class);
-            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+        }
+
+        if (language.toLowerCase().equals("kh")) {
+            llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_white));
+            llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_red));
+            tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
+            tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
+            sharedPreferences.putLanguage("kh");
+            LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+
+        } else {
+            llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
+            llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_white));
+            tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
+            tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
+            sharedPreferences.putLanguage("en");
+            LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
         }
 
 
-            flagPermission = RuntimePermission.CheckingPermissionIsEnabledOrNot(this);
+        flagPermission = RuntimePermission.CheckingPermissionIsEnabledOrNot(this);
 
         if (!flagPermission) {
             RuntimePermission.requestReadAndPermission(this);
@@ -148,12 +188,16 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_red));
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
+                sharedPreferences.putLanguage("kh");
+                LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
 
             } else {
                 llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
                 llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_white));
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
+                sharedPreferences.putLanguage("en");
+                LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
             }
         }
     }
@@ -188,28 +232,54 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 if (validate()) {
                     sharedPreferences.putISDN_LOGIN(isdn);
                     sharedPreferences.putDeviceID(deviceID);
+                    EVENT_DATE_TIME = sharedPreferences.getTimeNightRace();
+                    sysDate = sharedPreferences.getSystemDate();
 
+                    if (!Utils.hasConnection(LoginActivity.this)) {
+                        if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
+                            if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
 
-                    new CallWSAsyncTask().execute("2", isdn, otp, deviceID, "ANDROID");
-
-
-//                String pin = sharedPreferences.getPinCode();
-//                if ("".equals(pin)){
-//
-//                    Intent intent = new Intent(LoginActivity.this, PinActivity.class);
-//                    startActivity(intent);
-//                }else {
-//                    Toast.makeText(LoginActivity.this , "ok" , Toast.LENGTH_SHORT).show();
-//                }
+                                sharedPreferences.putFlagQrCode("1");
+                                Intent intent = new Intent(LoginActivity.this, CreateQrCodeActivity.class);
+                                startActivity(intent);
+                            } else {
+                                sharedPreferences.putFlagQrCode("0");
+                                new CallWSAsyncTask().execute("2", isdn, otp, deviceID, "ANDROID");
+                            }
+                        } else {
+                            Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        sharedPreferences.putFlagQrCode("0");
+                        new CallWSAsyncTask().execute("2", isdn, otp, deviceID, "ANDROID");
+                    }
                 }
 
                 break;
             case R.id.btnOTP:
                 isdn = edISDN.getText().toString().trim();
+                sharedPreferences.putISDN_LOGIN(isdn);
+                EVENT_DATE_TIME = sharedPreferences.getTimeNightRace();
+                sysDate = sharedPreferences.getSystemDate();
                 if (validateOTP()) {
                     Utils.hideSoftKeyboard(LoginActivity.this);
-
-                    new CallWSAsyncTask().execute("1", isdn, deviceID, "ANDROID");
+                    if (!Utils.hasConnection(LoginActivity.this)) {
+                        if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
+                            if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
+                                sharedPreferences.putFlagQrCode("1");
+                                Intent intent = new Intent(LoginActivity.this, CreateQrCodeActivity.class);
+                                startActivity(intent);
+                            } else {
+                                sharedPreferences.putFlagQrCode("0");
+                                new CallWSAsyncTask().execute("1", isdn, deviceID, "ANDROID");
+                            }
+                        } else {
+                            Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        sharedPreferences.putFlagQrCode("0");
+                        new CallWSAsyncTask().execute("1", isdn, deviceID, "ANDROID");
+                    }
                 }
 
                 break;
@@ -218,10 +288,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 
     private boolean validate() {
-        if (!Utils.hasConnection(this)) {
-            Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
-            return false;
-        }
+
         if ("".equals(isdn)) {
             Toast.makeText(this, this.getResources().getString(R.string.please_input_phone), Toast.LENGTH_SHORT).show();
             return false;
@@ -239,10 +306,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     }
 
     private boolean validateOTP() {
-        if (!Utils.hasConnection(this)) {
-            Toast.makeText(this, this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
-            return false;
-        }
+
         if ("".equals(isdn)) {
             Toast.makeText(this, this.getResources().getString(R.string.please_input_phone), Toast.LENGTH_SHORT).show();
             return false;
@@ -315,11 +379,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             progress.dismiss();
                             break;
                         case 2:
+
                             itemCheckOTP = req.parseXMLToListObject("return", CheckOTPItem.class);
                             String lat = itemCheckOTP.get(0).getLatStadium();
                             String log = itemCheckOTP.get(0).getLongStadium();
                             totalIsdn = itemCheckOTP.get(0).getTotalIsdn();
                             EVENT_DATE_TIME = itemCheckOTP.get(0).getTimeNightRace();
+                            sysDate = itemCheckOTP.get(0).getSystemDate();
                             permission = itemCheckOTP.get(0).getRole().getPermission();
                             sharedPreferences.putOTP(otp);
                             sharedPreferences.putISDN(isdn);
@@ -329,8 +395,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             sharedPreferences.putTimeNightRace(EVENT_DATE_TIME);
                             sharedPreferences.putTotalIsdn(totalIsdn);
                             sharedPreferences.putPermission(permission);
-
-
+                            sharedPreferences.putSysDate(sysDate);
+                            edISDN.setText("");
+                            edOTP.setText("");
                             ArrayList arrListGift = new ArrayList();
 
                             String roleName = itemCheckOTP.get(0).getRole().getRoleName();
@@ -340,7 +407,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                     arrListGift.add(itemCheckOTP.get(0).getTicket().getLstGift().get(i));
                                 }
                                 stattus = itemCheckOTP.get(0).getTicket().getStatus();
-                                String qrCode = itemCheckOTP.get(0).getTicket().getQrCode();
+                                qrCode = itemCheckOTP.get(0).getTicket().getQrCode();
                                 String typeTicket = itemCheckOTP.get(0).getTicket().getTicketType();
                                 String statusTicket = itemCheckOTP.get(0).getTicket().getStatus();
                                 sharedPreferences.putStatus(stattus);
@@ -349,13 +416,16 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                 sharedPreferences.putStatusCustomer(statusTicket);
                                 sharedPreferences.putList(arrListGift);
 
-                                CommonActivity.createDialogYesNo(mActivity, "do you want to set up pin code?", getString(R.string.app_name), new View.OnClickListener() {
+                                CommonActivity.createDialogYesNo(mActivity, LoginActivity.this.getResources().getString(R.string.warning_pin_code), getString(R.string.app_name), new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         if ("0".equals(stattus)) {
+
                                             Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
                                             startActivity(intent);
                                         } else {
+                                            dbQrCode.insertQrCode(isdn, qrCode);
+
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                             startActivity(intent);
                                         }
@@ -363,29 +433,20 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                 }, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
+
                                         Intent intent = new Intent(LoginActivity.this, PinActivity.class);
-                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                     }
                                 }).show();
 
-//                                if ("0".equals(stattus)) {
-//                                    Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
-//                                    startActivity(intent);
-//                                } else {
-//                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                                    startActivity(intent);
-//                                }
                             } else {
-
-                                CommonActivity.createDialogYesNo(mActivity, "do you want to set up pin code?", getString(R.string.app_name), new View.OnClickListener() {
+                                CommonActivity.createDialogYesNo(mActivity, LoginActivity.this.getResources().getString(R.string.warning_pin_code), getString(R.string.app_name), new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         if ("STAFF_SYNC".equals(permission)) {
-                                            dbHelper = new DBHelper(LoginActivity.this);
+
                                             int size = dbHelper.checkSize();
-
                                             boolean flag = dbHelper.checkSignData();
-
 
                                             if (totalIsdn > size) {
                                                 Intent intent = new Intent(LoginActivity.this, SignDataActivity.class);
@@ -412,11 +473,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                     @Override
                                     public void onClick(View v) {
                                         Intent intent = new Intent(LoginActivity.this, PinActivity.class);
-                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                     }
                                 }).show();
-
-
                                 progress.dismiss();
                                 break;
                             }
@@ -448,11 +507,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         }
                     }
                 }
-            } else {// Goi ws that bai
-                if (result == 0) {// Do khong co mang
+            } else {
+                if (result == 0) {
                     CommonActivity.createAlertDialog(mActivity,
                             getString(R.string.errorNetworkAccess), getString(R.string.app_name)).show();
-                } else {// Loi khi goi ws
+                } else {
                     CommonActivity.createAlertDialog(mActivity,
                             getString(R.string.errorCallWebervice), getString(R.string.app_name)).show();
                 }
@@ -483,8 +542,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN){
-            if (resultCode != 12){
+        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN) {
+            if (resultCode != 12) {
                 finish();
             }
         }

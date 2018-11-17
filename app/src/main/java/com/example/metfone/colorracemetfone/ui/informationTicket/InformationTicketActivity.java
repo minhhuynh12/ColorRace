@@ -71,6 +71,14 @@ public class InformationTicketActivity extends AppCompatActivity implements View
         otp = intent.getStringExtra("OTP");
         isdn = intent.getStringExtra("ISDN");
         strISDN = intent.getStringExtra("data");
+        if (!strISDN.startsWith("isdn")){
+            CommonActivity.createAlertDialog(this, InformationTicketActivity.this.getResources().getString(R.string.not_found_ticket), getString(R.string.app_name), new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    finish();
+                }
+            }).show();
+        }
         String[] separated = strISDN.split(";");
 
         for (int i = 0; i < separated.length; i++) {
