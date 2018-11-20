@@ -27,16 +27,17 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
 
     public ChartAdapter(Context context) {
         this.context = context;
-        if (list == null){
-            list =  new ArrayList<>();
+        if (list == null) {
+            list = new ArrayList<>();
         }
     }
 
-    public void setData(List<ChartItem> list ){
+    public void setData(List<ChartItem> list) {
         this.list = list;
         notifyDataSetChanged();
     }
-    public void setData(List<ChartItem> list , int flag ){
+
+    public void setData(List<ChartItem> list, int flag) {
         this.list = list;
         this.flag = flag;
         notifyDataSetChanged();
@@ -60,21 +61,14 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         String strTotal = String.format("%,.0f", list.get(position).getTotal());
 
         holder.tvName.setText(list.get(position).getName());
-        holder.tvReceived.setText(context.getResources().getString(R.string.received) + " (" +strRecive + ")");
+        holder.tvReceived.setText(context.getResources().getString(R.string.received) + " (" + strRecive + ")");
 
-        holder.tvNotYet.setText(context.getResources().getString(R.string.not_yet) + " (" +strNotYet + ")");
+        holder.tvNotYet.setText(context.getResources().getString(R.string.not_yet) + " (" + strNotYet + ")");
         holder.tvTotal.setText(strTotal);
 
-        if (flag == 0){
-            percentNew = list.get(position).getUsed();
-            percentNew = list.get(position).getTotal() - percentNew;
-            percentComplain = list.get(position).getUsed();
-        }else {
-            percentNew = list.get(position).getUsed();
-            percentNew = list.get(position).getTotal() - percentNew;
-            percentComplain = list.get(position).getUsed();
-        }
-
+        percentNew = list.get(position).getUsed();
+        percentNew = percentNew / list.get(position).getTotal();
+        percentComplain = list.get(position).getUsed() * 100.0f / list.get(position).getTotal();
 
         setProgressDrawable(holder.pgComplainTotal, R.drawable.circle_progress_background);
         holder.pgComplainTotal.setProgress((int) percentComplain);
@@ -92,6 +86,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.ViewHolder> 
         private TextView tvNotYet;
         ProgressBar pgNewTotal;
         ProgressBar pgComplainTotal;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tvName);

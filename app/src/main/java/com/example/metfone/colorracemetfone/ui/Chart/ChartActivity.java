@@ -137,7 +137,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         View header = navigationView.getHeaderView(0);
         llLogOut = header.findViewById(R.id.llLogOut);
         llSign = header.findViewById(R.id.llSign);
-        llSign.setVisibility(View.VISIBLE);
+
         llSign.setOnClickListener(this);
         tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
 
@@ -150,6 +150,12 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         isdn = sharePreferenceUtils.getISDN();
         permission = sharePreferenceUtils.getPermission();
         EVENT_DATE_TIME = sharePreferenceUtils.getTimeNightRace();
+        if ("STAFF_SYNC".equals(permission)) {
+            llSign.setVisibility(View.VISIBLE);
+        }else {
+            llSign.setVisibility(View.GONE);
+        }
+
         countDownStart();
         initializeRecyclerview();
         if (isdn.startsWith("0")){

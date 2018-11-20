@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Night Race</string>
+    <string name="app_name">Night race</string>
     <string name="text_confirm">The essence of why extensible markup languages are necessary is explained at Markup language (for example, see Markup language § XML) and at Standard Generalized Markup Language.
         Hundreds of document formats using XML syntax have been developed,[7] including RSS, Atom, SOAP, SVG, and XHTML. XML-based formats have become the default for many office-productivity tools, including Microsoft Office (Office Open XML), OpenOffice.org and LibreOffice (OpenDocument), and Apple\'s iWork[citation needed]. XML has also provided the base language for communication protocols such as XMPP. Applications for the Microsoft .NET Framework use XML files for configuration. Apple has an implementation of a registry based on XML.[8]
         Many industry data standards, e.g. HL7, OTA, FpML, MISMO, NIEM, etc. are based on XML and the rich features of the XML schema specification. Many of these standards are quite complex and it is not uncommon for a specification to comprise several thousand pages.
@@ -31,6 +31,7 @@
     <string name="term_and_condition">Term and condition</string>
     <string name="confrim">I have read and agreed on terms and conditions of the race</string>
     <string name="night_race">Night race</string>
+
     <string name="map">Map</string>
     <string name="please_wait">Please waiting</string>
     <string name="location">Location: OLYMPIC STADIUM</string>
@@ -76,6 +77,7 @@
     <string name="skip">Skip</string>
     <string name="set_up">Set up</string>
     <string name="confirm_pin_code_wrong">Confirm PIN code wrong!</string>
+    <string name="rules">Rules</string>
 
 
 </resources>

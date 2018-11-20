@@ -195,7 +195,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_centerVertical="true"
                             android:layout_gravity="center"
-                            android:text="@string/night_race"
+                            android:text="@string/rules"
                             android:textColor="@color/color_black" />
 
                         <View

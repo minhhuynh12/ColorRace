@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.example.metfone.colorracemetfone"
+        applicationId "com.colorrace.metfone.colorracemetfone"
         minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
@@ -20,6 +20,12 @@ android {
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
     }
+
+    lintOptions{
+        checkReleaseBuilds false
+
+    }
+
 
 }
 

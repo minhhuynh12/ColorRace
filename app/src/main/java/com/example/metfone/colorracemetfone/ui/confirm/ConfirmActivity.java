@@ -67,6 +67,7 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
     private LinearLayout llLogOut;
     TextView tvPhoneNumberNavi;
     private ImageView imgConfirm;
+    public List<CheckOTPItem> itemCheckOTP;
 
 
     @Override
@@ -286,6 +287,10 @@ public class ConfirmActivity extends AppCompatActivity implements View.OnClickLi
                 if ((errorGW != null && errorGW.equals("0")) && (errorWS != null && errorWS.equals("00"))) {
                     switch (result) {
                         case 1:
+                            itemCheckOTP = req.parseXMLToListObject("return", CheckOTPItem.class);
+                            String statusTicket = itemCheckOTP.get(0).getTicket().getStatus();
+                            sharedPreferences.putStatusCustomer(statusTicket);
+
                             Intent intent = new Intent(ConfirmActivity.this , MainActivity.class);
 //                            intent.putStringArrayListExtra("LIST_GIFT", arrListGift);
                             startActivityForResult(intent , 1);

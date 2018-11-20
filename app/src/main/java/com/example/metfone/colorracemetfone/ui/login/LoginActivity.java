@@ -76,7 +76,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
     private boolean lang = false;
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -97,34 +96,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                     llLangEN.setOnClickListener(this);
                     llLangKH.setOnClickListener(this);
                     mActivity = this;
-//                    sharedPreferences.putLanguage("kh");
-//                    LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
-//                    language = sharedPreferences.getLanguage();
-//                    if (language.toLowerCase().equals("kh")) {
-//                        llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_white));
-//                        llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_red));
-//                        tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
-//                        tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
-//                        sharedPreferences.putLanguage("kh");
-//                        LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
-//                        restartActivity();
-//
-//                    } else {
-//                        llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
-//                        llLangKH.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_kh_white));
-//                        tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
-//                        tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
-//                        sharedPreferences.putLanguage("en");
-//                        LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
-//                        restartActivity();
-//                    }
                 }
                 break;
         }
     }
-
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -420,12 +395,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                     @Override
                                     public void onClick(View v) {
                                         if ("0".equals(stattus)) {
-
                                             Intent intent = new Intent(LoginActivity.this, ConfirmActivity.class);
                                             startActivity(intent);
                                         } else {
                                             dbQrCode.insertQrCode(isdn, qrCode);
-
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                             startActivity(intent);
                                         }
