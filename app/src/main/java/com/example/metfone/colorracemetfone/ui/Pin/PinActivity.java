@@ -51,13 +51,13 @@ public class PinActivity extends AppCompatActivity {
             if ("".equals(pinShare)) {
                 Intent intent = new Intent(PinActivity.this, PinConfirmActivity.class);
                 intent.putExtra("pin", pin);
-                startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
             } else {
                 if (pinShare.equals(pin)) {
                     if ("CUSTOMER".equals(roleName)) {
                         if ("0".equals(status)) {
                             Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
-                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                         } else {
                             dbQrCode.insertQrCode(isdn, qrCode);
 
@@ -65,12 +65,12 @@ public class PinActivity extends AppCompatActivity {
                                 if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
                                     if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
                                         sharePreferenceUtils.putFlagQrCode("1");
-                                        Intent intent = new Intent(PinActivity.this , CreateQrCodeActivity.class);
-                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                        Intent intent = new Intent(PinActivity.this, CreateQrCodeActivity.class);
+                                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                     } else {
                                         sharePreferenceUtils.putFlagQrCode("0");
                                         Intent intent = new Intent(PinActivity.this, MainActivity.class);
-                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                     }
                                 } else {
                                     Toast.makeText(PinActivity.this, PinActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
@@ -78,7 +78,7 @@ public class PinActivity extends AppCompatActivity {
                             } else {
                                 sharePreferenceUtils.putFlagQrCode("0");
                                 Intent intent = new Intent(PinActivity.this, MainActivity.class);
-                                startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                             }
                         }
 
@@ -90,25 +90,26 @@ public class PinActivity extends AppCompatActivity {
                             boolean flag = dbHelper.checkSignData();
                             if (totalIsdn > size) {
                                 Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
-                                startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                             } else {
                                 if (flag) {
                                     Intent intentChart = new Intent(PinActivity.this, ChartActivity.class);
-                                    startActivityForResult(intentChart , START_ACTIVITY_FOR_RESULT_PIN);
+                                    startActivityForResult(intentChart, START_ACTIVITY_FOR_RESULT_PIN);
 
                                 } else {
                                     Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
-                                    startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
 
                                 }
                             }
                         } else {
                             Intent intent = new Intent(PinActivity.this, ChartActivity.class);
-                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                         }
                     }
-                }else {
-                    Toast.makeText(PinActivity.this , "Wrong pin" , Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Toast.makeText(PinActivity.this, PinActivity.this.getResources().getString(R.string.wrong_pin_code), Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -154,18 +155,81 @@ public class PinActivity extends AppCompatActivity {
         mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
 
         mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
+        mPinLockView.setFinsh(new PinLockView.CallBackFinish() {
+            @Override
+            public void callFinish() {
+                sharePreferenceUtils.putPinCode("");
+                if ("CUSTOMER".equals(roleName)) {
+                    if ("0".equals(status)) {
+                        Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
+                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                    } else {
+                        dbQrCode.insertQrCode(isdn, qrCode);
+
+                        if (!Utils.hasConnection(PinActivity.this)) {
+                            if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
+                                if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
+                                    sharePreferenceUtils.putFlagQrCode("1");
+                                    Intent intent = new Intent(PinActivity.this, CreateQrCodeActivity.class);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                                } else {
+                                    sharePreferenceUtils.putFlagQrCode("0");
+                                    Intent intent = new Intent(PinActivity.this, MainActivity.class);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                                }
+                            } else {
+                                Toast.makeText(PinActivity.this, PinActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            sharePreferenceUtils.putFlagQrCode("0");
+                            Intent intent = new Intent(PinActivity.this, MainActivity.class);
+                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                        }
+                    }
+
+                } else {
+                    if ("STAFF_SYNC".equals(permission)) {
+                        dbHelper = new DBHelper(PinActivity.this);
+                        int size = dbHelper.checkSize();
+
+                        boolean flag = dbHelper.checkSignData();
+                        if (totalIsdn > size) {
+                            Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                        } else {
+                            if (flag) {
+                                Intent intentChart = new Intent(PinActivity.this, ChartActivity.class);
+                                startActivityForResult(intentChart, START_ACTIVITY_FOR_RESULT_PIN);
+
+                            } else {
+                                Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                                startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+
+                            }
+                        }
+                    } else {
+                        Intent intent = new Intent(PinActivity.this, ChartActivity.class);
+                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                    }
+                }
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN){
-            if (resultCode == 12){
+        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN) {
+            if (resultCode == 12) {
                 Intent returnIntent = new Intent();
-                setResult(12,returnIntent);
+                setResult(12, returnIntent);
+                finish();
+            } else if (resultCode == 13) {
+
+            } else {
                 finish();
             }
-            finish();
+
         }
     }
 }

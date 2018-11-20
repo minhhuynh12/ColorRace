@@ -142,6 +142,16 @@ public class PinConfirmActivity extends AppCompatActivity {
         mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
 
         mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
+
+        mPinLockView.setFinsh(new PinLockView.CallBackFinish() {
+            @Override
+            public void callFinish() {
+                Intent returnIntent = new Intent();
+                setResult(13,returnIntent);
+                finish();
+            }
+        });
+
     }
 
     private class CallWSAsyncTask extends AsyncTask<String, Byte, Integer> {

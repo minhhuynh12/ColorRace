@@ -78,6 +78,7 @@
     <string name="set_up">Set up</string>
     <string name="confirm_pin_code_wrong">Confirm PIN code wrong!</string>
     <string name="rules">Rules</string>
+    <string name="cancel">Cancel</string>
 
 
 </resources>
