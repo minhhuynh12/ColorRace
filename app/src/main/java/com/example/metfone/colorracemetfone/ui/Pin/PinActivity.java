@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,16 +45,19 @@ public class PinActivity extends AppCompatActivity {
     private String qrCode;
     private String EVENT_DATE_TIME;
     private String sysDate;
+    private boolean flaw = false;
 
     private PinLockListener mPinLockListener = new PinLockListener() {
         @Override
         public void onComplete(String pin) {
+
             Log.d(TAG, "Pin complete: " + pin);
             if ("".equals(pinShare)) {
                 Intent intent = new Intent(PinActivity.this, PinConfirmActivity.class);
                 intent.putExtra("pin", pin);
                 startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
             } else {
+
                 if (pinShare.equals(pin)) {
                     if ("CUSTOMER".equals(roleName)) {
                         if ("0".equals(status)) {
@@ -125,6 +130,7 @@ public class PinActivity extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,74 +152,107 @@ public class PinActivity extends AppCompatActivity {
         profile_name = findViewById(R.id.profile_name);
         profile_name.setText(this.getResources().getString(R.string.set_up_pin_code));
 
-        mPinLockView.attachIndicatorDots(mIndicatorDots);
-        mPinLockView.setPinLockListener(mPinLockListener);
-        //mPinLockView.setCustomKeySet(new int[]{2, 3, 1, 5, 9, 6, 7, 0, 8, 4});
-        //mPinLockView.enableLayoutShuffling();
 
-        mPinLockView.setPinLength(4);
-        mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
+        String pin = "";
+        pin = sharePreferenceUtils.getPinCode();
 
-        mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
-        mPinLockView.setFinsh(new PinLockView.CallBackFinish() {
-            @Override
-            public void callFinish() {
-                sharePreferenceUtils.putPinCode("");
-                if ("CUSTOMER".equals(roleName)) {
-                    if ("0".equals(status)) {
-                        Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
-                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
-                    } else {
-                        dbQrCode.insertQrCode(isdn, qrCode);
+        if ("".equals(pin)){
+            mPinLockView.setVisibiliteCancel(new PinLockView.CallBackVisibility() {
+                @Override
+                public void callVisibiliti(View view) {
+                    LinearLayout llCancel = view.findViewById(R.id.llCancel);
+                    llCancel.setVisibility(View.VISIBLE);
 
-                        if (!Utils.hasConnection(PinActivity.this)) {
-                            if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
-                                if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
-                                    sharePreferenceUtils.putFlagQrCode("1");
-                                    Intent intent = new Intent(PinActivity.this, CreateQrCodeActivity.class);
-                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                }
+            });
+        }else {
+            mPinLockView.setVisibiliteCancel(new PinLockView.CallBackVisibility() {
+                @Override
+                public void callVisibiliti(View view) {
+                    LinearLayout llCancel = view.findViewById(R.id.llCancel);
+                    llCancel.setVisibility(View.GONE);
+
+                }
+            });
+        }
+
+
+
+            mPinLockView.setFinsh(new PinLockView.CallBackFinish() {
+                @Override
+                public void callFinish() {
+                    if (!flaw) {
+                        flaw = true;
+                        sharePreferenceUtils.putPinCode("");
+
+
+
+                        if ("CUSTOMER".equals(roleName)) {
+                            if ("0".equals(status)) {
+                                Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
+                                startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                            } else {
+                                dbQrCode.insertQrCode(isdn, qrCode);
+
+                                if (!Utils.hasConnection(PinActivity.this)) {
+                                    if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
+                                        if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
+                                            sharePreferenceUtils.putFlagQrCode("1");
+                                            Intent intent = new Intent(PinActivity.this, CreateQrCodeActivity.class);
+                                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                                        } else {
+                                            sharePreferenceUtils.putFlagQrCode("0");
+                                            Intent intent = new Intent(PinActivity.this, MainActivity.class);
+                                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                                        }
+                                    } else {
+                                        Toast.makeText(PinActivity.this, PinActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
                                     sharePreferenceUtils.putFlagQrCode("0");
                                     Intent intent = new Intent(PinActivity.this, MainActivity.class);
                                     startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                 }
-                            } else {
-                                Toast.makeText(PinActivity.this, PinActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
                             }
+
                         } else {
-                            sharePreferenceUtils.putFlagQrCode("0");
-                            Intent intent = new Intent(PinActivity.this, MainActivity.class);
-                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
-                        }
-                    }
+                            if ("STAFF_SYNC".equals(permission)) {
+                                dbHelper = new DBHelper(PinActivity.this);
+                                int size = dbHelper.checkSize();
 
-                } else {
-                    if ("STAFF_SYNC".equals(permission)) {
-                        dbHelper = new DBHelper(PinActivity.this);
-                        int size = dbHelper.checkSize();
+                                boolean flag = dbHelper.checkSignData();
+                                if (totalIsdn > size) {
+                                    Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                                } else {
+                                    if (flag) {
+                                        Intent intentChart = new Intent(PinActivity.this, ChartActivity.class);
+                                        startActivityForResult(intentChart, START_ACTIVITY_FOR_RESULT_PIN);
 
-                        boolean flag = dbHelper.checkSignData();
-                        if (totalIsdn > size) {
-                            Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
-                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
-                        } else {
-                            if (flag) {
-                                Intent intentChart = new Intent(PinActivity.this, ChartActivity.class);
-                                startActivityForResult(intentChart, START_ACTIVITY_FOR_RESULT_PIN);
+                                    } else {
+                                        Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
 
+                                    }
+                                }
                             } else {
-                                Intent intent = new Intent(PinActivity.this, SignDataActivity.class);
+                                Intent intent = new Intent(PinActivity.this, ChartActivity.class);
                                 startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
-
                             }
                         }
-                    } else {
-                        Intent intent = new Intent(PinActivity.this, ChartActivity.class);
-                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                     }
                 }
-            }
-        });
+            });
+
+
+        mPinLockView.attachIndicatorDots(mIndicatorDots);
+        mPinLockView.setPinLockListener(mPinLockListener);
+
+        mPinLockView.setPinLength(4);
+        mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
+
+        mIndicatorDots.setIndicatorType(IndicatorDots.IndicatorType.FILL_WITH_ANIMATION);
+
     }
 
     @Override
@@ -225,11 +264,17 @@ public class PinActivity extends AppCompatActivity {
                 setResult(12, returnIntent);
                 finish();
             } else if (resultCode == 13) {
-
+                restartActivity();
             } else {
                 finish();
             }
 
         }
+    }
+
+    private void restartActivity() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

@@ -5,7 +5,9 @@ package com.example.metfone.colorracemetfone.ui.MainActivityEmploye;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.LocationManager;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -27,6 +29,7 @@ import android.widget.TextView;
 
 
 import com.example.metfone.colorracemetfone.R;
+import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.ui.CreateQrCode.CreateQrCodeActivity;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.Adapter.MainActivityAdapter;
 import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.fragment.FAQfragment;
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RelativeLayout llFAQ;
     private SharePreferenceUtils sharedPreferences;
     private String language;
+    LocationManager locationManager;
 
     @Override
     public void onBackPressed() {
@@ -168,6 +172,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         navigationView.setNavigationItemSelectedListener(this);
+
+        String locationProviders = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+        if (locationProviders == null || locationProviders.equals("")){
+            CommonActivity.createDialogYesNo(this, this.getResources().getString(R.string.turn_on_location), getString(R.string.app_name), new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                }
+            }).show();
+
+        }
+
     }
 
     private void createQrCode(){

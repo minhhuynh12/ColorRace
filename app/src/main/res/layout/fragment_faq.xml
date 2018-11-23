@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
+        android:visibility="visible"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/size_8dp"
+        android:layout_marginLeft="@dimen/size_8dp"
+        android:layout_marginRight="@dimen/size_8dp"
+        android:layout_marginBottom="@dimen/size_8dp"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAQ"
+            android:textColor="@color/color_black"/>
+
+        <WebView
+            android:id="@+id/webviewFAQ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></WebView>
 
     <ImageView
         android:id="@+id/imgFaq"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/faq_en"/>
     </LinearLayout>
+
+
 
 </ScrollView>

@@ -10,11 +10,12 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Stetho.initializeWithDefaults(this);
-        SharePreferenceUtils sharedPreferences = new SharePreferenceUtils(this);
-        sharedPreferences.putLanguage("kh");
-        LanguageUtils.setLanguage(
-                this, sharedPreferences.getLanguage());
+
+            Stetho.initializeWithDefaults(this);
+            SharePreferenceUtils sharedPreferences = new SharePreferenceUtils(this);
+            sharedPreferences.putLanguage("kh");
+            LanguageUtils.setLanguage(
+                    this, sharedPreferences.getLanguage());
 
     }
 }

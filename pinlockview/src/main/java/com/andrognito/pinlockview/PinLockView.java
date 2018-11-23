@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.View;
 
 /**
  * Represents a numeric lock view which can used to taken numbers as input.
@@ -29,6 +30,7 @@ public class PinLockView extends RecyclerView {
     private Drawable mDeleteButtonDrawable;
     private boolean mShowDeleteButton;
     private CallBackFinish mCallBackFinish;
+    private CallBackVisibility mCallBackVisibility;
 
     private IndicatorDots mIndicatorDots;
     private PinLockAdapter mAdapter;
@@ -185,14 +187,30 @@ public class PinLockView extends RecyclerView {
             }
         });
 
+        mAdapter.setVisibility(new PinLockAdapter.LissternerVisibility() {
+            @Override
+            public void onVisibility(View view) {
+                mCallBackVisibility.callVisibiliti(view);
+            }
+        });
+
         addItemDecoration(new ItemSpaceDecoration(mHorizontalSpacing, mVerticalSpacing, 3, false));
         setOverScrollMode(OVER_SCROLL_NEVER);
     }
     public void setFinsh(CallBackFinish callBackFinish) {
         this.mCallBackFinish = callBackFinish;
     }
+
+    public void setVisibiliteCancel(CallBackVisibility callBaclVisibiliti){
+        this.mCallBackVisibility = callBaclVisibiliti;
+    }
+
     public interface CallBackFinish{
        void callFinish();
+    }
+
+    public interface CallBackVisibility{
+        void callVisibiliti(View view);
     }
 
     /**

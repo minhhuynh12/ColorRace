@@ -7,7 +7,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -45,6 +47,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
 import java.util.List;
+import java.util.Locale;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
     Button btnLogin;
@@ -75,6 +78,17 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
     private String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
     private boolean lang = false;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Gson gson = new Gson();
+            sharedPreferences = new SharePreferenceUtils(newBase, gson);
+            language = sharedPreferences.getLanguage();
+            LanguageUtils.setLanguage(newBase, sharedPreferences.getLanguage());
+        }
+        super.attachBaseContext(newBase);
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -119,6 +133,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         sharedPreferences = new SharePreferenceUtils(this, gson);
         language = sharedPreferences.getLanguage();
 
+
         dbHelper = new DBHelper(LoginActivity.this);
         dbQrCode = new DbQrCode(this);
         String pin = "";
@@ -135,7 +150,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
             tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
             sharedPreferences.putLanguage("kh");
-            LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+            LanguageUtils.setLanguage(getApplicationContext(), sharedPreferences.getLanguage());
 
         } else {
             llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
@@ -143,7 +158,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
             tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
             sharedPreferences.putLanguage("en");
-            LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+            LanguageUtils.setLanguage(getApplicationContext(), sharedPreferences.getLanguage());
         }
 
 
@@ -164,7 +179,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
                 sharedPreferences.putLanguage("kh");
-                LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+                LanguageUtils.setLanguage(getApplicationContext(), sharedPreferences.getLanguage());
 
             } else {
                 llLangEN.setBackground(LoginActivity.this.getResources().getDrawable(R.drawable.border_lang_en_red));
@@ -172,7 +187,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
                 sharedPreferences.putLanguage("en");
-                LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+                LanguageUtils.setLanguage(getApplicationContext(), sharedPreferences.getLanguage());
             }
         }
     }
@@ -187,7 +202,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
                 sharedPreferences.putLanguage("en");
-                LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+                LanguageUtils.setLanguage(getApplicationContext(), sharedPreferences.getLanguage());
                 restartActivity();
                 break;
 
@@ -197,7 +212,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 tvLangEN.setTextColor(LoginActivity.this.getResources().getColor(R.color.color_title));
                 tvLangKH.setTextColor(LoginActivity.this.getResources().getColor(R.color.white));
                 sharedPreferences.putLanguage("kh");
-                LanguageUtils.setLanguage(getApplication(), sharedPreferences.getLanguage());
+                LanguageUtils.setLanguage(getApplicationContext(), sharedPreferences.getLanguage());
                 restartActivity();
                 break;
 

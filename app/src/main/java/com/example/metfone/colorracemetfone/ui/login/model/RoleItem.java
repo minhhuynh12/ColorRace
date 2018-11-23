@@ -7,6 +7,15 @@ public class RoleItem {
     private String roleCode;
     private String roleName;
     private String status;
+    private String department;
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
     public String getDescription() {
         return description;

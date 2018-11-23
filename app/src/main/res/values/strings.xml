@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ការប្រណាំងពណ៌មិត្តហ្វូន</string>
+    <string name="app_name">Night Race</string>
     <string name="text_confirm"></string>
     <string name="get_ticket">ទទួលបានសំបុត្រ</string>
     <string name="ok">យល់ព្រម</string>
@@ -21,7 +21,7 @@
     <string name="login">ចុះឈ្មោះចូល</string>
     <string name="success">ជោគជ័យ</string>
     <string name="fail">បរាជ័យ</string>
-    <string name="ticket">សំបុត្រ</string>
+    <string name="ticket">e-Ticket</string>
     <string name="total">សរុប:</string>
     <string name="received">បានទទួល</string>
     <string name="not_yet">មិនទាន់</string>
@@ -59,9 +59,9 @@
     <string name="hour">ម៉ោង</string>
     <string name="minute">នាទី</string>
     <string name="second">វិនាទី</string>
-    <string name="confirm_pin">ទទួលសំណើរ ពីនកូដ</string>
+    <string name="confirm_pin">បញ្ជាក់លេខ PIN ថ្</string>
     <string name="wrong_pin_code">លេខ PINមិនត្រូវទេ!</string>
-    <string name="set_up_pin_code">បញ្ចូល ពីនកូដ</string>
+    <string name="set_up_pin_code">បញ្ចូលលេខ PIN</string>
     <string name="synchronize">ហត្ថាកម្ម</string>
     <string name="wraning_turn_off_phone">វាត្រូវចំំណាយពេល ២-៣ នាទី. សូមកុំបិទទូរសព្ទរបស់អ្នក </string>
     <string name="not_found_ticket">រកមិនឃើញព័ត៍មានរបស់សំបុត្រនេះ នៅក្នុងប្រព័ន្ធគ្រប់គ្រងនោះទេ</string>
@@ -72,5 +72,10 @@
     <string name="set_up">កំណត់</string>
     <string name="confirm_pin_code_wrong">លេខPINថ្មីមិនត្រូវគ្នា!</string>
     <string name="rules">ច្បាប់</string>
+    <string name="turn_on_location">តើលោកអ្នកបើកបង្ហាញទីតាំងរបស់អ្នកដែរឬទេ?</string>
+    <string name="participation">ការចូលរួម</string>
+    <string name="go_to_showroom">ទៅកាន់ showroom</string>
+    <string name="find_showroom_gift">ស្វែងរក កាដូ showroom</string>
+    <string name="information_showroom">ព័ត៍មានរបស់ showroom</string>
 
 </resources>

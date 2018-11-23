@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,41 +59,45 @@ public class PinConfirmActivity extends AppCompatActivity {
     private DbQrCode dbQrCode;
     private String qrCode;
     private String sysDate;
+    private boolean flaw = false;
 
 
     private PinLockListener mPinLockListener = new PinLockListener() {
         @Override
         public void onComplete(String pin) {
             Log.d(TAG, "Pin complete: " + pin);
-            if (pin.equals(strPin)){
-                confirmPin = pin;
-                sharedPreferences.putPinCode(pin);
+            if (pin.equals(strPin)) {
+                if (!flaw) {
+                    flaw = true;
+                    confirmPin = pin;
+                    sharedPreferences.putPinCode(pin);
 
-                String otp = sharedPreferences.getOTP();
-                String device_id = sharedPreferences.getDeviceID();
+                    String otp = sharedPreferences.getOTP();
+                    String device_id = sharedPreferences.getDeviceID();
 
 
-                if (!Utils.hasConnection(PinConfirmActivity.this)) {
-                    if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
-                        if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
-                            sharedPreferences.putFlagQrCode("1");
-                            Intent intent = new Intent(PinConfirmActivity.this , CreateQrCodeActivity.class);
-                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                    if (!Utils.hasConnection(PinConfirmActivity.this)) {
+                        if (!"".equals(EVENT_DATE_TIME) || !"".equals(sysDate)) {
+                            if (Utils.compareDatetimeEvent(EVENT_DATE_TIME, sysDate)) {
+                                sharedPreferences.putFlagQrCode("1");
+                                Intent intent = new Intent(PinConfirmActivity.this, CreateQrCodeActivity.class);
+                                startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                            } else {
+                                sharedPreferences.putFlagQrCode("0");
+                                new CallWSAsyncTask().execute("1", isdn, otp, confirmPin, device_id);
+
+                            }
                         } else {
-                            sharedPreferences.putFlagQrCode("0");
-                            new CallWSAsyncTask().execute("1", isdn, otp , confirmPin , device_id);
-
+                            Toast.makeText(PinConfirmActivity.this, PinConfirmActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(PinConfirmActivity.this, PinConfirmActivity.this.getResources().getString(R.string.no_netword), Toast.LENGTH_SHORT).show();
+                        sharedPreferences.putFlagQrCode("0");
+                        new CallWSAsyncTask().execute("1", isdn, otp, confirmPin, device_id);
                     }
-                } else {
-                    sharedPreferences.putFlagQrCode("0");
-                    new CallWSAsyncTask().execute("1", isdn, otp , confirmPin , device_id);
-                }
 
-            }else {
-                Toast.makeText(PinConfirmActivity.this , PinConfirmActivity.this.getResources().getString(R.string.confirm_pin_code_wrong) , Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(PinConfirmActivity.this, PinConfirmActivity.this.getResources().getString(R.string.confirm_pin_code_wrong), Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -135,8 +140,6 @@ public class PinConfirmActivity extends AppCompatActivity {
 
         mPinLockView.attachIndicatorDots(mIndicatorDots);
         mPinLockView.setPinLockListener(mPinLockListener);
-        //mPinLockView.setCustomKeySet(new int[]{2, 3, 1, 5, 9, 6, 7, 0, 8, 4});
-        //mPinLockView.enableLayoutShuffling();
 
         mPinLockView.setPinLength(4);
         mPinLockView.setTextColor(ContextCompat.getColor(this, R.color.white));
@@ -147,8 +150,17 @@ public class PinConfirmActivity extends AppCompatActivity {
             @Override
             public void callFinish() {
                 Intent returnIntent = new Intent();
-                setResult(13,returnIntent);
+                setResult(13, returnIntent);
                 finish();
+            }
+        });
+
+        mPinLockView.setVisibiliteCancel(new PinLockView.CallBackVisibility() {
+            @Override
+            public void callVisibiliti(View view) {
+                LinearLayout llCancel = view.findViewById(R.id.llCancel);
+                llCancel.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -205,16 +217,16 @@ public class PinConfirmActivity extends AppCompatActivity {
                         case 1:
 //                            itemCheckOTP = req.parseXMLToListObject("return", CheckOTPItem.class);
                             sharedPreferences.putOTP(confirmPin);
-                            if ("CUSTOMER".equals(roleName)){
+                            if ("CUSTOMER".equals(roleName)) {
                                 if ("0".equals(status)) {
                                     Intent intent = new Intent(PinConfirmActivity.this, ConfirmActivity.class);
-                                    startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                 } else {
                                     dbQrCode.insertQrCode(isdn, qrCode);
                                     Intent intent = new Intent(PinConfirmActivity.this, MainActivity.class);
-                                    startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                 }
-                            }else {
+                            } else {
                                 if ("STAFF_SYNC".equals(permission)) {
                                     dbHelper = new DBHelper(PinConfirmActivity.this);
                                     int size = dbHelper.checkSize();
@@ -222,21 +234,21 @@ public class PinConfirmActivity extends AppCompatActivity {
                                     boolean flag = dbHelper.checkSignData();
                                     if (totalIsdn > size) {
                                         Intent intent = new Intent(PinConfirmActivity.this, SignDataActivity.class);
-                                        startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
-                                    }else {
+                                        startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
+                                    } else {
                                         if (flag) {
                                             Intent intentChart = new Intent(PinConfirmActivity.this, ChartActivity.class);
-                                            startActivityForResult(intentChart , START_ACTIVITY_FOR_RESULT_PIN);
+                                            startActivityForResult(intentChart, START_ACTIVITY_FOR_RESULT_PIN);
 
-                                        }else {
+                                        } else {
                                             Intent intent = new Intent(PinConfirmActivity.this, SignDataActivity.class);
-                                            startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                            startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
 
                                         }
                                     }
-                                }else {
+                                } else {
                                     Intent intent = new Intent(PinConfirmActivity.this, ChartActivity.class);
-                                    startActivityForResult(intent , START_ACTIVITY_FOR_RESULT_PIN);
+                                    startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
                                 }
                             }
 
@@ -282,13 +294,14 @@ public class PinConfirmActivity extends AppCompatActivity {
             progress.dismiss();
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN){
-            if (resultCode == 12){
+        if (requestCode == START_ACTIVITY_FOR_RESULT_PIN) {
+            if (resultCode == 12) {
                 Intent returnIntent = new Intent();
-                setResult(12,returnIntent);
+                setResult(12, returnIntent);
                 finish();
             }
             finish();

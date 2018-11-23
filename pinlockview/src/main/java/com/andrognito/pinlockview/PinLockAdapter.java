@@ -23,6 +23,7 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private static final int VIEW_TYPE_DELETE = 1;
     private static final int VIEW_TYPE_CANCEL = 2;
     private static ClickListener clickListener;
+    private static LissternerVisibility lissternerVisibility;
 
     private Context mContext;
     private CustomizationOptionsBundle mCustomizationOptionsBundle;
@@ -39,6 +40,11 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public interface ClickListener {
         void onItemClick();
+
+    }
+
+    public interface LissternerVisibility {
+        void onVisibility(View view);
 
     }
 
@@ -222,11 +228,40 @@ public class PinLockAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     clickListener.onItemClick();
                 }
             });
+
+            lissternerVisibility.onVisibility(itemView);
+
+            llCancel.setOnTouchListener(new View.OnTouchListener() {
+                private Rect rect;
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        clickListener.onItemClick();
+                        rect = new Rect(12, 12, 12, 12);
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
+                        clickListener.onItemClick();
+                    }
+                    if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                        if (!rect.contains(v.getLeft() + (int) event.getX(),
+                                v.getTop() + (int) event.getY())) {
+                            clickListener.onItemClick();
+                        }
+                    }
+                    return false;
+                }
+            });
+
         }
     }
 
     public void setOnItemClickListener(ClickListener clickListener) {
         PinLockAdapter.clickListener = clickListener;
+    }
+
+    public void setVisibility(LissternerVisibility lissternerVisibility){
+        PinLockAdapter.lissternerVisibility = lissternerVisibility;
     }
 
 

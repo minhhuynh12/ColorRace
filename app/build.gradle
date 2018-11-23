@@ -1,30 +1,42 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'colorRaceAlias'
+            keyPassword 'Metfone@123'
+            storeFile file('/Users/metfone/Documents/AndroidMetfone/ColorRaceGitbub2/apk/keyStoreColorRace')
+            storePassword 'Metfone@123'
+        }
+    }
     compileSdkVersion 28
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.colorrace.metfone.colorracemetfone"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.config
+        }
     }
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
     }
-
-    lintOptions{
+    lintOptions {
         checkReleaseBuilds false
 
     }
+    buildToolsVersion '27.0.3'
 
 
 }
@@ -52,6 +64,10 @@ dependencies {
     implementation 'com.github.blikoon:QRCodeScanner:0.1.2'
     implementation 'commons-codec:commons-codec:1.3'
     implementation 'com.android.support:design:28.0.0'
-//    implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    //    implementation 'com.andrognito.pinlockview:pinlockview:2.1.0'
     implementation project(':pinlockview')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.facebook.stetho:stetho-okhttp:1.3.1'
+    implementation 'com.facebook.litho:litho-annotations:0.2.0'
 }

@@ -1,14 +1,17 @@
 package com.example.metfone.colorracemetfone.ui.CreateQrCode;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.example.metfone.colorracemetfone.R;
@@ -29,6 +32,7 @@ public class CreateQrCodeActivity extends AppCompatActivity implements View.OnCl
     private String qrInfo;
     private QrCodeItem qrCodeItem;
     private DbQrCode dbQrCode;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,39 +46,58 @@ public class CreateQrCodeActivity extends AppCompatActivity implements View.OnCl
         String isdn = sharePreferenceUtils.getISDN_LOGIN();
         qrCodeItem = dbQrCode.getQrCode(isdn);
         String flag = sharePreferenceUtils.getFlagQrCode();
+        final ProgressDialog progressdialog = new ProgressDialog(this);
+        progressdialog.setMessage("Please Wait....");
+        progressdialog.setCancelable(false);
+        progressdialog.show();
 
-//        Intent i = getIntent();
-//        String qrInfo = i.getStringExtra("QR_CODE");
         if ("1".equals(flag)){
             qrInfo = qrCodeItem.getQrCode();
         }else {
             qrInfo = sharePreferenceUtils.getQrCode();
         }
 
-        if (qrInfo != null){
-            imgCreateQr.setVisibility(View.VISIBLE);
-            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (qrInfo != null){
+                    //generate qr code
+                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                    try {
+                        BitMatrix bitMatrix = multiFormatWriter.encode(qrInfo, BarcodeFormat.QR_CODE, 1000, 1000);
+                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                        final Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
 
-            try {
-                BitMatrix bitMatrix = multiFormatWriter.encode(qrInfo, BarcodeFormat.QR_CODE, 1000, 1000);
-                BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                imgCreateQr.setImageBitmap(bitmap);
-            } catch (Exception ex) {
-                Log.d("Error", ex.getMessage());
-            }
-        }else {
-            imgCreateQr.setVisibility(View.GONE);
-            CommonActivity.createAlertDialog(this, this.getResources().getString(R.string.errorNetworkAccess),
-                    getString(R.string.app_name), new View.OnClickListener() {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                imgCreateQr.setVisibility(View.VISIBLE);
+                                imgCreateQr.setImageBitmap(bitmap);
+                            }
+                        });
+                        progressdialog.dismiss();
+                    } catch (Exception ex) {
+                        Log.d("Error", ex.getMessage());
+                    }
+                }else {
+                    progressdialog.dismiss();
+                    runOnUiThread(new Runnable() {
                         @Override
-                        public void onClick(View arg0) {
-                            finish();
+                        public void run() {
+                            imgCreateQr.setVisibility(View.GONE);
                         }
-                    }).show();
-        }
-
-
+                    });
+                    CommonActivity.createAlertDialog(CreateQrCodeActivity.this, CreateQrCodeActivity.this.getResources().getString(R.string.errorNetworkAccess),
+                            getString(R.string.app_name), new View.OnClickListener() {
+                                @Override
+                                public void onClick(View arg0) {
+                                    finish();
+                                }
+                            }).show();
+                }
+            }
+        });
+        t.start();
     }
 
     @Override

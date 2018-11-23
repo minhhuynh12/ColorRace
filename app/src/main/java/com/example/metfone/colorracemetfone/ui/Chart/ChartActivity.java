@@ -20,6 +20,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
@@ -94,6 +96,8 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     private TextView tvMinute;
     private TextView tvSecond;
     private TextView tvPhoneNumberNavi;
+    private TextView tvEticket;
+    private TextView tvGift;
     private ImageView imgCreateQR;
     private boolean flagPermission;
     private android.support.v4.app.ActionBarDrawerToggle mDrawerToggle;
@@ -103,6 +107,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     private String permission;
     private static final int REQUEST_CODE_QR_SCAN = 101;
     private static final int REQUEST_CODE_QR_SCAN_AGAIN = 2;
+    private static final int RELOAD_API = 3;
     private SharePreferenceUtils sharePreferenceUtils;
     private DBCheckInSecond dbCheckInSecond;
     private String isdnCus;
@@ -132,7 +137,16 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         tvMinute = findViewById(R.id.tvMinute);
         tvSecond = findViewById(R.id.tvSecond);
         imgCreateQR = findViewById(R.id.imgCreateQR);
+        tvEticket = findViewById(R.id.tvEticket);
+        tvGift = findViewById(R.id.tvGift);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        String textTicket = this.getResources().getString(R.string.ticket);
+        String textGift = this.getResources().getString(R.string.gift);
+        tvEticket.setText(underline(textTicket));
+        tvGift.setText(underline(textGift));
+
+        tvEticket.setOnClickListener(this);
+        tvGift.setOnClickListener(this);
 
         View header = navigationView.getHeaderView(0);
         llLogOut = header.findViewById(R.id.llLogOut);
@@ -228,6 +242,12 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(ChartActivity.this, SignDataActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.tvEticket:
+                new CallWSAsyncTask().execute("1", isdn, otp);
+                break;
+            case R.id.tvGift:
+                new CallWSAsyncTask().execute("1", isdn, otp);
+                break;
         }
     }
 
@@ -301,13 +321,15 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 intent.putExtra("OTP", otp);
                 intent.putExtra("ISDN", isdn);
                 intent.putExtra("data", text);
-                startActivity(intent);
+                startActivityForResult(intent, RELOAD_API);
             }
 
 //            String today = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
 //            String setDay = "6/11/2018";
 //            boolean flag = compare(today,setDay);
-        } else {
+        } else if (requestCode == RELOAD_API){
+            new CallWSAsyncTask().execute("1", isdn, otp);
+        }else {
             if (resultCode != 4) {
                 Intent i = new Intent(ChartActivity.this, QrCodeActivity.class);
                 startActivityForResult(i, REQUEST_CODE_QR_SCAN);
@@ -500,5 +522,12 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
             return true;
         }
         return false;
+    }
+
+    private SpannableString underline(String text){
+        SpannableString content = new SpannableString(text);
+        content.setSpan(new UnderlineSpan(), 0, text.length(), 0);
+
+        return content;
     }
 }

@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.metfone.colorracemetfone.R;
+import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.util.GPSTracker;
 
 import java.util.Locale;
@@ -29,9 +30,11 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     private ImageView imgMaps;
     private static String lat;
     private static String log;
+    private String stadium = "Olympic Stadium";
     LocationManager locationManager;
-    String stringLatitude = "", stringLongitude = "", nameOfLocation="";
-    public static MapFragment newInstance(String latStr , String logStr) {
+    String stringLatitude = "", stringLongitude = "", nameOfLocation = "";
+
+    public static MapFragment newInstance(String latStr, String logStr) {
         MapFragment fragmentFirst = new MapFragment();
         lat = latStr;
         log = logStr;
@@ -43,24 +46,26 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_map , container , false);
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
         imgMaps = view.findViewById(R.id.imgMaps);
         imgMaps.setOnClickListener(this);
         GPSTracker gpsTracker = new GPSTracker(getActivity());
 
 
         locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
-        if( !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("not found");  // GPS not found
-            builder.setMessage("do you want to turn on gps"); // Want to enable?
-            builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialogInterface, int i) {
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            CommonActivity.createDialogYesNo(getActivity(), getActivity().getResources().getString(R.string.turn_on_location), getString(R.string.app_name), new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            }, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
                     getActivity().startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                 }
-            });
-            builder.setNegativeButton(R.string.no, null);
-            builder.create().show();
+            }).show();
+
         }
 
         if (gpsTracker.canGetLocation()) {
@@ -74,14 +79,21 @@ public class MapFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id){
+        switch (id) {
             case R.id.imgMaps:
-                if( !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ) {
-                    Toast.makeText(getActivity(), "please! turn on your GPS." , Toast.LENGTH_SHORT).show();
-                }else {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=11.558587,104.911380&daddr="+ stringLatitude +"," + stringLongitude + ""));
-                    intent.setPackage("com.google.android.apps.maps");
-                    startActivity(intent);
+                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                    Toast.makeText(getActivity(), "please! turn on your GPS.", Toast.LENGTH_SHORT).show();
+                } else {
+                    if ("".equals(stringLatitude) && "".equals(stringLongitude)) {
+                        String uri = String.format(Locale.ENGLISH, "geo:%s,%s?q=%s,%s(" + stadium + ")", stringLatitude, stringLongitude, stringLatitude, stringLongitude);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=" + stringLatitude + "," +
+                                stringLongitude + "&daddr=11.558587,104.911380"));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
+                    }
                 }
                 break;
         }
