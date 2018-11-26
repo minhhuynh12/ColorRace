@@ -43,6 +43,7 @@ import com.example.metfone.colorracemetfone.ui.SignData.SignDataActivity;
 import com.example.metfone.colorracemetfone.ui.checkInSecond.CheckInSecondActivity;
 import com.example.metfone.colorracemetfone.ui.informationTicket.InformationTicketActivity;
 import com.example.metfone.colorracemetfone.ui.login.LoginActivity;
+import com.example.metfone.colorracemetfone.ui.report.ReportAdminActivity;
 import com.example.metfone.colorracemetfone.ui.showResultQrCode.ShowResultQrCodeActivity;
 import com.example.metfone.colorracemetfone.ui.showResultQrCode.model.ContactItem;
 import com.example.metfone.colorracemetfone.util.DBCheckInSecond;
@@ -82,6 +83,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     private Activity mActivity;
     private String otp;
     private String isdn;
+    private String roleCode = "";
     private List<TicketGiftItem> itemsReport;
     private RecyclerView recyclerTikect;
     private RecyclerView recyclerGift;
@@ -103,6 +105,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
     private android.support.v4.app.ActionBarDrawerToggle mDrawerToggle;
     private LinearLayout llLogOut;
     private LinearLayout llSign;
+    private LinearLayout llReport;
     NavigationView navigationView;
     private String permission;
     private static final int REQUEST_CODE_QR_SCAN = 101;
@@ -151,8 +154,10 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         View header = navigationView.getHeaderView(0);
         llLogOut = header.findViewById(R.id.llLogOut);
         llSign = header.findViewById(R.id.llSign);
+        llReport = header.findViewById(R.id.llReport);
 
         llSign.setOnClickListener(this);
+        llReport.setOnClickListener(this);
         tvPhoneNumberNavi = header.findViewById(R.id.tvPhoneNumberNavi);
 
         imgCreateQR.setOnClickListener(this);
@@ -162,19 +167,25 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 
         otp = sharePreferenceUtils.getOTP();
         isdn = sharePreferenceUtils.getISDN();
+        roleCode = sharePreferenceUtils.getRoleCode();
         permission = sharePreferenceUtils.getPermission();
         EVENT_DATE_TIME = sharePreferenceUtils.getTimeNightRace();
         if ("STAFF_SYNC".equals(permission)) {
             llSign.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             llSign.setVisibility(View.GONE);
+        }
+        if ("ADMIN".equals(roleCode)){
+            llReport.setVisibility(View.VISIBLE);
+        }else {
+            llReport.setVisibility(View.GONE);
         }
 
         countDownStart();
         initializeRecyclerview();
-        if (isdn.startsWith("0")){
+        if (isdn.startsWith("0")) {
             tvPhoneNumberNavi.setText(isdn);
-        }else {
+        } else {
             tvPhoneNumberNavi.setText("0" + isdn);
         }
         new CallWSAsyncTask().execute("1", isdn, otp);
@@ -242,6 +253,11 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(ChartActivity.this, SignDataActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.llReport:
+                Intent intent2 = new Intent(ChartActivity.this, ReportAdminActivity.class);
+                startActivity(intent2);
+                break;
             case R.id.tvEticket:
                 new CallWSAsyncTask().execute("1", isdn, otp);
                 break;
@@ -285,7 +301,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
             }
 
             try {
-                
+
                 text = new String(dataBase64, "UTF-8");
                 String[] separated = text.split(";");
                 for (int i = 0; i < separated.length; i++) {
@@ -327,9 +343,9 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
 //            String today = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
 //            String setDay = "6/11/2018";
 //            boolean flag = compare(today,setDay);
-        } else if (requestCode == RELOAD_API){
+        } else if (requestCode == RELOAD_API) {
             new CallWSAsyncTask().execute("1", isdn, otp);
-        }else {
+        } else {
             if (resultCode != 4) {
                 Intent i = new Intent(ChartActivity.this, QrCodeActivity.class);
                 startActivityForResult(i, REQUEST_CODE_QR_SCAN);
@@ -524,7 +540,7 @@ public class ChartActivity extends AppCompatActivity implements View.OnClickList
         return false;
     }
 
-    private SpannableString underline(String text){
+    private SpannableString underline(String text) {
         SpannableString content = new SpannableString(text);
         content.setSpan(new UnderlineSpan(), 0, text.length(), 0);
 

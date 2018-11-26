@@ -60,6 +60,8 @@
             android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
         <activity android:name=".ui.maps.MapsShowroomActivity"   android:configChanges="orientation"
             android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
+        <activity android:name=".ui.report.ReportAdminActivity"   android:configChanges="orientation"
+            android:screenOrientation="portrait" android:theme="@style/AppTheme"/>
 
     </application>
 

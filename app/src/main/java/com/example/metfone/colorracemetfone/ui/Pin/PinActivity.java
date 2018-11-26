@@ -35,6 +35,7 @@ public class PinActivity extends AppCompatActivity {
     private String pinShare = "";
     private String status;
     private String roleName;
+    private String roleCode;
     private String permission;
     private int totalIsdn;
     private DBHelper dbHelper;
@@ -59,7 +60,7 @@ public class PinActivity extends AppCompatActivity {
             } else {
 
                 if (pinShare.equals(pin)) {
-                    if ("CUSTOMER".equals(roleName)) {
+                    if ("CUSTOMER".equals(roleCode)) {
                         if ("0".equals(status)) {
                             Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
                             startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
@@ -139,6 +140,7 @@ public class PinActivity extends AppCompatActivity {
         sharePreferenceUtils = new SharePreferenceUtils(this);
         pinShare = sharePreferenceUtils.getPinCode();
         roleName = sharePreferenceUtils.getRoleName();
+        roleCode = sharePreferenceUtils.getRoleCode();
         status = sharePreferenceUtils.getStatus();
         permission = sharePreferenceUtils.getPermission();
         totalIsdn = sharePreferenceUtils.getTotalIsdn();
@@ -187,7 +189,7 @@ public class PinActivity extends AppCompatActivity {
 
 
 
-                        if ("CUSTOMER".equals(roleName)) {
+                        if ("CUSTOMER".equals(roleCode)) {
                             if ("0".equals(status)) {
                                 Intent intent = new Intent(PinActivity.this, ConfirmActivity.class);
                                 startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);

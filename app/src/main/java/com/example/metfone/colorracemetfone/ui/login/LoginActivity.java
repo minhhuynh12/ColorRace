@@ -391,8 +391,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                             ArrayList arrListGift = new ArrayList();
 
                             String roleName = itemCheckOTP.get(0).getRole().getRoleName();
+                            String roleCode = itemCheckOTP.get(0).getRole().getRoleCode();
                             sharedPreferences.putRoleName(roleName);
-                            if (roleName.equals("CUSTOMER")) {
+                            sharedPreferences.putRoleCode(roleCode);
+                            if (roleCode.equals("CUSTOMER")) {
                                 for (int i = 0; i < itemCheckOTP.get(0).getTicket().getLstGift().size(); i++) {
                                     arrListGift.add(itemCheckOTP.get(0).getTicket().getLstGift().get(i));
                                 }

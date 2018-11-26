@@ -33,6 +33,7 @@ public class SharePreferenceUtils {
     private final String ROLE_NAME = "ROLE_NAME";
     private final String SYSTEM_DATE = "SYSTEM_DATE";
     private final String FLAG_QR_CODE = "FLAG_QR_CODE";
+    private final String ROLE_CODE = "Role_code";
 
     private SharedPreferences mSharedPreferences;
     private SharedPreferences mSharedPreferencesLanguage;
@@ -232,6 +233,16 @@ public class SharePreferenceUtils {
 
     public String getFlagQrCode() {
         return mSharedPreferences.getString(FLAG_QR_CODE, "");
+    }
+
+    //DASSDAD
+    public void putRoleCode(String value) {
+        editor.putString(ROLE_CODE, value);
+        editor.commit();
+    }
+
+    public String getRoleCode() {
+        return mSharedPreferences.getString(ROLE_CODE, "");
     }
 
 }

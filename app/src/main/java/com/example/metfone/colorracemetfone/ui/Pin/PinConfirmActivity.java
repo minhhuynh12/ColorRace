@@ -54,6 +54,7 @@ public class PinConfirmActivity extends AppCompatActivity {
     private String isdn;
     private String status;
     private String roleName;
+    private String roleCode;
     public static int START_ACTIVITY_FOR_RESULT_PIN = 94;
     private TextView profile_name;
     private DbQrCode dbQrCode;
@@ -125,6 +126,7 @@ public class PinConfirmActivity extends AppCompatActivity {
 
         sharedPreferences = new SharePreferenceUtils(this);
         roleName = sharedPreferences.getRoleName();
+        roleCode = sharedPreferences.getRoleCode();
         status = sharedPreferences.getStatus();
         permission = sharedPreferences.getPermission();
         totalIsdn = sharedPreferences.getTotalIsdn();
@@ -217,7 +219,7 @@ public class PinConfirmActivity extends AppCompatActivity {
                         case 1:
 //                            itemCheckOTP = req.parseXMLToListObject("return", CheckOTPItem.class);
                             sharedPreferences.putOTP(confirmPin);
-                            if ("CUSTOMER".equals(roleName)) {
+                            if ("CUSTOMER".equals(roleCode)) {
                                 if ("0".equals(status)) {
                                     Intent intent = new Intent(PinConfirmActivity.this, ConfirmActivity.class);
                                     startActivityForResult(intent, START_ACTIVITY_FOR_RESULT_PIN);
