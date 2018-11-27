@@ -2,7 +2,6 @@ package com.example.metfone.colorracemetfone.ui.report;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,16 +10,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.metfone.colorracemetfone.R;
 import com.example.metfone.colorracemetfone.commons.CommonActivity;
 import com.example.metfone.colorracemetfone.commons.Constant;
-import com.example.metfone.colorracemetfone.ui.MainActivityEmploye.MainActivity;
-import com.example.metfone.colorracemetfone.ui.confirm.ConfirmActivity;
-import com.example.metfone.colorracemetfone.ui.confirm.model.GetTicketItem;
-import com.example.metfone.colorracemetfone.ui.login.model.CheckOTPItem;
 import com.example.metfone.colorracemetfone.ui.report.adapter.ReportAdapter;
-import com.example.metfone.colorracemetfone.ui.report.model.ShowroomItem;
+import com.example.metfone.colorracemetfone.ui.report.model.LstTicketGiftDepartmentItem;
+import com.example.metfone.colorracemetfone.ui.report.model.TicketGiftDepartmentItem;
 import com.example.metfone.colorracemetfone.ui.report.model.TicketGiftItem;
 import com.example.metfone.colorracemetfone.util.RequestGetwayWS;
 import com.example.metfone.colorracemetfone.util.SharePreferenceUtils;
@@ -31,18 +28,29 @@ import java.util.List;
 public class ReportAdminActivity extends AppCompatActivity {
     private Activity mActivity;
     private RecyclerView recyclerShowroom;
-    private List<TicketGiftItem> items;
+    private List<TicketGiftDepartmentItem> items;
+    private List<TicketGiftItem> itemTicketGift;
     private SharePreferenceUtils sharedPreferences;
     String language;
     private ReportAdapter mAdapter;
     private String isdn;
     private String otp;
+    private LinearLayout llBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_admin);
         recyclerShowroom = findViewById(R.id.recyclerShowroom);
+        llBack = findViewById(R.id.llBack);
+
+        llBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         mActivity = this;
         sharedPreferences = new SharePreferenceUtils(this);
         language = sharedPreferences.getLanguage();
@@ -108,18 +116,10 @@ public class ReportAdminActivity extends AppCompatActivity {
                 if ((errorGW != null && errorGW.equals("0")) && (errorWS != null && errorWS.equals("00"))) {
                     switch (result) {
                         case 1:
-                            items = req.parseXMLToListObject("TicketGift", TicketGiftItem.class);
-                            List<ShowroomItem> list = new ArrayList<>();
+                            items = req.parseXMLToListObject("ticketGiftDepartment", TicketGiftDepartmentItem.class);
+                            itemTicketGift = req.parseXMLToListObject("ticketGift", TicketGiftItem.class);
 
-                            for (int i = 0; i < items.size(); i++) {
-                                if (i == 0) {
-                                    list.add(new ShowroomItem("Name", "Total", "Used"));
-                                } else {
-                                    list.add(new ShowroomItem(items.get(i).getName(), items.get(i).getTotal(), items.get(i).getUsed()));
-                                }
-                            }
-
-                            mAdapter.setData(list);
+                            mAdapter.setData(items);
 
                             progress.dismiss();
                             break;
@@ -127,7 +127,7 @@ public class ReportAdminActivity extends AppCompatActivity {
                 } else {
                     String errorDec = req.getErrorDecription();
 
-                    items = req.parseXMLToListObject("return", TicketGiftItem.class);
+//                    items = req.parseXMLToListObject("return", TicketGiftItem.class);
                     if (errorDec != null && !errorDec.isEmpty()) {
                         if (errorWS.equals(Constant.TIMEOUT_CODE)) {
                             CommonActivity.createAlertDialog(mActivity, errorDec,

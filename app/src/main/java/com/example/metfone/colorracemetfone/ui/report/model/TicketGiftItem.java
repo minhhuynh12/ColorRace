@@ -1,5 +1,7 @@
 package com.example.metfone.colorracemetfone.ui.report.model;
 
+import java.util.List;
+
 public class TicketGiftItem {
     private String id;
     private String code;
